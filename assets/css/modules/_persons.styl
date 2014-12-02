@@ -223,6 +223,11 @@ background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz
 
 .fs-person-portrait__container {
   display: table-cell;
+  position: relative;
+}
+
+.show-parents .fs-person-portrait__container { /* This one's for you Firefox. */
+  display: block;
 }
 
 .fs-person-portrait__portrait {
@@ -264,9 +269,41 @@ background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz
   vertical-align: middle;
 }
 
+.person-info-row,
+.parents-info-row {
+  display: table-row;
+}
 
+.fs-person--husband .show-parents-spacer:after {
+  border-left: 1px solid currentcolor;
+  content: '';
+  height: 98%;
+  left: -9px;
+  position: absolute;
+  top: 32px;
+}
 
+.show-parents-spacer,
+.show-parents-info {
+  display: table-cell;
+}
 
+.show-parents-info {
+  padding-left: 10px;
+}
+
+.fs-person-portrait .fs-couple .fs-person-vitals__name {
+  font-size: 14px;
+}
+
+.fs-person-portrait .fs-couple .fs-person-details {
+  &__lifeSpan,
+  &__separator,
+  &__id,
+  &__birthPlace {
+    font-size: 12px;
+  }
+}
 
 /*------------------------------------*\
   $STYLE_VARIATIONS
@@ -407,7 +444,7 @@ background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz
       left: -9px;
     }
 
-    .fs-person-portrait& .fs-person-gender__image:before {
+    .fs-person-portrait& .person-info-row .fs-person-gender__image:before {
       border: none;
     }
 
@@ -422,14 +459,26 @@ background:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz
   &--wife {
     margin-top: 5px;
 
-    .fs-person-gender__image:before,
+    .fs-person--wife .fs-person-gender__image:before,
     .fs-couple & .fs-person-portrait__container:after {
       border-top: 0;
+    }
+
+    .fs-person-gender__image:before,
+    .fs-couple & .fs-person-portrait__container:after {
       bottom: 50%;
     }
   }
 }
 
+.fs-person-portrait .parents-info-row .fs-person--wife .fs-person-gender__image:before {
+  border-top: 0;
+}
+
+.fs-person-portrait.fs-person--husband .parents-info-row .fs-person--wife .fs-person-gender__image:before {
+  border-bottom: 1px solid currentColor;
+  top: inherit;
+}
 
 
 
