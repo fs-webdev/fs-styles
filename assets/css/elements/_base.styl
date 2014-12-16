@@ -1,17 +1,5 @@
 /*------------------------------------*\
-  $CONTENTS
-\*------------------------------------*/
-/**
- * BODY.......Body styles
- * FORMS......Form styles
- */
-
-
-
-
-
-/*------------------------------------*\
-  $BODY
+  $BASE
 \*------------------------------------*/
 body {
   color: $color-text;
@@ -20,11 +8,17 @@ body {
   line-height: $medium-lineHieght;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4,
+.fs-h1, .fs-h2, .fs-h3, .fs-h4 {
   color: $color-headings;
   font-family: "museo", serif;
+  letter-spacing: initial;
+  text-transform: initial;
 }
-h1 {
+h5, .fs-h5 {
+  font-family: "ProximaNova", sans-serif;
+}
+h1, .fs-h1 {
   font-size: $xxx-large-size;
   line-height: $xxx-large-lineHeight;
 
@@ -32,11 +26,11 @@ h1 {
     margin-top: 16px;
   }
 }
-h2 {
+h2, .fs-h2 {
   font-size: $xx-large-size;
   line-height: $xx-large-lineHeight;
 }
-h3 {
+h3, .fs-h3 {
   font-size: $x-large-size;
   line-height: $x-large-lineHeight;
 
@@ -44,7 +38,7 @@ h3 {
     margin-top: 14px;
   }
 }
-h4 {
+h4, .fs-h4 {
   font-size: $large-size;
   line-height: $large-lineHeight;
 
@@ -52,7 +46,7 @@ h4 {
     margin-top: 12px;
   }
 }
-h5 {
+h5, .fs-h5 {
   color: $color-headings;
   font-size: $small-size;
   letter-spacing: 1px;
@@ -97,97 +91,8 @@ ul, li {
   line-height: $medium-lineHieght;
 }
 
-
-
-
-
-/*------------------------------------*\
-  $FORMS
-\*------------------------------------*/
-label {
-  color: $color-label;
+small {
   font-size: $small-size;
-  line-height: $small-lineHieght;
-  margin-bottom: 0;
-
-  > input[type="radio"],
-  > input[type="checkbox"] {
-    float: left;
-    margin-right: 8px;
-  }
-}
-
-::-webkit-input-placeholder {
-  font-family: "ProximaNova", sans-serif;
-}
-::-moz-placeholder {
-  font-family: "ProximaNova", sans-serif;
-}
-:-ms-input-placeholder {
-  font-family: "ProximaNova", sans-serif;
-}
-
-textarea,
-input[type=text],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"] {
-  border-radius: 4px;
-  box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  color: $color-text;
-  font-family: "ProximaNova", sans-serif;
-  font-size: $medium-size;
-  height: 30px;  // needed to override Bootstrap
-  line-height: $medium-lineHieght;
-  margin-bottom: 0;
-  padding: 4px 6px;
-  width: 100%;
-
-  &:focus {
-    border: 1px solid $color-border-input-selected;
-    box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
-    outline: 0;
-  }
-
-  &:disabled,
-  &.disabled {
-    color: $color-text-input-disabled;
-    background: $color-background-input-disabled;
-  }
-}
-
-textarea {
-  resize: vertical;
-  min-height: 75px;
-}
-
-select {
-  background-color: #fff;
-  border: 1px solid $color-border-select;
-  color: $color-text;
-  font-family: "ProximaNova", sans-serif;
-  font-size: $medium-size;
-  height: 32px;
-  line-height: $medium-lineHieght;
-  margin: 0;
-  padding: 4px 6px;
-  width: 100%;
-
-  &:focus {
-    border: 1px solid $color-text;
-    outline: none;
-  }
+  line-height: 17px;
+  color: $color-label;
 }

@@ -1,0 +1,81 @@
+/*------------------------------------*\
+  $CONTENTS
+\*------------------------------------*/
+/**
+ * DEFAULT_STATE........Default field state
+ * VALID_STATE..........Valid field state
+ * INVALID_STATE........Invalid field state
+ */
+
+
+
+
+
+/*------------------------------------*\
+  $DEFAULT_STATE
+\*------------------------------------*/
+.fs-field-validation {
+  border-radius: 4px;
+  margin: -2px;
+  padding: 2px;
+  position: relative;
+
+  &__valid-message,
+  &__invalid-message {
+    display: none;
+    margin: 6px;
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $VALID_STATE
+  \*------------------------------------*/
+  &--valid {
+    background: $color-background-success;
+    border: 1px solid $color-border-success;
+
+    input {
+      background: #fff url('data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.2%22%20baseProfile%3D%22tiny%22%20id%3D%22Art%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%0A%09%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2216px%22%20height%3D%2215px%22%20viewBox%3D%220%200%2016%2015%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20fill%3D%22%236CA600%22%20d%3D%22M0.682%2C8.52c-0.292-0.292-0.292-0.769%2C0-1.061L2.46%2C5.682c0.292-0.292%2C0.769-0.292%2C1.061%2C0L5.47%2C7.631%0A%09c0.292%2C0.292%2C0.769%2C0.292%2C1.061%2C0l5.949-5.949c0.292-0.292%2C0.769-0.292%2C1.061%2C0l1.778%2C1.777c0.292%2C0.292%2C0.292%2C0.769%2C0%2C1.061%0A%09L6.53%2C13.309c-0.292%2C0.292-0.769%2C0.292-1.061%2C0L0.682%2C8.52z%22/%3E%0A%3Crect%20fill%3D%22none%22%20width%3D%2216%22%20height%3D%2215%22/%3E%0A%3C/svg%3E') no-repeat 98% center;
+      border-color: $color-border-success;
+
+      &:focus {
+        border-color: #356635
+      }
+    }
+
+    .fs-field-validation__valid-message {
+      color: $color-text-success;
+      display: block;
+    }
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $INVALID_STATE
+  \*------------------------------------*/
+  &--invalid {
+    background: $color-background-error;
+    border: 1px solid $color-border-error;
+
+    input {
+      background: #fff url('data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.2%22%20baseProfile%3D%22tiny%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2218.124px%22%20height%3D%2218.088px%22%20viewBox%3D%220%200%2018.124%2018.088%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%23DE3139%22%20d%3D%22M17.847%2C13.617l-4.59-4.59l4.557-4.556c0.367-0.369%2C0.367-0.974%2C0-1.342L14.96%2C0.276c-0.371-0.368-0.975-0.368-1.342%2C0L9.062%2C4.832L4.507%2C0.276c-0.369-0.368-0.973-0.368-1.342%2C0L0.312%2C3.13c-0.369%2C0.368-0.369%2C0.973%2C0%2C1.342l4.557%2C4.556l-4.59%2C4.59c-0.371%2C0.369-0.371%2C0.973%2C0%2C1.341l2.852%2C2.854c0.369%2C0.368%2C0.973%2C0.368%2C1.342%2C0l4.59-4.589l4.59%2C4.589c0.371%2C0.368%2C0.973%2C0.368%2C1.342%2C0l2.854-2.854C18.216%2C14.59%2C18.216%2C13.986%2C17.847%2C13.617z%22/%3E%3C/svg%3E') no-repeat 98% center;
+      background-size: 14px 14px;
+      border-color: $color-border-error;
+
+      &:focus {
+        border-color: #953b39
+      }
+    }
+
+    .fs-field-validation__invalid-message {
+      color: $color-text-error;
+      display: block;
+    }
+  }
+}

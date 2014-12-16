@@ -1,0 +1,137 @@
+/*------------------------------------*\
+  $CONTENTS
+\*------------------------------------*/
+/**
+ * FIELD_GRUOP..........Contains an input field and another inline element
+ * FIELD_INPUT..........Input field within the group
+ * FIELD_ATTACHMENT.....Placed on either side of a field input
+ * FIELD_BUTTON.........Buttons placed on either side of a field input
+ * FIELD_HELP...........Help messages placed on either side of a field input
+ */
+
+
+
+
+
+/*------------------------------------*\
+  $FIELD_GRUOP
+\*------------------------------------*/
+/**
+ * 1. Input fields require 2 levels of selector specificity
+ *    (e.g. input.fs-field-group__input) to override styles from the default
+ *    input[type="text"] selector.
+ */
+.fs-field-group {
+  display: table;
+  width: 100%;
+
+
+
+
+
+  /*------------------------------------*\
+    $FIELD_INPUT
+  \*------------------------------------*/
+  input&__input { /* [1] */
+    border-radius: 0;
+    display: table-cell;
+
+    &:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    &:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    ~ .fs-field-group__attachment {
+      border-left: 0;
+      border-right: 1px solid #ccc;
+    }
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $FIELD_ATTACHMENT
+  \*------------------------------------*/
+  &__attachment {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-right: 0;
+    display: table-cell;
+    padding: 0 8px;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 1px;
+
+    &:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+
+    &:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-top: 5px;
+      vertical-align: top;
+    }
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $FIELD_BUTTON
+  \*------------------------------------*/
+  &__button {
+    display: table-cell;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 1px;
+
+    &:first-child .fs-button {
+      border-radius: 4px 0 0 4px;
+      margin-right: -1px;  // safari
+    }
+
+    &:last-child .fs-button {
+      border-radius: 0 4px 4px 0;
+      margin-left: -1px;  // safari
+    }
+
+    .fs-button {
+      border-radius: 0;
+    }
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $FIELD_HELP
+  \*------------------------------------*/
+  &--help {
+    input.fs-field-group__input { /* [1] */
+      border-radius: 4px;
+      width: 50% unquote('\9'); /* IE9 */
+
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        width: 100% /* IE10 reset of IE9 style */
+      }
+    }
+  }
+
+  &__help {
+    display: table-cell;
+    padding: 0 5px 0 20px;
+    vertical-align: top;
+    width: 50%;
+  }
+}

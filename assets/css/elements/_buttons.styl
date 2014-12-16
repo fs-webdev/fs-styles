@@ -1,0 +1,241 @@
+/*------------------------------------*\
+  $CONTENTS
+\*------------------------------------*/
+/**
+ * DEFAULT_BUTTON.......Standard button for primary actions
+ * SECONDARY_BUTTON.....Button used for secondary actions
+ * TERTIARY_BUTTON......Button used for tertiary actions
+ * LARGE_BUTTON.........A larger button used for campaign pages
+ * SMALL_BUTTON.........A smaller button used for apps and inline form elements
+ * LOADING_ANIMATION....Animation for a loading button
+ * KEYFRAMES............Animation keyframes
+ */
+
+
+
+
+
+/*------------------------------------*\
+  $DEFAULT_BUTTON
+\*------------------------------------*/
+/**
+ * 1. Default button height should be 35px.
+ * 2. Links need to override :focus and :visited color.
+ * 3. :hover should always be declared before :active so that :active overrides
+ *    :hover styles
+ */
+.fs-button {
+  -webkit-appearance: none;
+  -webkit-touch-callout: none;
+  background-color: $color-background-button-primary-light;
+  background-image: linear-gradient($color-background-button-primary-light, $color-background-button-primary-dark);
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 3px 0 0 rgba(0,0,0,0.05);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $medium-size;
+  font-weight: normal;
+  line-height: 1;
+  padding: 9.5px 20px; /* [1] */
+  position: relative;
+  text-decoration: none;
+  transition: padding .2s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover { /* [3] */
+    background: $color-background-button-primary-light;
+    color: #fff;
+    text-decoration: none;
+
+    // disable hover effects when disabled
+    &:disabled,
+    &.disabled {
+      background-image: linear-gradient($color-background-button-primary-light, $color-background-button-primary-dark);
+    }
+  }
+
+  &:active {
+    background-image: linear-gradient($color-background-button-primary-dark, $color-background-button-primary-light);
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:focus,
+  &:visited {
+    text-decoration: none;
+    color: #fff; /* [2] */
+  }
+
+  &:after {
+    content: '';
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $SECONDARY_BUTTON
+  \*------------------------------------*/
+  &--secondary {
+    background-color: $color-background-button-secondary-light;
+    background-image: linear-gradient($color-background-button-secondary-light, $color-background-button-secondary-dark);
+    color: $color-text;
+
+    &:hover { /* [3] */
+      background: $color-background-button-secondary-light;
+      color: $color-text;
+    }
+
+    &:active {
+      background-image: linear-gradient($color-background-button-secondary-dark, $color-background-button-secondary-light);
+      color: $color-text;
+    }
+
+    &:focus,
+    &:visited {
+      color: $color-text; /* [2] */
+    }
+
+    &:disabled,
+    &.disabled {
+
+      // disable hover effects when disabled
+      &:hover {
+        background-image: linear-gradient($color-background-button-secondary-light, $color-background-button-secondary-dark);
+      }
+    }
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $TERTIARY_BUTTON
+  \*------------------------------------*/
+  &--tertiary {
+    background: transparent;
+    box-shadow: 0 0 0 transparent;
+    color: $color-link;
+
+    &:hover { /* [3] */
+      background: transparent;
+      color: $color-link;
+      text-decoration: underline;
+    }
+
+    &:active {
+      background: transparent;
+      color: $color-link;
+      text-decoration: underline;
+    }
+
+    &:focus,
+    &:visited {
+      color: $color-link; /* [2] */
+    }
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $LARGE_BUTTON
+  \*------------------------------------*/
+  /**
+   * 1. Large button height should be 50px
+   */
+  &--large {
+    border-radius: 5px;
+    box-shadow: 0 5px 0 rgba(0,0,0,0.05);
+    padding: 17px 20px; /* [1] */
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $SMALL_BUTTON
+  \*------------------------------------*/
+  /**
+   * 1. Small button height should be 30px
+   */
+  &--small {
+    padding: 7px 20px; /* [1] */
+
+    &.is-loading {
+      padding-right: 42px;
+
+      &:after {
+        width: 16px;
+        height: 16px;
+        margin-top: 0;
+      }
+    }
+  }
+
+
+
+
+
+  /*------------------------------------*\
+    $LOADING_ANIMATION
+  \*------------------------------------*/
+  &--loading {
+    padding-right: 47px;
+
+    &:after {
+      -moz-animation: rotate 1s infinite steps(12);
+      -ms-animation: rotate 1s infinite steps(12);
+      -o-animation: rotate 1s infinite steps(12);
+      -webkit-animation: rotate 1s infinite steps(12);
+      animation: rotate 1s infinite steps(12);
+      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.2%22%20baseProfile%3D%22tiny%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%0A%09%20x%3D%220px%22%20y%3D%220px%22%20width%3D%22128px%22%20height%3D%22128px%22%20viewBox%3D%220%200%20128%20128%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.1%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2264.001%22%20y1%3D%228.125%22%20x2%3D%2264.001%22%20y2%3D%2227.762%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.91%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2236.062%22%20y1%3D%2215.611%22%20x2%3D%2245.88%22%20y2%3D%2232.618%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.83%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2215.611%22%20y1%3D%2236.062%22%20x2%3D%2232.618%22%20y2%3D%2245.882%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.74%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%228.126%22%20y1%3D%2264%22%20x2%3D%2227.764%22%20y2%3D%2264%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.66%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2215.612%22%20y1%3D%2291.938%22%20x2%3D%2232.619%22%20y2%3D%2282.117%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.58%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2236.064%22%20y1%3D%22112.389%22%20x2%3D%2245.883%22%20y2%3D%2295.381%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.49%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2264.001%22%20y1%3D%22119.873%22%20x2%3D%2264.001%22%20y2%3D%22100.236%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.41%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2291.939%22%20y1%3D%22112.387%22%20x2%3D%2282.121%22%20y2%3D%2295.381%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.33%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%22112.391%22%20y1%3D%2291.936%22%20x2%3D%2295.387%22%20y2%3D%2282.116%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.24%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%22119.875%22%20y1%3D%2263.997%22%20x2%3D%22100.241%22%20y2%3D%2263.998%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.16%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%22112.389%22%20y1%3D%2236.06%22%20x2%3D%2295.384%22%20y2%3D%2245.877%22/%3E%0A%3Cline%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20style%3D%22opacity%3A0.083%22%20stroke-width%3D%2212%22%20stroke-linecap%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2291.938%22%20y1%3D%2215.609%22%20x2%3D%2282.118%22%20y2%3D%2232.614%22/%3E%0A%3C/svg%3E');
+      background-size: contain;
+      height: 20px;
+      margin-top: -2px;
+      opacity: 1;
+      position: absolute;
+      right: 15px;
+      width: 20px;
+    }
+  }
+}
+
+
+
+
+
+/*------------------------------------*\
+  $KEYFRAMES
+\*------------------------------------*/
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
