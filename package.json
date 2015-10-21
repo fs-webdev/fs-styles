@@ -1,7 +1,7 @@
 {
   "name": "fs-styles",
   "description": "Global styles for the FamilySearch.org website.",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "keywords": [
     "css",
     "stylus",
@@ -24,6 +24,10 @@
     {
       "name": "Steven Lambert",
       "email": "steven.lambert@familysearch.org"
+    },
+    {
+      "name": "Josh Crowther",
+      "email": "jcrowther@familysearch.org"
     }
   ],
   "license" : "SEE LICENSE IN LICENSE.txt",

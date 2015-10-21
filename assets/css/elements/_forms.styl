@@ -78,16 +78,21 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
+  background-color: $color-white;
+  border: 1px solid $color-grey-border;
   border-radius: $border-radius;
   box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
   box-sizing: border-box;
   color: $color-grey-body;
+  display: inline-block;
   font-family: $font-face-body;
   font-size: pxToRem($font-size-medium);
   height: pxToRem(30px);  // needed to override Bootstrap
   line-height: calcLineHeight($line-height-medium, $font-size-medium);
   margin-bottom: 0;
   padding: pxToRem(4px 10px);
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  vertical-align: middle;
   width: 100%;
 
   &:focus {
