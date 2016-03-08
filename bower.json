@@ -13,12 +13,12 @@
     "url": "https://github.com/fs-webdev/fs-styles.git"
   },
   "main": [
-    "assets/css/**/*.styl",
+    "assets",
     "dist/familysearch-styles.css",
     "fs-styles.html"
   ],
   "ignore": [
-    "**/.*"
+    "**/*.*"
   ],
   "moduleType": "globals",
   "license": "SEE LICENSE IN LICENSE.txt",
