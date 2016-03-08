@@ -13,6 +13,7 @@
     "url": "https://github.com/fs-webdev/fs-styles.git"
   },
   "main": [
+    "assets",
     "dist/familysearch-styles.css",
     "fs-styles.html"
   ],
