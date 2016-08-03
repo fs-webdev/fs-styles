@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>fs-alert Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script type="text/javascript">
+      window.Polymer = { dom: 'shadow' };
+    </script>
+    <link rel="import" href="../fs-alert.html">
+    <style>
+      body {
+        width: 442px;
+        margin: 20px auto;
+      }
+      h1 {
+        color: #666662 ;
+      }
+      .exampleText {
+        color: #666662 ;
+        display: block;
+        margin-bottom: 5px;
+        margin-top: 26px;
+      }
+    </style>
+  </head>
+  <body unresolved>
+
+    <h1>fs-alert examples</h1>
+
+    <p>An example of <code>&lt;fs-alert&gt;</code>:</p>
+
+    <fs-alert>
+      Item deleted successfully. <a href="javascript:void(0);">Undo</a>.
+    </fs-alert>
+
+    <p>An example of <code>&lt;fs-alert auto-hide="5" fade-out="true"&gt;</code>:</p>
+
+    <fs-alert auto-hide="5" fade-out="true">
+      An error occurred
+    </fs-alert>
+
+    <p>An example of <code>&lt;fs-alert dismissable&gt;</code>:</p>
+
+    <fs-alert
+      dismissable
+      alert-body="A dismissable alert!">
+    </fs-alert>
+
+    <p>An example of <code>&lt;fs-alert dismissable alert-type="info" fade-out="true"&gt;</code>:</p>
+
+    <fs-alert dismissable alert-type="info" fade-out="true">
+      A dismissable info alert!
+    </fs-alert>
+
+    <p>An example of <code>&lt;fs-alert dismissable alert-type="warning"&gt;</code>:</p>
+
+    <fs-alert dismissable alert-type="warning">
+      A dismissable warning alert!
+    </fs-alert>
+
+    <p>An example of <code>&lt;fs-alert dismissable alert-type="error"&gt;</code>:</p>
+
+    <fs-alert dismissable alert-type="error">
+      A dismissable error alert!
+    </fs-alert>
+
+    <p>An example of <code>&lt;fs-alert hidden&gt;</code>:</p>
+
+    <p>An example of <code>&lt;fs-alert&gt;</code> with an <code>&lt;h4 title-alert&gt;</code>:</p>
+
+    <fs-alert alert-title="I'm a title">
+      An info alert!
+    </fs-alert>
+
+  </body>
+</html>

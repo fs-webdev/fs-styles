@@ -1,0 +1,107 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<!--
+A comment describing this element
+
+Example:
+
+    <my-elem></my-elem>
+
+Example:
+
+    <my-elem>
+      <h2>Hello my-elem</h2>
+    </my-elem>
+
+@demo demo/index.html
+-->
+
+<dom-module id="fs-input-validation">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .wrap {
+        border-radius: 4px;
+        margin: -6px;
+        padding: 6px;
+        position: relative;
+      /*------------------------------------*
+          $VALID_STATE
+        \*------------------------------------*/
+      /*------------------------------------*
+          $INVALID_STATE
+        \*------------------------------------*/
+      }
+      ::content .fs-field-validation input {
+        background-repeat: no-repeat;
+        background-position: 98% center; /* [1] */
+        background-position: right 10px center;
+      }
+      .message {
+        display: none;
+        margin: 10px 10px 4px 10px;
+      }
+      :host([status='valid']) .wrap {
+        background: #f1f6d3;
+        border: 1px solid #bfd730;
+      }
+      :host([status='valid']) ::content input {
+        background-color: #fff;
+        border-color: #bfd730;
+      }
+      :host([status='valid']) ::content input:focus {
+        border-color: #356635;
+      }
+      :host([status='valid']) .message {
+        color: #44650f;
+        display: block;
+      }
+      :host([status='invalid']) .wrap {
+        background: #fdeeee;
+        border: 1px solid #f8b0ab;
+      }
+      :host([status='invalid']) ::content input {
+        border-color: #f8b0ab;
+      }
+      :host([status='invalid']) ::content input:focus {
+        border-color: #953b39;
+      }
+      :host([status='invalid']) .message {
+        color: #a71e1a;
+        display: block;
+      }
+    </style>
+    <div class='wrap'>
+      <content select='input[type=text]'></content>
+      <div class='message'>
+        <div hidden='[[_isInvalid(status)]]'>
+          <content select='[valid-text]'></content>
+        </div>
+        <div hidden='[[_isValid(status)]]'>
+          <content select='[invalid-text]'></content>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'fs-input-validation',
+      properties: {
+        status: {
+          type: String,
+          value: '',
+          reflectToAttribute: true,
+          notify: true
+        }
+      },
+      _isValid: function(status) {
+        return status === 'valid';
+      },
+      _isInvalid: function(status) {
+        return status === 'invalid';
+      }
+    });
+  </script>
+</dom-module>

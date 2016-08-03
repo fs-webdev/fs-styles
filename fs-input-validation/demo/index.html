@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>&lt;fs-button&gt;</title>
+  <meta name="description" content="">
+
+  <!-- Mobile -->
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <!-- Chrome / Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="black">
+  <link rel="icon" href="icon.png">
+
+  <!-- Safari / iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+  <!-- Web Components -->
+  <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../fs-input-validation.html">
+  <style>
+    fs-icon {
+      vertical-align: bottom;
+    }
+    ul {
+      list-style-type: none;
+      padding:0;
+    }
+    li {
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+    }
+    label {
+      margin-left: 15px;
+    }
+    .dark {
+      background-color: #333333;
+    }
+  </style>
+</head>
+<body>
+  <h1><code>fs-input-validation</code></h1>
+  <h2>Manual Validation</h2>
+  <fs-input-validation id='v1'>
+    <input type="text" id='i1' />
+    <p valid-text>This is valid</p>
+    <p invalid-text>This is invalid</p>
+  </fs-input-validation>
+  <script>
+    var input1 = document.querySelector('#i1');
+    var validation1 = document.querySelector('#v1');
+
+    input1.addEventListener('input', function() {
+      validation1.status = /^[a-zA-Z]+$/.test(input1.value) ? 'valid' : 'invalid';
+    });
+  </script>
+  <h3>Code</h3>
+  <pre>
+    <code>
+      &lt;fs-input-validation id=&#39;v1&#39;&gt;
+        &lt;input type=&quot;text&quot; /&gt;
+        &lt;p valid-text&gt;This is valid&lt;/p&gt;
+        &lt;p invalid-text&gt;This is invalid&lt;/p&gt;
+      &lt;/fs-input-validation&gt;
+      &lt;script&gt;
+        var input = document.querySelector(&#39;#i1&#39;);
+        var validation = document.querySelector(&#39;#v1&#39;);
+
+        input.addEventListener(&#39;input&#39;, function() {
+          validation.status = /^[a-zA-Z]+$/.test(input.value) ? &#39;valid&#39; : &#39;invalid&#39;;
+        });
+      &lt;/script&gt;
+    </code>
+  </pre>
+
+  <h2>HTML5 Input Validation</h2>
+  <fs-input-validation id='v2'>
+    <input type="text" id='i2' required pattern='^[0-9]+$'/>
+    <p valid-text>This is valid</p>
+    <p invalid-text>This is invalid</p>
+  </fs-input-validation>
+  <script>
+    var input2 = document.querySelector('#i2');
+    var validation2 = document.querySelector('#v2');
+
+    input2.addEventListener('input', function() {
+      validation2.status = input2.checkValidity() ? 'valid' : 'invalid';
+    });
+  </script>
+  <h3>Code</h3>
+  <pre>
+    <code>
+      &lt;fs-input-validation id=&#39;v2&#39;&gt;
+        &lt;input type=&quot;text&quot; id=&#39;i2&#39; required pattern=&#39;^[0-9]+$&#39;/&gt;
+        &lt;p valid-text&gt;This is valid&lt;/p&gt;
+        &lt;p invalid-text&gt;This is invalid&lt;/p&gt;
+      &lt;/fs-input-validation&gt;
+      &lt;script&gt;
+        var input2 = document.querySelector(&#39;#i2&#39;);
+        var validation2 = document.querySelector(&#39;#v2&#39;);
+
+        input2.addEventListener(&#39;input&#39;, function() {
+          validation2.status = input2.checkValidity() ? &#39;valid&#39; : &#39;invalid&#39;;
+        });
+      &lt;/script&gt;  
+    </code>
+  </pre>
+</body>
+</html>
