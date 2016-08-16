@@ -1229,6 +1229,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   margin: 5px 20px 5px 0;
 }
 .fs-person-portrait__image {
+  max-width: 100%;
   border-radius: 50%;
   position: relative;
   z-index: 1;
@@ -1364,7 +1365,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   margin-left: 22px;
 }
 .fs-person--person-card .fs-person-vitals__name {
-  font-family: "museo", serif;
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1;

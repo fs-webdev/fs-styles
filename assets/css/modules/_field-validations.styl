@@ -117,3 +117,26 @@
     }
   }
 }
+
+/*------------------------------------*\
+  $WARNING_STATE
+\*------------------------------------*/
+&--warning {
+  background: #fff8de;
+  border: 1px solid #ffd400;
+
+  input {
+    @extends $icon-warning
+    border-color: #ffd400;
+
+    &:focus {
+      border-color: #ffd400
+    }
+  }
+
+  .fs-field-validation__warning-message {
+    color: #79520f;
+    display: block;
+  }
+}
+}
