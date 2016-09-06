@@ -1,0 +1,199 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../fs-icon/fs-icon.html">
+
+<!--
+A comment describing this element
+
+Example:
+
+    <my-elem></my-elem>
+
+Example:
+
+    <my-elem>
+      <h2>Hello my-elem</h2>
+    </my-elem>
+
+@demo demo/index.html
+-->
+
+<dom-module id="fs-person">
+  <template>
+    <style>
+      *[hidden] {
+        display: none !important;
+      }
+      :host {
+        display: inline-block;
+      }
+      :host([inline]) .fs-person-vitals {
+        display: flex;
+        align-items: center;
+      }
+      :host([inline]) .fs-person-vitals__name {
+        margin-right: 15px;
+      }
+      .fs-person-vitals__name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        font-size: 1rem;
+        line-height: 1.625rem;
+        margin: 0;
+        @apply(--fs-person-name);
+      }
+      .fs-person-name__container {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+      }
+      .fs-person-details__container {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+      }
+      .fs-person-details__container.indented {
+        margin-left:16px;
+      }
+      .v-center,
+      .fs-person-portrait,
+      .fs-person__container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      :host([orientation='portrait']) .v-center {
+        justify-content: center;
+      }
+      .fs-person__container {
+        @apply(--fs-person-container);
+      }
+      :host([orientation='portrait']) .fs-person__container {
+        flex-direction: column;
+      }
+      .fs-person-gender__icon {
+        margin-right: 8px;
+      }
+      .fs-person-portrait__container {
+        background-color: #f4f4f4;
+        background-position: center;
+        background-size: 60%;
+        border-radius: 50%;
+        border: solid 4px #d9d9d9;
+        box-shadow: 0 2px 3px 0 #636363;
+        box-shadow: none;
+        height: 66px;
+        margin-right: 20px;
+        position: relative;
+        width: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        @apply(--fs-person-portrait);
+      }
+      :host([orientation='portrait']) .fs-person-portrait__container {
+        margin-right: 0;
+      }
+      .fs-person-portrait__portrait-icon {
+        width: 60%;
+        height: 60%;
+      }
+
+      .fs-person-portrait__portrait-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left:0;
+      }
+    </style>
+    <div class='fs-person__container'>
+      <div class="fs-person-portrait" hidden='[[inline]]'>
+        <div class='fs-person-portrait__container' hidden='[[!showPortrait]]'>
+          <img class='fs-person-portrait__portrait-image' src="[[portraitUrl]]" hidden='[[!portraitUrl]]'>
+          <fs-icon icon='gray-[[_getGender(gender)]]' class='fs-person-portrait__portrait-icon'></fs-icon>
+        </div>
+      </div>
+      <div class='v-center'>
+        <fs-icon class='fs-person-gender__icon' icon='[[gender]]' hidden='[[!_showGenderIcon(inline, showPortrait, gender, orientation)]]'></fs-icon>
+        <div class="fs-person-vitals">
+          <div class='v-center'>
+            <fs-icon class='fs-person-gender__icon' icon='[[gender]]-dot' size='small' hidden='[[!_showGenderDot(inline, showPortrait, gender, orientation)]]'></fs-icon>
+            <p class='fs-person-vitals__name'>[[personName]]</p>
+          </div>
+          <div class$='fs-person-details__container [[_getDetailsClass(inline, showPortrait, gender, orientation)]]'>
+            <span>[[lifespan]]</span>
+            <span class="fs-person-details__separator" hidden='[[!_and(pid, lifespan)]]'>&nbsp;•&nbsp;</span>
+            <span>[[pid]]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'fs-person',
+      properties: {
+        personName: {
+          type: String,
+          value: ''
+        },
+        pid: {
+          type: String,
+          value: ''
+        },
+        lifespan: {
+          type: String,
+          value: ''
+        },
+        gender: {
+          type: String,
+          value: ''
+        },
+        orientation: {
+          type: String,
+          value: 'landscape',
+          reflectToAttribute: true
+        },
+        showPortrait: {
+          type: Boolean,
+          value: false
+        },
+        portraitUrl: {
+          type: String,
+          value: ''
+        },
+        inline: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        }
+      },
+      _and: function(a, b) {
+        return a && b;
+      },
+      _showGenderIcon: function(inline, showPortrait, gender, orientation) {
+        if (inline) return false;
+        return gender && !showPortrait && !this._isPortrait(orientation);
+      },
+      _showGenderDot: function(inline, showPortrait, gender, orientation) {
+        if (inline) return true;
+        return gender && showPortrait && !this._isPortrait(orientation);
+      },
+      _getDetailsClass: function(inline, showPortrait, gender, orientation) {
+        return this._showGenderDot(inline,showPortrait,gender, orientation) ? 'indented' : '';
+      },
+      _getGender: function(gender) {
+        if (gender === 'female') return gender;
+        return 'male';
+      },
+      _isPortrait: function(orientation) {
+        return orientation === 'portrait';
+      }
+    });
+  </script>
+</dom-module>

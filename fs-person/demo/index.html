@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>fs-person demo</title>
+  <meta name="description" content="">
+
+  <!-- Mobile -->
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <!-- Chrome / Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="black">
+  <link rel="icon" href="icon.png">
+
+  <!-- Safari / iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+  <!-- Web Components -->
+  <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../fs-person.html">
+</head>
+<body>
+  <div>
+    <fs-person pid='KWFF-1RH' person-name='Josh Crowther' lifespan='1776-1980'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' pid='KWFF-1RH' person-name='Josh Crowther' lifespan='1776-1980'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' pid='KWFF-1RH' person-name='Josh Crowther'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' person-name='Josh Crowther' lifespan='1776-1980'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' person-name='Josh Crowther'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' person-name='Josh Crowther' show-portrait></fs-person>
+  </div>
+  <div>
+    <fs-person gender='female' person-name='Jenna Crowther' show-portrait pid='KWFF-1RH'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='unknown' person-name='Uhhhh?' show-portrait pid='KWFF-1RH'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' person-name='Josh Crowther' show-portrait portrait-url='https://familysearch.org/patron/v2/TH-904-51257-1471-39/thumb200s.jpg?ctx=ArtCtxPublic'></fs-person>
+  </div>
+  <div>
+    <fs-person class='big-portrait' gender='male' pid='KWFF-1RH' person-name='Josh Crowther' lifespan='1776-1980' show-portrait portrait-url='https://familysearch.org/patron/v2/TH-904-51257-1471-39/thumb200s.jpg?ctx=ArtCtxPublic'></fs-person>
+  </div>
+  <div>
+    <fs-person class='bold-text' gender='male' pid='KWFF-1RH' person-name='Josh Crowther' lifespan='1776-1980' show-portrait portrait-url='https://familysearch.org/patron/v2/TH-904-51257-1471-39/thumb200s.jpg?ctx=ArtCtxPublic'></fs-person>
+  </div>
+  <div>
+    <fs-person class='top-align-text' gender='male' pid='KWFF-1RH' person-name='Josh Crowther' lifespan='1776-1980' show-portrait portrait-url='https://familysearch.org/patron/v2/TH-904-51257-1471-39/thumb200s.jpg?ctx=ArtCtxPublic'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' pid='KWFF-1RH' person-name='Josh Crowther' lifespan='1776-1980' inline></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' pid='KWFF-1RH' person-name='Josh Crowther' lifespan='1776-1980' show-portrait orientation='portrait'></fs-person>
+  </div>
+  <div>
+    <fs-person gender='male' pid='KWFF-1RH' person-name='Josh Crowther' lifespan='1776-1980' show-portrait portrait-url='https://familysearch.org/patron/v2/TH-904-51257-1471-39/thumb200s.jpg?ctx=ArtCtxPublic' orientation='portrait'></fs-person>
+  </div>
+
+    <style is="custom-style">
+      .big-portrait {
+        --fs-person-portrait: {
+          width: 200px;
+          height: 200px;
+        };
+      }
+      .bold-text {
+        --fs-person-name: {
+          font-weight: bold;
+        };
+      }
+      .top-align-text {
+        --fs-person-container: {
+          align-items: flex-start;
+        };
+      }
+    </style>
+  </body>
+  </html>
