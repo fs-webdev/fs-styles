@@ -123,7 +123,8 @@ Example:
         <div class="fs-person-vitals">
           <div class='v-center'>
             <fs-icon class='fs-person-gender__icon' icon='[[gender]]-dot' size='small' hidden='[[!_showGenderDot(inline, showPortrait, gender, orientation)]]'></fs-icon>
-            <p class='fs-person-vitals__name'>[[personName]]</p>
+            <p class='fs-person-vitals__name' hidden='[[_usingNameParts(firstName, lastName)]]'>[[fullName]]</p>
+            <p class='fs-person-vitals__name' hidden='[[!_usingNameParts(firstName, lastName)]]'>[[_renderNameParts(firstName, lastName, nameSystem)]]</p>
           </div>
           <div class$='fs-person-details__container [[_getDetailsClass(inline, showPortrait, gender, orientation)]]'>
             <span>[[lifespan]]</span>
@@ -138,9 +139,21 @@ Example:
     Polymer({
       is: 'fs-person',
       properties: {
-        personName: {
+        fullName: {
           type: String,
           value: ''
+        },
+        firstName: {
+          type: String,
+          value: ''
+        },
+        lastName: {
+          type: String,
+          value: ''
+        },
+        nameSystem: {
+          type: String,
+          value: 'eurotypic'
         },
         pid: {
           type: String,
@@ -193,6 +206,13 @@ Example:
       },
       _isPortrait: function(orientation) {
         return orientation === 'portrait';
+      },
+      _usingNameParts: function(first, last) {
+        return first || last;
+      },
+      _renderNameParts: function(first, last, orientation) {
+        return orientation === 'sinotypic' ? last + ' ' + first :
+                                             first + ' ' + last;
       }
     });
   </script>
