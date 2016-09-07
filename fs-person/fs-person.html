@@ -123,8 +123,11 @@ Example:
         <div class="fs-person-vitals">
           <div class='v-center'>
             <fs-icon class='fs-person-gender__icon' icon='[[gender]]-dot' size='small' hidden='[[!_showGenderDot(inline, showPortrait, gender, orientation)]]'></fs-icon>
-            <p class='fs-person-vitals__name' hidden='[[_usingNameParts(firstName, lastName)]]'>[[fullName]]</p>
-            <p class='fs-person-vitals__name' hidden='[[!_usingNameParts(firstName, lastName)]]'>[[_renderNameParts(firstName, lastName, nameSystem)]]</p>
+            <p class='fs-person-vitals__name' hidden='[[_isPortrait(orientation)]]'>[[fullName]]</p>
+            <p class='fs-person-vitals__name' hidden='[[!_isPortrait(orientation)]]'>
+              <span>[[_getFirstName(firstName, lastName, nameSystem)]]</span>
+              <span>[[_getLastName(firstName, lastName, nameSystem)]]</span>
+            </p>
           </div>
           <div class$='fs-person-details__container [[_getDetailsClass(inline, showPortrait, gender, orientation)]]'>
             <span>[[lifespan]]</span>
@@ -210,9 +213,11 @@ Example:
       _usingNameParts: function(first, last) {
         return first || last;
       },
-      _renderNameParts: function(first, last, orientation) {
-        return orientation === 'sinotypic' ? last + ' ' + first :
-                                             first + ' ' + last;
+      _getFirstName: function(first, last, orientation) {
+        return orientation === 'sinotypic' ? last : first;
+      },
+      _getLastName: function(first, last, orientation) {
+        return orientation === 'sinotypic' ? first : last;
       }
     });
   </script>
