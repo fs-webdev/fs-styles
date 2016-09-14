@@ -243,8 +243,16 @@ Example:
           reflectToAttribute: true
         }
       },
+      observers: [
+        '_portraitDefault(showPortrait, orientation)'
+      ],
       _and: function(a, b) {
         return a && b;
+      },
+      _portraitDefault: function(showPortrait, orientation) {
+        if (orientation === 'portrait' && !showPortrait) {
+          this.showPortrait = true;
+        }
       },
       _showGenderIcon: function(inline, showPortrait, gender, orientation) {
         if (inline) return false;
