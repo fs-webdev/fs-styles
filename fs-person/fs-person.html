@@ -2,17 +2,11 @@
 <link rel="import" href="../fs-icon/fs-icon.html">
 
 <!--
-A comment describing this element
+The styleguide person renderer
 
 Example:
 
-    <my-elem></my-elem>
-
-Example:
-
-    <my-elem>
-      <h2>Hello my-elem</h2>
-    </my-elem>
+    <fs-person full-name='Josh Crowther' pid='KWFF-1RH' gender='male'></fs-person>
 
 @demo demo/index.html
 -->
@@ -142,47 +136,107 @@ Example:
     Polymer({
       is: 'fs-person',
       properties: {
+        /**
+         * The full name of the person to be rendered (used only in landscape mode)
+         * @type {String}
+         */
         fullName: {
           type: String,
           value: ''
         },
+
+        /**
+         * The first name of the person to be rendered (used only in portrait mode)
+         * @type {String}
+         */
         firstName: {
           type: String,
           value: ''
         },
+
+        /**
+         * The last name of the person to be rendered (used only in portrait mode)
+         * @type {String}
+         */
         lastName: {
           type: String,
           value: ''
         },
+
+        /**
+         * Whether the first/last name parts should be reversed
+         *
+         * **Valid values are `eurotypic` or `sinotypic`**
+         * @type {String}
+         */
         nameSystem: {
           type: String,
           value: 'eurotypic'
         },
+
+        /**
+         * The ID of the person to be displayed (if not passed simply hidden)
+         * @type {String}
+         */
         pid: {
           type: String,
           value: ''
         },
+
+        /**
+         * The lifespan of the person (if not passed simply hidden)
+         * @type {String}
+         */
         lifespan: {
           type: String,
           value: ''
         },
+
+        /**
+         * Gender of the person, used to compute the gender icon
+         *
+         * **Valid values are `male`, `female`, or `unknown`**
+         * @type {String}
+         */
         gender: {
           type: String,
           value: ''
         },
+
+        /**
+         * Orientation of the person renderer
+         *
+         * **Valid values are `landscape` or `portrait`**
+         * @type {String}
+         */
         orientation: {
           type: String,
           value: 'landscape',
           reflectToAttribute: true
         },
+
+        /**
+         * Whether or not the portrait image should be shown
+         * @type {String}
+         */
         showPortrait: {
           type: Boolean,
           value: false
         },
+
+        /**
+         * URL for the person portrait
+         * @type {String}
+         */
         portraitUrl: {
           type: String,
           value: ''
         },
+
+        /**
+         * Inline rendering of the person
+         * @type {String}
+         */
         inline: {
           type: Boolean,
           value: false,
