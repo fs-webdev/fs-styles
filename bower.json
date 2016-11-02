@@ -17,12 +17,16 @@
     "fs-styles.html"
   ],
   "ignore": [
-    "**/.*"
+    ".DS_Store",
+    ".gitignore"
   ],
   "moduleType": "globals",
   "license": "SEE LICENSE IN LICENSE.txt",
-  "ignore": [
-    ".DS_Store",
-    ".gitignore"
-  ]
+  "dependencies": {
+    "polymer": "Polymer/Polymer#^1.6.1"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^4.3.1",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7"
+  }
 }

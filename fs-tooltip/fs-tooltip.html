@@ -1,0 +1,150 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<!--
+A tooltip that models the FamilySearch styleguide.
+
+Example:
+
+    <fs-tooltip text="Click Me" direction="top">
+      <button>Hover</button>
+    </fs-tooltip>
+
+@group Seed Elements
+@element fs-tooltip
+@demo fs-tooltip/demo/index.html
+-->
+<dom-module id="fs-tooltip">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        position: relative;
+      }
+
+      .fs-tooltip__body {
+        background: #fff;
+        border-radius: 4px;
+        bottom: 100%;
+        box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.35), 0px 3px 2px 0px rgba(0,0,0,0.18);
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        left: 50%;
+        overflow: hidden;
+        padding: 10px;
+        position: absolute;
+        -webkit-transform: translate(-50%, -15px);
+        transform: translate(-50%, -15px);
+        transition: opacity 0.2s;
+        width: 1px;
+        z-index: 99999;
+        opacity: 0;
+      }
+      .fs-tooltip__body:before {
+        background: #fff;
+        border-radius: 4px;
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        right: 0;
+        right: 0;
+        top: 0;
+        z-index: -1;
+      }
+      .fs-tooltip__body:after {
+        background: #fff;
+        bottom: -7px;
+        box-shadow: 1px 0px 4px 1px rgba(0,0,0,0.35), 0px 0px 2px 0px rgba(0,0,0,0.18);
+        content: '';
+        height: 15px;
+        left: 50%;
+        position: absolute;
+        -webkit-transform: translateX(-50%) rotate(45deg);
+        transform: translateX(-50%) rotate(45deg);
+        width: 15px;
+        z-index: -2;
+      }
+      :host([direction=below]) .fs-tooltip__body {
+        bottom: auto;
+        top: 100%;
+        -webkit-transform: translate(-50%, 15px);
+        transform: translate(-50%, 15px);
+      }
+      :host([direction=below]) .fs-tooltip__body:after {
+        top: -7px;
+      }
+      :host([direction=left]) .fs-tooltip__body,
+      :host([direction=right]) .fs-tooltip__body {
+        left: auto;
+        bottom: auto;
+        top: 50%;
+      }
+      :host([direction=left]) .fs-tooltip__body:after,
+      :host([direction=right]) .fs-tooltip__body:after {
+        top: 50%;
+        bottom: auto;
+        left: auto;
+        -webkit-transform: translateY(-50%) rotate(45deg);
+        transform: translateY(-50%) rotate(45deg);
+      }
+      :host([direction=left]) .fs-tooltip__body {
+        right: 100%;
+        -webkit-transform: translate(-20px, -50%);
+        transform: translate(-20px, -50%);
+      }
+      :host([direction=left]) .fs-tooltip__body:after {
+        right: -7px;
+      }
+      :host([direction=right]) .fs-tooltip__body {
+        left: 100%;
+        -webkit-transform: translate(15px, -50%);
+        transform: translate(15px, -50%);
+      }
+      :host([direction=right]) .fs-tooltip__body:after {
+        left: -7px;
+      }
+
+      :host(:hover) .fs-tooltip__body {
+        width: 200px;
+        height: inherit;
+        clip: auto;
+        overflow: visible;
+        opacity: 1;
+      }
+    </style>
+    
+    <span role="tooltip" class='fs-tooltip__body'>
+      <content select='[tooltip-body]'></content>
+    </span>
+
+    <content></content>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'fs-tooltip',
+    properties: {
+      /**
+       * Valid Values: 'top', `bottom`, `left`, `right`
+       * @type {String}
+       */
+      direction: {
+        type: String,
+        value: 'top',
+        reflectToAttribute: true
+      },
+      /**
+       * The string that will be shown in the tooltip, if left
+       * null the tooltip will be hidden
+       * 
+       * @type {String}
+       */
+      text: {
+        type: String,
+        value: ''
+      }
+    }
+  });
+</script>

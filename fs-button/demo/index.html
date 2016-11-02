@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>&lt;fs-button&gt;</title>
+  <meta name="description" content="">
+
+  <!-- Mobile -->
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <!-- Chrome / Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="black">
+  <link rel="icon" href="icon.png">
+
+  <!-- Safari / iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+  <!-- Web Components -->
+  <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../fs-button.html">
+</head>
+<body >
+  <p>
+    <label>Options</label>
+    <button is="fs-button" type="button" option='recommended'>Recommended</button>
+    <button is="fs-button" type="button" option='destructive'>Destructive</button>
+    <button is="fs-button" type="button">Button</button>
+    <button is="fs-button" type="button" option='minor'>Minor</button>
+  </p>
+
+  <p>
+    <label>Sizes</label>
+    <button is="fs-button" type="button" size='large'>Large</button>
+    <button is="fs-button" type="button">Default</button>
+    <button is="fs-button" type="button" size='small'>Small</button>
+  </p>
+
+  <p>
+    <label>Disabled</label>
+    <button is="fs-button" type="button" option='recommended' disabled>Recommended</button>
+    <button is="fs-button" type="button" disabled>Button</button>
+  </p>
+
+  <p>
+    <label>Loading</label>
+    <button is="fs-button" type="button" class='loadingButton'>Button</button>
+    <button is="fs-button" type="button" disabled loading>Button</button>
+    <button is="fs-button" type="button" option='destructive' class='loadingButton'>Button</button>
+    <button is="fs-button" type="button" option='recommended' class='loadingButton'>Button</button>
+    <button is="fs-button" type="button" size='large' class='loadingButton'>Button</button>
+  </p>
+  <script>
+    Array.prototype.slice.call(document.querySelectorAll('.loadingButton'))
+    .forEach(function(button) {
+      button.addEventListener('click', function() {
+        button.loading = !button.loading;
+      });
+    });
+  </script>
+</body>
+</html>

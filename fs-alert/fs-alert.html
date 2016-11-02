@@ -1,0 +1,300 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<!--
+`<fs-alert>` adds an fs-styles-compatible alert to your page
+
+Basic usage:
+
+    <body>
+      <fs-alert dismissable alert-type="info">
+        A dismissable info alert!
+      </fs-alert>
+
+@element fs-alert
+@demo fs-alert/demo/index.html
+@homepage http://familysearchelements.github.io/fs-alert
+-->
+<dom-module id="fs-alert">
+  <template>
+    <style>
+      @font-face {
+        font-family: 'museo';
+        src: url('https://edge.fscdn.org/assets/img/font/museo_slab_500-webfont-0eb03ad51f6c0573ea7c3db67b048261.eot');
+        src: url('https://edge.fscdn.org/assets/img/font/museo_slab_500-webfont-0eb03ad51f6c0573ea7c3db67b048261.eot?#iefix') format('embedded-opentype'),
+        url('https://edge.fscdn.org/assets/img/font/museo_slab_500-webfont-7f1d1cd9f496a600a7cbe688a7e854b5.woff') format('woff'),
+        url('https://edge.fscdn.org/assets/img/font/museo_slab_500-webfont-3a41a2e84c2ac7ce32e79067e1cb5399.ttf') format('truetype'),
+        url('https://edge.fscdn.org/assets/img/font/museo_slab_500-webfont-92bf7225a1859acfee5fbc38bb8fb1a5.svg#museo_slab_500') format('svg');
+        font-weight: bold;
+        font-style: normal;
+      }
+      :host {
+        display: block;
+        box-sizing: border-box;
+        transition: opacity 300ms ease-out;
+      }
+      :host(.fade-out) {
+        opacity: 0;
+      }
+      :host([hidden]) {
+        display: none;
+      }
+      :host([inline]) {
+        display: inline-block;
+      }
+      :host h4 {
+        color: inherit;
+        font-family: museo, serif;
+        font-size: 21px;
+        font-size: 1.313rem;
+        font-weight: 100;
+        line-height: 1.143;
+        margin: 0 0 .625rem 0;
+      }
+      p {
+        line-height: 1.25;
+        margin: 0;
+      }
+      .fs-alert-shadow.inline {
+        display: inline-block;
+      }
+      .fs-alert-shadow:before {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.2%22%20baseProfile%3D%22tiny%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%2344650F%22%20d%3D%22M7%2016.6c-0.2%200-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5%200-0.2%200.1-0.3%200.2-0.5l2-1.9c0.1-0.1%200.3-0.2%200.5-0.2%200.2%200%200.3%200.1%200.5%200.2l2.9%202.9c0.2%200.2%200.4%200.2%200.6%200.2%200.2%200%200.4-0.1%200.6-0.2l7.9-7.9c0.1-0.1%200.3-0.2%200.5-0.2s0.3%200.1%200.5%200.2l1.9%201.9C18.5%204.7%2018.6%204.8%2018.6%205s-0.1%200.3-0.2%200.5L7.5%2016.4C7.3%2016.5%207.2%2016.6%207%2016.6z%22%2F%3E%3Crect%20fill%3D%22none%22%20width%3D%2220%22%20height%3D%2220%22%2F%3E%3C%2Fsvg%3E") !important;
+      }
+      .fs-alert-shadow--error:before {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.2%22%20baseProfile%3D%22tiny%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xml%3Aspace%3D%22preserve%22%3E%3Crect%20fill%3D%22none%22%20width%3D%2220%22%20height%3D%2220%22%2F%3E%3Cpath%20fill%3D%22%23A71E1A%22%20d%3D%22M13.1%2011C13%2011.6%2012.6%2012%2012%2012H9c-0.5%200-1-0.4-1.1-1L7.1%201C7%200.4%207.5%200%208%200h5c0.6%200%201%200.4%200.9%201L13.1%2011zM11.6%2019c0.6%200%201-0.4%201.1-1l0.2-3C12.9%2014.4%2012.5%2014%2011.9%2014H9.1c-0.5%200-1%200.4-0.9%201l0.2%203C8.4%2018.6%208.9%2019%209.4%2019H11.6z%22%2F%3E%3C%2Fsvg%3E") !important;
+      }
+      .fs-alert-shadow--info:before {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.2%22%20baseProfile%3D%22tiny%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%230F5BA9%22%20d%3D%22M10%2018.7c-4.8%200-8.7-3.9-8.7-8.7%200-4.8%203.9-8.7%208.7-8.7%204.8%200%208.7%203.9%208.7%208.7C18.7%2014.8%2014.8%2018.7%2010%2018.7zM9.1%207.4c-0.4%200-0.9%200.1-1.3%200.2C7.1%207.9%206.9%208.4%206.9%208.8%207%209.1%207.2%209.3%207.4%209.3c0.4%200%200.5%200.1%200.6%200.1%200%200%200.1%200.1%200.1%200.5%200%200.2%200%200.3-0.1%200.5%200%200.2-0.1%200.4-0.2%200.7l-0.7%202.5c-0.1%200.3-0.1%200.5-0.1%200.8%200%200.2%200%200.4%200%200.7%200%200.6%200.2%201.1%200.7%201.5C7.9%2016.7%208.5%2017.2%209.5%2017.2c0.5%200%201.2-0.2%201.7-0.4%200.5-0.2%200.9-0.6%200.9-1%200-0.2-0.1-0.4-0.2-0.6%20-0.1-0.1-0.2-0.1-0.3-0.1%20-0.1%200-0.3%200.1-0.4%200.1l-0.1%200c-0.4%200-0.5-0.1-0.6-0.1%200%200-0.1-0.2-0.1-0.4%200-0.1%200-0.3%200.1-0.5%200-0.2%200.1-0.5%200.1-0.7l0.7-2.5c0.1-0.3%200.1-0.5%200.2-0.8%200-0.3%200-0.5%200-0.6%200-0.6-0.2-1.1-0.7-1.5C10.4%207.6%209.8%207.4%209.1%207.4zM10.7%202.8c-0.5%200-1%200.2-1.4%200.5C8.8%203.7%208.6%204.2%208.6%204.7c0%200.5%200.2%201%200.6%201.4%200.4%200.4%200.9%200.5%201.4%200.5%200.5%200%201-0.2%201.4-0.5%200.4-0.4%200.6-0.8%200.6-1.3%200-0.5-0.2-1-0.6-1.3C11.7%203%2011.2%202.8%2010.7%202.8z%22%2F%3E%3Crect%20fill%3D%22none%22%20width%3D%2220%22%20height%3D%2220%22%2F%3E%3C%2Fsvg%3E") !important;
+      }
+      .fs-alert-shadow--warning:before {
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.2%22%20baseProfile%3D%22tiny%22%20x%3D%220%22%20y%3D%220%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20xml%3Aspace%3D%22preserve%22%3E%3Crect%20fill%3D%22none%22%20width%3D%2220%22%20height%3D%2220%22%2F%3E%3Cpath%20fill%3D%22%2379520F%22%20d%3D%22M10%208.7l3.2%205.4H6.8L10%208.7M10%202.2c-0.4%200-0.7%200.2-1%200.7L1.2%2016.2C0.6%2017.1%201.1%2017.9%202.2%2017.9h15.7c1.1%200%201.5-0.8%201-1.7L11%202.9C10.7%202.4%2010.4%202.2%2010%202.2L10%202.2z%22%2F%3E%3C%2Fsvg%3E") !important;
+      }
+      .fs-alert-shadow {
+        background: #f1f6d3;
+        border-radius: 4px;
+        border: 1px solid #bfd730;
+        color: #44650f;
+        padding: 10px 40px 10px 34px;
+        padding: 0.625rem 2.5rem 0.625rem 2.125rem;
+        position: relative;
+      }
+      .fs-alert-shadow:before {
+        background-size: 100%;
+        content: '';
+        height: 20px;
+        height: 1.25rem;
+        left: 7px;
+        position: absolute;
+        width: 20px;
+        width: 1.25rem;
+      }
+      .fs-alert-shadow__title {
+        color: inherit;
+      }
+      .fs-alert-shadow a {
+        text-decoration: underline;
+      }
+      .fs-alert-shadow--info {
+        background: #e0f6fd;
+        border-color: #6ed7f7;
+        color: #0f5ba9;
+      }
+      .fs-alert-shadow--warning {
+        background: #fff8de;
+        border-color: #ffd400;
+        color: #79520f;
+      }
+      .fs-alert-shadow--error {
+        background: #fdeeee;
+        border-color: #f8b0ab;
+        color: #a71e1a;
+      }
+      .fs-dialog-shadow__close {
+        -webkit-appearance: none;
+        -webkit-touch-callout: none;
+        background-color: transparent;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: none;
+        box-shadow: 0 0 0 transparent;
+        height: 20px;
+        height: 1.25rem;
+        line-height: 1;
+        opacity: 0.5;
+        padding: 0;
+        position: absolute;
+        right: 10px;
+        right: 0.625rem;
+        top: 10px;
+        top: 0.625rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 20px;
+        width: 1.25rem;
+        background-size: 10px;
+        cursor: pointer;
+        background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213%22%20height%3D%2213%22%20viewBox%3D%220%200%2013%2013%22%20version%3D%221.1%22%3E%3Cg%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20transform%3D%22translate%28-1.000000%2C%20-1.000000%29%22%3E%3Cpath%20d%3D%22M13%202L2%2013M2%202L13%2013%22%20stroke%3D%22%23333331%22%20stroke-width%3D%222.5%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E")!important;
+      }
+      .fs-dialog-shadow__close:hover,
+      .fs-dialog-shadow__close:focus {
+        opacity: 1;
+      }
+      .fs-dialog-shadow__close:active {
+        opacity: 0.75;
+      }
+    </style>
+    <div hidden="[[hidden]]" class$="fs-alert-shadow fs-alert-shadow--[[alertType]]">
+      <button on-tap='hide' hidden="[[!dismissable]]" class="fs-dialog-shadow__close"></button>
+      <h4 hidden="[[!_boolify(alertTitle)]]">[[alertTitle]]</h4>
+      <p id="content">
+        <content></content>
+      </p>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'fs-alert',
+      properties: {
+        /** Whether to hide the alert. Useful for hiding by default. Gets toggled by show() and hide(). */
+        hidden: {
+          reflectToAttribute: true,
+          type: Boolean,
+          value: false
+        },
+        /** How to style the alert. Default is ''. Available options are: '', 'info', 'warning', and 'error' */
+        alertType: {
+          reflectToAttribute: true,
+          type: String,
+          value: ''
+        },
+        /** Whether to provide the x icon for users to dismiss this alert. */
+        dismissable: {
+          type: Boolean,
+          value: false
+        },
+        /** The title to be displayed. */
+        alertTitle: {
+          type: String,
+          value: ''
+        },
+        alertBody: {
+          type: String,
+          value: '',
+          observer: '_updateBody'
+        },
+        /** Whether to fill the available width. */
+        inline: {
+          reflectToAttribute: true,
+          type: Boolean,
+          value: false
+        },
+        /** How long (in seconds) before automatically hiding the alert. */
+        autoHide: {
+          type: Number,
+          value: -1
+        },
+        fadeOut: {
+          type: Boolean,
+          value: false
+        }
+      },
+      ready: function(){
+        this._handleAutoHide();
+      },
+      /**
+       * Shows the alert--sets hidden to true.
+       */
+      show: function(autoHide){
+        this.hidden = false;
+        this._handleAutoHide(autoHide);
+      },
+      /**
+       * Hides the alert--sets hidden to false.
+       */
+      hide: function(){
+        var fadeOut = (arguments.length === 2) ? arguments[2] : arguments[1];
+        this._handleFadeOut(fadeOut);
+      },
+      /**
+       * Styles, populates, and displays the modal.
+       */
+      success: function(title, body, dismissable){
+        this._setProps('', title, body, dismissable);
+      },
+      /**
+       * Styles, populates, and displays the modal.
+       */
+      info: function(title, body, dismissable){
+        this._setProps('info', title, body, dismissable);
+      },
+      /**
+       * Styles, populates, and displays the modal.
+       */
+      warning: function(title, body, dismissable){
+        this._setProps('warning', title, body, dismissable);
+      },
+      /**
+       * Styles, populates, and displays the modal.
+       */
+      error: function(title, body, dismissable){
+        this._setProps('error', title, body, dismissable);
+      },
+      /**
+       * Styles, populates, and displays the modal.
+       */
+      _setProps: function(type, title, body, dismissable){
+        this.alertType = type;
+        this.alertTitle = title;
+        this.alertBody = body;
+        this._updateBody();
+        this.dismissable = (typeof dismissable === 'boolean') ? dismissable : this.dismissable;
+        this.hidden = false;
+      },
+      /**
+       * Returns a bool based on whether a string is truthy and not empty.
+       */
+      _boolify: function(str){
+        return str && str.length;
+      },
+      /**
+       * Updates the alertBody property if it's truthy and not empty.
+       */
+      _updateBody: function(newVal, oldVal){
+        if(newVal && newVal.length){
+          this.$.content.innerHTML = this.alertBody;
+        }
+      },
+      /**
+       * Allows for conditional classes
+       */
+      _class: function(className, bool){
+        return (bool) ? className : '';
+      },
+      /**
+       * Executes autoHide logic
+       */
+      _handleAutoHide: function(autoHide){
+        var hideIn = autoHide || this.autoHide;
+        if(hideIn > 0){
+          setTimeout(function(){
+            this._handleFadeOut();
+          }.bind(this), hideIn * 1000);
+        }
+      },
+      _handleFadeOut: function(fadeOut){
+        if(fadeOut || this.fadeOut){
+          this.classList.add('fade-out');
+          setTimeout(function(){
+            this.hidden = true;
+            this.classList.remove('fade-out');
+          }.bind(this), 250);
+        } else {
+          this.hidden = true;
+        }
+      }
+    });
+  </script>
+</dom-module>

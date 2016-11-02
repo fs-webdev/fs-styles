@@ -1,0 +1,114 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<!--
+A input validation wrapper that models the FamilySearch styleguide.
+
+This web component will render a wrapper around a `input[type='text']` with a styleguide approved validation status.
+
+You can specify the text body of the `valid`/`invalid` states by creating a node with the `valid-text`/`invalid-text` attributes (respectively).
+
+Example:
+
+    <fs-input-validation>
+      <input type="text" />
+      <p valid-text>This is valid</p>
+      <p invalid-text>This is invalid</p>
+    </fs-input-validation>
+
+@demo fs-input-validation/demo/index.html
+-->
+
+<dom-module id="fs-input-validation">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .wrap {
+        border-radius: 4px;
+        margin: -6px;
+        padding: 6px;
+        position: relative;
+      /*------------------------------------*
+          $VALID_STATE
+        \*------------------------------------*/
+      /*------------------------------------*
+          $INVALID_STATE
+        \*------------------------------------*/
+      }
+      ::content .fs-field-validation input {
+        background-repeat: no-repeat;
+        background-position: 98% center; /* [1] */
+        background-position: right 10px center;
+      }
+      .message {
+        display: none;
+        margin: 10px 10px 4px 10px;
+      }
+      :host([status='valid']) .wrap {
+        background: #f1f6d3;
+        border: 1px solid #bfd730;
+      }
+      :host([status='valid']) ::content input {
+        background-color: #fff;
+        border-color: #bfd730;
+      }
+      :host([status='valid']) ::content input:focus {
+        border-color: #356635;
+      }
+      :host([status='valid']) .message {
+        color: #44650f;
+        display: block;
+      }
+      :host([status='invalid']) .wrap {
+        background: #fdeeee;
+        border: 1px solid #f8b0ab;
+      }
+      :host([status='invalid']) ::content input {
+        border-color: #f8b0ab;
+      }
+      :host([status='invalid']) ::content input:focus {
+        border-color: #953b39;
+      }
+      :host([status='invalid']) .message {
+        color: #a71e1a;
+        display: block;
+      }
+    </style>
+    <div class='wrap'>
+      <content select='input[type=text]'></content>
+      <div class='message'>
+        <div hidden='[[_isInvalid(status)]]'>
+          <content select='[valid-text]'></content>
+        </div>
+        <div hidden='[[_isValid(status)]]'>
+          <content select='[invalid-text]'></content>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'fs-input-validation',
+      properties: {
+        /**
+         * The status of the validated input[type=text] field.
+         *
+         * Valid values for this are: `valid` or `invalid`.
+         * @type {String}
+         */
+        status: {
+          type: String,
+          value: '',
+          reflectToAttribute: true
+        }
+      },
+      _isValid: function(status) {
+        return status === 'valid';
+      },
+      _isInvalid: function(status) {
+        return status === 'invalid';
+      }
+    });
+  </script>
+</dom-module>

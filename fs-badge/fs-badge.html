@@ -1,0 +1,59 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<!--
+A simple FamilySearch badge style
+
+Example:
+
+    <fs-badge>3</fs-badge>
+
+Example:
+
+    <fs-badge option='light'>5</fs-badge>
+
+@demo fs-badge/demo/index.html
+-->
+
+<dom-module id="fs-badge">
+  <template>
+    <style>
+      :host {
+        background: #4d4d4a;
+        border-radius: 9px;
+        box-sizing: border-box;
+        color: #fff;
+        display: inline-block;
+        font-size: 14px;
+        font-size: 0.875rem;
+        font-weight: normal;
+        line-height: 1;
+        margin: 0 4px;
+        min-width: 21px;
+        padding: 1px 8px;
+        text-shadow: none;
+      }
+      :host([option=light]) {
+        background: #fff;
+        color: #333331;
+      }
+    </style>
+    <content></content>
+  </template>
+  <script>
+    Polymer({
+      is: 'fs-badge',
+      properties: {
+        /**
+         * The rendering type of the badge
+         *
+         * _Only valid option is currently `light`_
+         * @type {String}
+         */
+        option: {
+          type: String,
+          reflectToAttribute: true
+        }
+      }
+    });
+  </script>
+</dom-module>

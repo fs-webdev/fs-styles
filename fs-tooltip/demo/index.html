@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>&lt;fs-button&gt;</title>
+  <meta name="description" content="">
+
+  <!-- Mobile -->
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <!-- Chrome / Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="black">
+  <link rel="icon" href="icon.png">
+
+  <!-- Safari / iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+  <!-- Web Components -->
+  <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../fs-tooltip.html">
+  <link rel="import" href="../../fs-button/fs-button.html">
+</head>
+<body>
+  <h1>&lt;fs-tooltip&gt;</h1>
+  <fs-tooltip>
+    <button is='fs-button'>Default (above)</button>
+    <p tooltip-body>Default tooltip position is above.</p>
+  </fs-tooltip>
+
+  <fs-tooltip direction='right'>
+    <button is='fs-button'>Right</button>
+    <p tooltip-body>You can also position the tooltip to the right.</p>
+  </fs-tooltip>
+
+  <fs-tooltip direction='below'>
+    <button is='fs-button'>Below</button>
+    <p tooltip-body>Or even below the element.</p>
+  </fs-tooltip>
+
+  <fs-tooltip direction='left'>
+    <button is='fs-button'>Left</button>
+    <p tooltip-body>And lets not forget to the left.</p>
+  </fs-tooltip>
+</body>
+</html>
