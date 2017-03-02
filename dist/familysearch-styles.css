@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v2.3.0 | MIT
+ * v3.0.0 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -370,9 +370,12 @@ label {
 }
 label > input[type="radio"],
 label > input[type="checkbox"] {
-  float: left;
-  margin-right: 8px;
-  margin-top: 2px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
 }
 ::-webkit-input-placeholder {
   font-family: inherit;
@@ -496,8 +499,8 @@ select:focus {
 input[type="radio"],
 input[type="checkbox"] {
   padding: 0; /* IE9 */
-  font-size: 14px;
-  font-size: 1rem;
+  -webkit-transform: scale(1.6);
+  transform: scale(1.6); /* [1] */
 }
 fieldset {
   padding: 0;

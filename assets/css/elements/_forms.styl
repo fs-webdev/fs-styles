@@ -43,9 +43,12 @@ label {
 
   > input[type="radio"],
   > input[type="checkbox"] {
-    float: left;
-    margin-right: 8px;
-    margin-top: 2px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+    margin-bottom: 15px;
   }
 }
 
@@ -234,10 +237,17 @@ select {
  *   </fieldset>
  * </form>
  */
+
+/*
+ * 1. Increase the size of radio buttons and check boxes because the default browser
+ *    sizes are too small, especially for those with motor disabilities or the elder.
+ *    @see https://getsatisfaction.com/familysearch/topics/larger-radio-buttons-please
+ *    @see https://getsatisfaction.com/familysearch/topics/microscopic-sized-check-boxes
+ */
 input[type="radio"],
 input[type="checkbox"] {
   padding: 0; /* IE9 */
-  font-size: pxToRem(14px);
+  transform: scale(1.6); /* [1] */
 }
 
 fieldset {
