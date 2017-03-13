@@ -763,7 +763,8 @@ h4,
 .fs-h3,
 .fs-h4 {
   color: #4d4d4a;
-  font-family: "museo", serif;
+  font-family: "museo", Verdana, serif;
+  font-weight: normal;
   margin: 0;
 }
 h1,
