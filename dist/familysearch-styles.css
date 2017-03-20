@@ -105,7 +105,6 @@
   color: #fff;
   display: inline-block;
   font-size: 12px;
-  font-size: 0.857rem;
   font-weight: normal;
   line-height: 1;
   margin: 0 4px;
@@ -129,11 +128,9 @@
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
-  font-size: 1rem;
   font-weight: normal;
   line-height: 1;
-  padding: 8.5px 20px;
-  padding: 0.607rem 1.429rem; /* [1] */
+  padding: 8.5px 20px; /* [1] */
   position: relative;
   text-decoration: none;
   transition: padding 0.2s;
@@ -149,11 +146,6 @@
   \*------------------------------------*/
 /*------------------------------------*    $DESTRUCTIVE_BUTTON
   \*------------------------------------*/
-/*------------------------------------*    $LARGE_BUTTON
-  \*------------------------------------*/
-/*
-   * 1. Large button height should be 50px
-   */
 /*------------------------------------*    $SMALL_BUTTON
   \*------------------------------------*/
 /*
@@ -196,8 +188,7 @@
   color: #333331;
   text-decoration: none;
 }
-.fs-button:hover:disabled,
-.fs-button:hover.disabled {
+.fs-button:hover:disabled {
   background-color: #f5f4f1;
   color: rgba(51,51,49,0.3);
   text-decoration: none;
@@ -205,8 +196,7 @@
 .fs-button:active {
   background-color: #e8e6e0;
 }
-.fs-button:disabled,
-.fs-button.disabled {
+.fs-button:disable {
   cursor: not-allowed;
   background-color: #f5f4f1;
   border: 1px solid #cbc6b9;
@@ -244,8 +234,7 @@
 .fs-button--recommended:visited {
   color: #fff; /* [2] */
 }
-.fs-button--recommended:disabled:hover,
-.fs-button--recommended.disabled:hover {
+.fs-button--recommended:disabled:hover {
   color: rgba(51,51,49,0.3);
 }
 .fs-button--minor {
@@ -285,18 +274,15 @@
 .fs-button--destructive:visited {
   color: #fff; /* [2] */
 }
-.fs-button--destructive:disabled:hover,
-.fs-button--destructive.disabled:hover {
+.fs-button--destructive:disabled:hover {
   color: rgba(51,51,49,0.3);
 }
 .fs-button--large {
   border-radius: 5px;
-  padding: 16px 20px;
-  padding: 1.143rem 1.429rem; /* [1] */
+  padding: 16px 20px; /* [1] */
 }
 .fs-button--small {
-  padding: 6px 20px;
-  padding: 0.429rem 1.429rem; /* [1] */
+  padding: 6px 20px; /* [1] */
 }
 .fs-button--small.is-loading {
   padding-right: 42px;
@@ -322,7 +308,6 @@ label {
   color: #666662;
   display: block;
   font-size: 12px;
-  font-size: 0.857rem;
   font-weight: normal;
   line-height: 1.35rem;
   margin-bottom: 5px;
@@ -372,12 +357,10 @@ input[type="color"] {
   color: #333331;
   font-family: inherit;
   font-size: 14px;
-  font-size: 1rem;
   height: inherit;
   line-height: normal; /* [2] */
   margin-bottom: 0;
-  padding: 6px 10px;
-  padding: 0.429rem 0.714rem; /* [1] */
+  padding: 6px 10px; /* [1] */
   transition: border linear 0.2s;
   width: 100%;
 }
@@ -414,22 +397,7 @@ input[type="email"]:disabled,
 input[type="url"]:disabled,
 input[type="search"]:disabled,
 input[type="tel"]:disabled,
-input[type="color"]:disabled,
-textarea.disabled,
-input[type=text].disabled,
-input[type="password"].disabled,
-input[type="datetime"].disabled,
-input[type="datetime-local"].disabled,
-input[type="date"].disabled,
-input[type="month"].disabled,
-input[type="time"].disabled,
-input[type="week"].disabled,
-input[type="number"].disabled,
-input[type="email"].disabled,
-input[type="url"].disabled,
-input[type="search"].disabled,
-input[type="tel"].disabled,
-input[type="color"].disabled {
+input[type="color"]:disabled {
   color: #999;
   background: #f0f0f0;
 }
@@ -443,13 +411,10 @@ select {
   color: #333331;
   font-family: inherit;
   font-size: 14px;
-  font-size: 1rem;
   height: 30px;
-  height: 2.143rem;
   line-height: 1.625rem;
   margin: 0;
   padding: 4px 6px;
-  padding: 0.286rem 0.429rem;
   width: 100%;
 }
 select:focus {
@@ -471,8 +436,6 @@ legend {
   border: 0;
   color: #333331;
   font-size: 14px;
-  font-size: 1rem;
-  line-height: 22.75px;
   line-height: 1.625rem;
   margin: 0 0 2px 0;
 }
@@ -496,9 +459,7 @@ legend {
 .fs-icon-after:after {
 /* [1] */
   height: 20px;
-  height: 1.429rem;
   width: 20px;
-  width: 1.429rem;
 }
 .fs-icon-before:before,
 .fs-icon-after:after {
@@ -508,38 +469,30 @@ legend {
 }
 .fs-icon-before:before {
   margin-right: 6px;
-  margin-right: 0.429rem;
 }
 .fs-icon-after:after {
   margin-left: 6px;
-  margin-left: 0.429rem;
 }
 .fs-icon[class*=fs-icon-small-],
 .fs-icon-before[class*=fs-icon-small-]:before,
 .fs-icon-after[class*=fs-icon-small-]:after {
 /* [1] */
   height: 8px;
-  height: 0.571rem;
   width: 8px;
-  width: 0.571rem;
 }
 .fs-icon[class*=fs-icon-medium-],
 .fs-icon-before[class*=fs-icon-medium-]:before,
 .fs-icon-after[class*=fs-icon-medium-]:after {
 /* [2] */
   height: 22px;
-  height: 1.571rem;
   width: 22px;
-  width: 1.571rem;
 }
 .fs-icon[class*=fs-icon-large-],
 .fs-icon-before[class*=fs-icon-large-]:before,
 .fs-icon-after[class*=fs-icon-large-]:after {
 /* [3] */
   height: 66px;
-  height: 4.714rem;
   width: 66px;
-  width: 4.714rem;
 }
 @-moz-keyframes rotate {
   from {
@@ -705,54 +658,7 @@ body {
   color: #333331;
   font-family: Verdana, sans-serif;
   font-size: 14px;
-  font-size: 1rem;
-  line-height: 22.75px;
   line-height: 1.625rem;
-}
-.locale-zh body,
-.locale-zh h1,
-.locale-zh h2,
-.locale-zh h3,
-.locale-zh h4,
-.locale-zh h5,
-.locale-zh h6,
-.locale-zh .fs-h1,
-.locale-zh .fs-h2,
-.locale-zh .fs-h3,
-.locale-zh .fs-h4,
-.locale-zh .fs-h5,
-.locale-zh .fs-h6 {
-  font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
-}
-.locale-ja body,
-.locale-ja h1,
-.locale-ja h2,
-.locale-ja h3,
-.locale-ja h4,
-.locale-ja h5,
-.locale-ja h6,
-.locale-ja .fs-h1,
-.locale-ja .fs-h2,
-.locale-ja .fs-h3,
-.locale-ja .fs-h4,
-.locale-ja .fs-h5,
-.locale-ja .fs-h6 {
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic", sans-serif;
-}
-.locale-ko body,
-.locale-ko h1,
-.locale-ko h2,
-.locale-ko h3,
-.locale-ko h4,
-.locale-ko h5,
-.locale-ko h6,
-.locale-ko .fs-h1,
-.locale-ko .fs-h2,
-.locale-ko .fs-h3,
-.locale-ko .fs-h4,
-.locale-ko .fs-h5,
-.locale-ko .fs-h6 {
-  font-family: "Apple SD Gothic Neo", "애플고딕", "AppleGothic", "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", sans-serif;
 }
 h1,
 h2,
@@ -763,38 +669,29 @@ h4,
 .fs-h3,
 .fs-h4 {
   color: #4d4d4a;
-  font-family: "museo", Verdana, serif;
+  font-family: Verdana, serif;
   font-weight: normal;
   margin: 0;
 }
 h1,
 .fs-h1 {
   font-size: 30px;
-  font-size: 2.143rem;
-  line-height: 35px;
   line-height: 2.5rem;
 }
 h2,
 .fs-h2 {
   font-size: 26px;
-  font-size: 1.857rem;
-  line-height: 30.1px;
   line-height: 2.15rem;
 }
 h3,
 .fs-h3 {
   font-size: 22px;
-  font-size: 1.571rem;
-  line-height: 27.3px;
   line-height: 1.95rem;
-  margin: 0 0 2.844px 0;
   margin: 0 0 0.203125rem 0;
 }
 h4,
 .fs-h4 {
   font-size: 18px;
-  font-size: 1.286rem;
-  line-height: 22.75px;
   line-height: 1.625rem;
 }
 h5,
@@ -805,22 +702,24 @@ h6,
   color: #4d4d4a;
   font-family: inherit;
   font-size: 14px;
-  font-size: 1rem;
-  line-height: 22.75px;
   line-height: 1.625rem;
-  margin: 0 0 2.844px 0;
   margin: 0 0 0.203125rem 0;
 }
 .fs-h1--campaign {
   font-size: 36px;
-  font-size: 2.571rem;
-  line-height: 40.25px;
   line-height: 2.875rem;
+}
+[lang=zh] * {
+  font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
+}
+[lang=ja] * {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+}
+[lang=ko] * {
+  font-family: "Apple SD Gothic Neo", "애플고딕", "AppleGothic", "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", sans-serif;
 }
 p {
   font-size: 14px;
-  font-size: 1rem;
-  line-height: 22.75px;
   line-height: 1.625rem;
   margin: 0;
 }
@@ -850,22 +749,18 @@ button {
 }
 small {
   font-size: 12px;
-  font-size: 0.857rem;
-  line-height: 18.9px;
   line-height: 1.35rem;
   color: #666662;
 }
 ol,
 ul,
 li {
-  line-height: 22.75px;
   line-height: 1.625rem;
   padding: 0;
 }
 ol,
 ul {
-  margin: 22.75px 22.75px;
-  margin: 0 0  1.625rem 1.625rem;
+  margin: 0 0 1.625rem 1.625rem;
 }
 li {
   margin: 0;
@@ -877,7 +772,6 @@ li {
   color: #44650f;
   display: block;
   padding: 10px 40px 10px 34px;
-  padding: 0.714rem 2.857rem 0.714rem 2.429rem;
   position: relative;
 /*------------------------------------*    $INFO
   \*------------------------------------*/
@@ -891,12 +785,10 @@ li {
   background-repeat: no-repeat;
   background-size: 20px;
   content: '';
-  height: 22.75px;
-  height: 1.625rem;
+  height: 1.625;
   left: 7px;
   position: absolute;
-  width: 22.75px;
-  width: 1.625rem;
+  width: 1.625;
 }
 .fs-alert__title {
   color: inherit;
@@ -927,22 +819,18 @@ li {
   background-repeat: no-repeat;
   border: none;
   box-shadow: 0 0 0 transparent;
-  height: 22.75px;
-  height: 1.625rem;
+  height: 1.625;
   line-height: 1;
   opacity: 0.5;
   padding: 0;
   position: absolute;
   right: 10px;
-  right: 0.714rem;
   top: 10px;
-  top: 0.714rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 22.75px;
-  width: 1.625rem;
+  width: 1.625;
 }
 .fs-dialog__close:hover,
 .fs-dialog__close:focus {
@@ -1185,7 +1073,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 14px;
-  font-size: 1rem;
   line-height: 1.625rem;
   font-weight: bold;
   color: #4d4d4a;
@@ -1227,7 +1114,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 .fs-person-details__birthPlace {
   float: left;
   font-size: 12px;
-  font-size: 0.857rem;
   line-height: 1.35rem;
   white-space: nowrap;
 }
@@ -1474,7 +1360,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 }
 .fs-person--person-card .fs-person-vitals__name {
   font-size: 24px;
-  font-size: 1.714rem;
   line-height: 1;
 }
 .fs-person--person-card a.fs-person-vitals__name-full:visited {
@@ -1482,7 +1367,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 }
 .fs-person--person-card .fs-person-details__id {
   font-size: 14px;
-  font-size: 1rem;
 }
 .disable-portrait-image .fs-person-portrait__portrait:after {
   content: '';
@@ -1531,7 +1415,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   cursor: pointer;
   display: inline-block;
   font-size: 12px;
-  font-size: 0.857rem;
   line-height: 1.35rem;
   margin-right: 1px;
   padding: 4px 10px;

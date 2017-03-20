@@ -35,7 +35,7 @@
 label {
   color: $color-grey-light;
   display: block;
-  font-size: pxToRem($font-size-small);
+  font-size: $font-size-small;
   font-weight: normal;
   line-height: $line-height-small;
   margin-bottom: 5px;
@@ -96,11 +96,11 @@ input[type="color"] {
   box-sizing: border-box;
   color: $color-grey-body;
   font-family: inherit;
-  font-size: pxToRem($font-size-medium);
+  font-size: $font-size-medium;
   height: inherit;  // needed to override Bootstrap fixed height
   line-height: normal; /* [2] */
   margin-bottom: 0;
-  padding: pxToRem(6px 10px); /* [1] */
+  padding: 6px 10px; /* [1] */
   transition: border linear 0.2s;
   width: 100%;
 
@@ -110,8 +110,7 @@ input[type="color"] {
     outline: 0;
   }
 
-  &:disabled,
-  &.disabled {
+  &:disabled {
     color: #999999;
     background: #f0f0f0;
   }
@@ -158,11 +157,11 @@ select {
   border: 1px solid $color-grey-border;
   color: $color-grey-body;
   font-family: inherit;
-  font-size: pxToRem($font-size-medium);
-  height: pxToRem(30px);
+  font-size: $font-size-medium;
+  height: 30px;
   line-height: $line-height-medium;
   margin: 0;
-  padding: pxToRem(4px 6px);
+  padding: 4px 6px;
   width: 100%;
 
   &:focus {
@@ -259,7 +258,7 @@ fieldset {
 legend {
   border: 0;
   color: $color-grey-body;
-  font-size: pxToRem($font-size-medium);
-  line-height: remToPx($line-height-medium);
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
   margin: 0 0 2px 0;
 }

@@ -1,0 +1,421 @@
+/*
+ * FamilySearch Styles
+ * https://github.com/fs-webdev/fs-styles
+ * v3.0.0 | MIT
+ */
+html {
+  font-size: 14px;
+}
+html.locale-zh,
+html.locale-ja,
+html.locale-ko {
+  font-size: 16px;
+}
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+  html.locale-zh,
+  html.locale-ja,
+  html.locale-ko {
+    font-size: 14px;
+  }
+}
+body {
+  color: #333331;
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.625rem;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #4d4d4a;
+  font-family: Verdana, serif;
+  font-weight: normal;
+  margin: 0;
+}
+h1 {
+  font-size: 30px;
+  line-height: 2.5rem;
+}
+h2 {
+  font-size: 26px;
+  line-height: 2.15rem;
+}
+h3 {
+  font-size: 22px;
+  line-height: 1.95rem;
+  margin: 0 0 0.203125rem 0;
+}
+h4 {
+  font-size: 18px;
+  line-height: 1.625rem;
+}
+h5,
+h6 {
+  color: #4d4d4a;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.625rem;
+  margin: 0 0 0.203125rem 0;
+}
+.fs-h1--campaign {
+  font-size: 36px;
+  line-height: 2.875rem;
+}
+[lang=zh] * {
+  font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
+}
+[lang=ja] * {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+}
+[lang=ko] * {
+  font-family: "Apple SD Gothic Neo", "애플고딕", "AppleGothic", "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", sans-serif;
+}
+p {
+  font-size: 14px;
+  line-height: 1.625rem;
+  margin: 0;
+}
+p + * {
+  margin-top: 1.625rem;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a,
+a:hover,
+a:active,
+a:focus {
+  color: #0060d7;
+}
+a:visited {
+  color: #b3467c;
+}
+button {
+  font-family: inherit;
+}
+small {
+  font-size: 12px;
+  line-height: 1.35rem;
+  color: #666662;
+}
+ol,
+ul,
+li {
+  line-height: 1.625rem;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0 0 1.625rem 1.625rem;
+}
+li {
+  margin: 0;
+}
+label {
+  color: #666662;
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.35rem;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+label > input[type="radio"],
+label > input[type="checkbox"] {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+::-webkit-input-placeholder {
+  font-family: inherit;
+}
+::-moz-placeholder {
+  font-family: inherit;
+}
+:-ms-input-placeholder {
+  font-family: inherit;
+}
+input {
+  font-family: inherit;
+}
+textarea,
+input[type=text],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
+  box-sizing: border-box;
+  color: #333331;
+  font-family: inherit;
+  font-size: 14px;
+  height: inherit;
+  line-height: normal; /* [2] */
+  margin-bottom: 0;
+  padding: 6px 10px; /* [1] */
+  transition: border linear 0.2s;
+  width: 100%;
+}
+textarea:focus,
+input[type=text]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus {
+  border: 1px solid #333331;
+  box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
+  outline: 0;
+}
+textarea:disabled,
+input[type=text]:disabled,
+input[type="password"]:disabled,
+input[type="datetime"]:disabled,
+input[type="datetime-local"]:disabled,
+input[type="date"]:disabled,
+input[type="month"]:disabled,
+input[type="time"]:disabled,
+input[type="week"]:disabled,
+input[type="number"]:disabled,
+input[type="email"]:disabled,
+input[type="url"]:disabled,
+input[type="search"]:disabled,
+input[type="tel"]:disabled,
+input[type="color"]:disabled {
+  color: #999;
+  background: #f0f0f0;
+}
+textarea {
+  resize: vertical;
+  min-height: 75px;
+}
+select {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333331;
+  font-family: inherit;
+  font-size: 14px;
+  height: 30px;
+  line-height: 1.625rem;
+  margin: 0;
+  padding: 4px 6px;
+  width: 100%;
+}
+select:focus {
+  border: 1px solid #333331;
+  outline: none;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  padding: 0; /* IE9 */
+  -webkit-transform: scale(1.6);
+  transform: scale(1.6); /* [1] */
+}
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+legend {
+  border: 0;
+  color: #333331;
+  font-size: 14px;
+  line-height: 1.625rem;
+  margin: 0 0 2px 0;
+}
+.fs-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-touch-callout: none;
+  background-color: #f5f4f1;
+  border-radius: 4px;
+  border: 1px solid #beb8a7;
+  color: #333331;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 8.5px 20px; /* [1] */
+  position: relative;
+  text-decoration: none;
+  transition: padding 0.2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+/*------------------------------------*    $RECOMMENDED_BUTTON
+  \*------------------------------------*/
+/*------------------------------------*    $MINOR_BUTTON
+  \*------------------------------------*/
+/*------------------------------------*    $DESTRUCTIVE_BUTTON
+  \*------------------------------------*/
+/*------------------------------------*    $SMALL_BUTTON
+  \*------------------------------------*/
+/*
+   * 1. Small button height should be 30px
+   */
+/*------------------------------------*    $LOADING_ANIMATION
+  \*------------------------------------*/
+/**
+   * Animations
+   *
+   * The `fs-button--loading` class will only work for buttons and anchor tags. Input tags
+   * will not work.
+   *
+   * ##### Acceptable Use
+   *
+   * Disable the button while the <code>fs-button--loading</code> class is active.
+   *
+   * @section
+   * @sectionof Buttons
+   *
+   * @example
+   * <div class="row-fluid">
+   *   <p class="span9">
+   *     <small class="example__title">Loading - <code>fs-button--loading</code></small>
+   *     <button type="button" class="fs-button fs-button--recommended animation__toggle" data-animation="fs-button--loading" data-animation-for="fs-button--loading" data-animation-show="true">
+   *       <span class="animation__show">Loading</span>
+   *     </button>
+   *   </p>
+   * </div>
+   *
+   * @code
+   * <p>
+   *   <button type="button" class="fs-button fs-button--loading">Loading</button>
+   * <p>
+   */
+}
+.fs-button:hover {
+/* [3] */
+  background-color: #fbfaf9;
+  color: #333331;
+  text-decoration: none;
+}
+.fs-button:hover:disabled {
+  background-color: #f5f4f1;
+  color: rgba(51,51,49,0.3);
+  text-decoration: none;
+}
+.fs-button:active {
+  background-color: #e8e6e0;
+}
+.fs-button:disable {
+  cursor: not-allowed;
+  background-color: #f5f4f1;
+  border: 1px solid #cbc6b9;
+  color: rgba(51,51,49,0.3);
+}
+.fs-button:focus {
+  outline: auto 2px Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+.fs-button:focus,
+.fs-button:visited {
+  color: #333331; /* [2] */
+  text-decoration: none;
+  outline-offset: 2px; /* [4] */
+}
+.fs-button:after {
+  content: '';
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.fs-button--recommended {
+  background-color: #3073dd;
+  border: 1px solid #246bdb;
+  color: #fff;
+}
+.fs-button--recommended:hover {
+/* [3] */
+  background-color: #3882f8;
+  color: #fff;
+}
+.fs-button--recommended:active {
+  background-color: #1f61c9;
+}
+.fs-button--recommended:focus,
+.fs-button--recommended:visited {
+  color: #fff; /* [2] */
+}
+.fs-button--recommended:disabled:hover {
+  color: rgba(51,51,49,0.3);
+}
+.fs-button--minor {
+  background-color: transparent;
+  color: #0060d7;
+  border-color: transparent;
+}
+.fs-button--minor:hover {
+/* [3] */
+  background-color: transparent;
+  color: #0060d7;
+  text-decoration: underline;
+}
+.fs-button--minor:active {
+  background-color: transparent;
+  color: #0060d7;
+  text-decoration: underline;
+}
+.fs-button--minor:focus,
+.fs-button--minor:visited {
+  color: #0060d7; /* [2] */
+}
+.fs-button--large {
+  border-radius: 5px;
+  padding: 16px 20px; /* [1] */
+}
+.fs-button--small {
+  padding: 6px 20px; /* [1] */
+}
+.fs-button--small.is-loading {
+  padding-right: 42px;
+}
+.fs-button--small.is-loading:after {
+  width: 16px;
+  height: 16px;
+  margin-top: 0;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

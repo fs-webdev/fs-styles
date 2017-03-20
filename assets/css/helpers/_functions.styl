@@ -19,62 +19,6 @@ clearfix()
     clear: both
 
 /*
- * Take a px unit and output both px and rem properties.
- * @param {unit|units}
- *
- * @example
- *  padding: pxToRem(16px);
- *  // => padding: 16px; padding: 1rem;
- *
- *  padding: pxToRem(16px 14px);
- *  // => padding: 16px 14px; padding: 1rem 0.875rem;
- */
-pxToRem($num)
-  if current-property
-    $pxs = null
-    $rems = null
-
-    for $n in $num
-      // don't add unit to 0 values
-      $pxs = $pxs ($n > 0 ? unit($n, 'px') : $n)
-
-      $value = round($n / $base-font-size, $round-precision)
-      $rems = $rems ($value > 0 ? unit($value, 'rem') : $value)
-
-    add-property(current-property[0], $pxs)
-    return $rems
-  else
-    error('pxToRem() must be used within a property')
-
-/*
- * Take a rem unit and output both px and rem properties.
- * @param {unit|units}
- *
- * @example
- *  padding: remToPx(1rem);
- *  // => padding: 16px; padding: 1rem;
- *
- *  padding: remToPx(1rem 0.875rem);
- *  // => padding: 16px 14px; padding: 1rem 0.875rem;
- */
-remToPx($num)
-  if current-property
-    $pxs = null
-    $rems = null
-
-    for $n in $num
-      // don't add unit to 0 values
-      $rems = $rems ($n > 0 ? unit($n, 'rem') : $n)
-
-      $value = round($n * $base-font-size, $round-precision)
-      $pxs = $pxs ($value > 0 ? unit($value, 'px') : $value)
-
-    add-property(current-property[0], $pxs)
-    return $rems
-  else
-    error('remToPx() must be used within a property')
-
-/*
  * Calculate the line-height as a multiplier of the font-size
  * @param {unit} line-height - Line-height in px
  * @param {unit} font-size   - Font-size in px

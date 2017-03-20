@@ -13,7 +13,7 @@ var header = '/*\n' +
              ' */\n';
 
 gulp.task('build', function() {
-  return gulp.src(['assets/css/familysearch-styles.styl', 'assets/css/base.styl'])
+  return gulp.src('assets/css/*.styl')
     .pipe(stylus())
     .pipe(insert.prepend(header))
     .pipe(gulp.dest('dist'))
@@ -22,7 +22,10 @@ gulp.task('build', function() {
     .pipe(rename(function(path) {
       path.basename += '.min';
     }))
-    .pipe(size())
+    .pipe(size({
+        showFiles: true,
+        gzip: true
+    }))
     .pipe(gulp.dest('dist'))
 });
 

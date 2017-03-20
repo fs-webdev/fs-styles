@@ -71,7 +71,7 @@
   border: 1px solid #bfd730;
   color: #44650f;
   display: block;
-  padding: pxToRem(10px 40px 10px 34px);
+  padding: 10px 40px 10px 34px;
   position: relative;
 
   &:before {
@@ -80,10 +80,10 @@
     background-repeat: no-repeat;
     background-size: 20px;
     content: '';
-    height: remToPx($baseline-grid);
+    height: $baseline-grid;
     left: 7px;
     position: absolute;
-    width: remToPx($baseline-grid);
+    width: $baseline-grid;
   }
 
   &__title {
@@ -180,15 +180,15 @@
   background-repeat: no-repeat;
   border: none;
   box-shadow: 0 0 0 transparent;
-  height: remToPx($baseline-grid);
+  height: $baseline-grid;
   line-height: 1;
   opacity: .5;
   padding: 0;
   position: absolute;
-  right: pxToRem(10px);
-  top: pxToRem(10px);
+  right: 10px;
+  top: 10px;
   user-select: none;
-  width: remToPx($baseline-grid);
+  width: $baseline-grid;
 
   &:hover,
   &:focus {
