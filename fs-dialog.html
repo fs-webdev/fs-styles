@@ -1,0 +1,332 @@
+<style>
+fs-dialog {
+  opacity: 0;
+  position: fixed;
+  transition: transform 0.3s, opacity 0.3s, visible 0.3;
+  visibility: hidden;
+  z-index: 9998;
+}
+
+fs-dialog[open] {
+  visibility: visible;
+  opacity: 1;
+}
+
+fs-dialog[open] > .fs-dialog {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+fs-dialog:not([type="modeless"]) {
+  background: rgba(51,51,49,0.8);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/*
+ * 1. Support a fixed modal header/footer and scrollable middle.
+ */
+.fs-dialog {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.35), 0px 3px 2px 0px rgba(0,0,0,0.18);
+  display: flex; /* [1] */
+  flex-direction: column;
+  left: 50%;
+  margin: 0 auto;
+  max-width: 545px;
+  max-height: 70%;
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0.7);
+  transform: translate(-50%, -50%) scale(0.7);
+  transition: transform 0.3s, opacity 0.3s;
+  width: 90%;
+}
+
+.fs-dialog > div:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.fs-dialog__title {
+  border-radius: 4px 4px 0 0;
+  padding: 15px 15px 10px;
+  margin: 0;
+  flex-shrink: 0; /* [1] */
+}
+
+.fs-dialog__body {
+  overflow-y: auto; /* [1] */
+  padding: 0 15px;
+  position: relative;
+}
+
+.fs-dialog__buttons {
+  flex-shrink: 0; /* [1] */
+  padding: 15px;
+  position: relative;
+}
+
+.fs-dialog__footer {
+  background: #f4f4f4;
+  border-top: 1px solid #ccc;
+  flex-shrink: 0; /* [1] */
+  padding: 10px 15px;
+}
+
+.fs-dialog__footer label {
+  margin: 0;
+}
+</style>
+
+<template id="fs-dialog-template">
+
+  <div class="fs-dialog" aria-hidden="true" role="dialog">
+    <button class="fs-dialog__close" dialog-dismiss></button>
+  </div>
+
+</template>
+
+<script>
+(function(document) {
+  var uuid = 0;
+  var doc = (document._currentScript || document.currentScript).ownerDocument;
+  var template = doc.querySelector('#fs-dialog-template');
+
+  var fsDialogProto = Object.create(HTMLElement.prototype);
+
+  /**
+   * Append the template to the element and set up defaults.
+   */
+  fsDialogProto.createdCallback = function() {
+    var children = this.children;
+    var clone = document.importNode(template.content, true);
+    this._container = clone.querySelector('.fs-dialog');
+
+    // move the contents of the dialog to be a child of the dialog container
+    while (children[0]) {
+      this._container.appendChild(children[0]);
+    }
+
+    this.appendChild(clone);
+
+    if (!this.type) {
+      this.type = 'modal';
+    }
+
+    // a11y: add an id to the title of the modal so the container can use it for
+    // aria-labelledby
+    // @see https://www.w3.org/TR/wai-aria-practices/#dialog_modal
+    var title = this.querySelector('.fs-dialog__title');
+    if (title) {
+      if (!title.hasAttribute('id')) {
+        title.setAttribute('id', 'fs-dialog-title-' + uuid++);
+      }
+
+      this._container.setAttribute('aria-labelledby', title.getAttribute('id'));
+    }
+  };
+
+  /**
+   * Listen for changes to attributes we are watching.
+   * @param {string} attr - Name of the attribute that changed.
+   * @param {string} oldValue - Value of the attribute before change.
+   * @param {string} newValue - Value of the attribute after change.
+   */
+  fsDialogProto.attributeChangedCallback = function(attr, oldValue, newValue) {
+    if (attr === 'open') {
+
+      // open the dialog
+      if (newValue !== null) {
+        this._show();
+      }
+
+      // close the dialog
+      else {
+        this._close();
+      }
+    }
+
+    if (attr === 'type') {
+      this.type = newValue;
+    }
+  };
+
+  /**
+   * Simple wrapper for adding the open attribute.
+   */
+  fsDialogProto.show = function() {
+    this.setAttribute('open', '');
+  };
+
+  /**
+   * Simple wrapper for removing the open attribute.
+   */
+  fsDialogProto.close = function() {
+    this.removeAttribute('open');
+  };
+
+  /**
+   * Show the dialog and attach event listeners.
+   */
+  fsDialogProto._show = function() {
+
+    this._container.removeAttribute('aria-hidden');
+
+    // save a reference to the element that opened this modal
+    this._lastFocusedElement = document.activeElement;
+
+    // a11y: when a modal dialog opens focus goes to the first focusable item in the dialog.
+    // if there is no focusable item in the dialog, focus is placed on the dialog container
+    // element.
+    // @see https://www.w3.org/TR/wai-aria-practices/#dialog_modal
+    //
+    // since we can't pragmatically determine focusable elements, we'll let the user tell
+    // us what should be focused, otherwise we'll focus the dialog container
+    // @see https://github.com/whatwg/html/issues/2071
+    if (this.querySelector('[autofocus]')) {
+      this.querySelector('[autofocus]').focus();
+    }
+    else {
+      this._container.setAttribute('tabindex', '0')
+      this._container.focus();
+    }
+
+    if (this.type === 'modal') {
+
+      // prevent the page from scrolling
+      document.body.style.overflow = 'hidden';
+
+      // a11y: focus must be held within the dialog until it is canceled or submitted.
+      // pressing tab with focus on the last focusable item in the dialog will move focus
+      // back to the first focusable item in the dialog
+      // likewise, if the user is shift-tabbing through elements in the dialog, pressing
+      // shift-tab with focus on the first focusable item in the dialog will move focus
+      // to the last item in the dialog
+      // @see https://www.w3.org/TR/wai-aria-practices/#dialog_modal
+      //
+      // to do this, we'll make everything outside of the modal have a tabindex=-1
+      // since we can't determine what in the modal is focusable and tabbable
+      // @see https://github.com/whatwg/html/issues/2071
+      //
+      // run async so it doesn't interfere with the dialog open animation
+      setTimeout(function() {
+        var modalNodes = Array.from( this.querySelectorAll('*') );
+
+        // by only finding elements that do not have tabindex="-1" we ensure we don't
+        // corrupt the previous state of the element if a modal was already open
+        this._nonModalNodes = document.querySelectorAll('body *:not(fs-dialog):not([tabindex="-1"])');
+
+        for (var i = 0; i < this._nonModalNodes.length; i++) {
+          if (!modalNodes.includes(this._nonModalNodes[i])) {
+
+            // save the previous tabindex state so we can restore it on close
+            this._nonModalNodes[i]._prevTabindex = this._nonModalNodes[i].getAttribute('tabindex');
+            this._nonModalNodes[i].setAttribute('tabindex', -1);
+          }
+        }
+      }.bind(this), 0);
+    }
+
+    // add event listeners
+    this.addEventListener('keydown', fsDialogProto._keydownHandler);
+    this.addEventListener('click', fsDialogProto._clickHandler);
+  };
+
+  /**
+   * Close the dialog and clean up listeners.
+   */
+  fsDialogProto._close = function() {
+
+    this._container.setAttribute('aria-hidden', true);
+
+    // restore tabindex to all nodes
+    if (this.type === 'modal') {
+      document.body.style.overflow = null;
+
+      // restore or remove tabindex from nodes
+      // run async so it doesn't interfere with the dialog close animation
+      setTimeout(function() {
+        for (var i = 0; i < this._nonModalNodes.length; i++) {
+          if (this._nonModalNodes[i]._prevTabindex) {
+            this._nonModalNodes[i].setAttribute('tabindex', this._nonModalNodes[i]._prevTabindex);
+            this._nonModalNodes[i]._prevTabindex = null;
+          }
+          else {
+            this._nonModalNodes[i].removeAttribute('tabindex');
+          }
+        }
+      }.bind(this), 0);
+    }
+
+    // a11y: when the dialog is closed or canceled focus should return to the element
+    // in the application which had focus before the dialog is invoked
+    // @see https://www.w3.org/TR/wai-aria-practices/#dialog_modal
+    this._lastFocusedElement.focus();
+    this._lastFocusedElement = null;
+
+    // clean up event listeners
+    this.removeEventListener('keydown', fsDialogProto._keydownHandler)
+    this.removeEventListener('click', fsDialogProto._clickHandler);
+  };
+
+  /**
+   * Keydown event handler.
+   * @param {Event} e
+   */
+  fsDialogProto._keydownHandler = function(e) {
+
+    // a11y: it is recommended that a dialog also be canceled by pressing the Escape
+    // key with focus on any item
+    // @see https://www.w3.org/TR/wai-aria-practices/#dialog_modal
+    if (e.which === 27) {
+      this.dispatchEvent(new Event('fs-dialog-dismiss', {bubbles: true}));
+
+      // stop the event from propagating to parent fs-dialogs
+      e.stopPropagation();
+      this.close();
+    }
+  };
+
+  /**
+   * Click event handler.
+   * @param {Event} e
+   */
+  fsDialogProto._clickHandler = function(e) {
+
+    // modals prevent interacting with the content of the page until closed
+    if (e.target === this && this.type === 'modal') {
+      e.preventDefault();
+    }
+
+    if (e.target.hasAttribute('dialog-dismiss')) {
+      this.dispatchEvent(new Event('fs-dialog-dismiss', {bubbles: true}));
+
+      // stop the event from propagating to parent fs-dialogs
+      e.stopPropagation();
+      this.close();
+    }
+
+    // confirming the dialog does not close it, allow the user to determine
+    // what to do with the modal
+    if (e.target.hasAttribute('dialog-confirm')) {
+      this.dispatchEvent(new Event('fs-dialog-confirm', {bubbles: true}));
+
+      // stop the event from propagating to parent fs-dialogs
+      e.stopPropagation();
+    }
+  };
+
+  document.registerElement('fs-dialog', {prototype: fsDialogProto});
+})(document);
+
+/* TODO:
+ Memories:
+ 1. pass event/dom element/string (treated as selector) to position modal intelligently around
+    element (most space available)
+ 2. set preferred position, then default to auto position
+*/
+</script>
