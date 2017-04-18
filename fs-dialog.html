@@ -2,7 +2,6 @@
 fs-dialog {
   opacity: 0;
   position: fixed;
-  transition: transform 0.3s, opacity 0.3s, visible 0.3;
   visibility: hidden;
   z-index: 9998;
 }
@@ -47,6 +46,10 @@ fs-dialog:not([type="modeless"]) {
   width: 90%;
 }
 
+.fs-dialog:focus {
+  outline: none;
+}
+
 .fs-dialog > div:last-child {
   border-radius: 0 0 4px 4px;
 }
@@ -85,7 +88,7 @@ fs-dialog:not([type="modeless"]) {
 <template id="fs-dialog-template">
 
   <div class="fs-dialog" aria-hidden="true" role="dialog">
-    <button class="fs-dialog__close" dialog-dismiss></button>
+    <button class="fs-dialog__close" dialog-dismiss aria-label="Close"></button>
   </div>
 
 </template>
@@ -99,12 +102,31 @@ fs-dialog:not([type="modeless"]) {
   var fsDialogProto = Object.create(HTMLElement.prototype);
 
   /**
+   * Tests if an element is visible on the screen.
+   * @see http://stackoverflow.com/a/36737835/2124254
+   * @param {HTMLElement} elm
+   * @returns {boolean}
+   */
+  function isVisible(elm) {
+    if ( (!elm.offsetHeight && !elm.offsetWidth) ||
+        getComputedStyle(elm).visibility === 'hidden') {
+      return false;
+    }
+
+    return true;
+  }
+
+  /**
    * Append the template to the element and set up defaults.
    */
   fsDialogProto.createdCallback = function() {
     var children = this.children;
     var clone = document.importNode(template.content, true);
+
+    // a11y: allow the dialog to be focusable
+    // @see @see https://github.com/whatwg/html/issues/1929
     this._container = clone.querySelector('.fs-dialog');
+    this._container.setAttribute('tabindex', '-1');
 
     // move the contents of the dialog to be a child of the dialog container
     while (children[0]) {
@@ -187,11 +209,25 @@ fs-dialog:not([type="modeless"]) {
     // since we can't pragmatically determine focusable elements, we'll let the user tell
     // us what should be focused, otherwise we'll focus the dialog container
     // @see https://github.com/whatwg/html/issues/2071
-    if (this.querySelector('[autofocus]')) {
-      this.querySelector('[autofocus]').focus();
+    //
+    // this is no longer the desired behavior. the spec is being changed to focus the dialog
+    // element using tabindex=-1 and hide the focus styling instead of auto focusing the first
+    // element. users can still use autofocus to focus an element instead of the dialog.
+    // @see https://github.com/whatwg/html/issues/1929
+
+    // find the first visible autofocus element and focus it
+    var autofocusEls = this.querySelectorAll('[autofocus]');
+    var autofocusEl;
+
+    for (var i = 0; i < autofocusEls.length; i++) {
+      if (isVisible(autofocusEls[i])) {
+        autofocusEl = autofocusEls[i];
+        autofocusEl.focus();
+        break;
+      }
     }
-    else {
-      this._container.setAttribute('tabindex', '0')
+
+    if (!autofocusEl) {
       this._container.focus();
     }
 
@@ -221,11 +257,19 @@ fs-dialog:not([type="modeless"]) {
         this._nonModalNodes = document.querySelectorAll('body *:not(fs-dialog):not([tabindex="-1"])');
 
         for (var i = 0; i < this._nonModalNodes.length; i++) {
-          if (!modalNodes.includes(this._nonModalNodes[i])) {
+          var node = this._nonModalNodes[i];
+
+          if (!modalNodes.includes(node)) {
 
             // save the previous tabindex state so we can restore it on close
-            this._nonModalNodes[i]._prevTabindex = this._nonModalNodes[i].getAttribute('tabindex');
-            this._nonModalNodes[i].setAttribute('tabindex', -1);
+            node._prevTabindex = node.getAttribute('tabindex');
+            node.setAttribute('tabindex', -1);
+
+            // tabindex=-1 does not prevent the mouse from focusing the node (which
+            // would show a focus outline around the element). prevent this by disabling
+            // outline styles while the modal is open
+            // @see https://www.sitepoint.com/when-do-elements-take-the-focus/
+            node.style.outline = 'none';
           }
         }
       }.bind(this), 0);
@@ -251,13 +295,17 @@ fs-dialog:not([type="modeless"]) {
       // run async so it doesn't interfere with the dialog close animation
       setTimeout(function() {
         for (var i = 0; i < this._nonModalNodes.length; i++) {
-          if (this._nonModalNodes[i]._prevTabindex) {
-            this._nonModalNodes[i].setAttribute('tabindex', this._nonModalNodes[i]._prevTabindex);
-            this._nonModalNodes[i]._prevTabindex = null;
+          var node = this._nonModalNodes[i];
+
+          if (node._prevTabindex) {
+            node.setAttribute('tabindex', node._prevTabindex);
+            node._prevTabindex = null;
           }
           else {
-            this._nonModalNodes[i].removeAttribute('tabindex');
+            node.removeAttribute('tabindex');
           }
+
+          node.style.outline = null;
         }
       }.bind(this), 0);
     }
@@ -300,6 +348,9 @@ fs-dialog:not([type="modeless"]) {
     // modals prevent interacting with the content of the page until closed
     if (e.target === this && this.type === 'modal') {
       e.preventDefault();
+      e.stopPropagation();
+
+      this._container.focus();
     }
 
     if (e.target.hasAttribute('dialog-dismiss')) {
@@ -324,6 +375,8 @@ fs-dialog:not([type="modeless"]) {
 })(document);
 
 /* TODO:
+  translations
+
  Memories:
  1. pass event/dom element/string (treated as selector) to position modal intelligently around
     element (most space available)
