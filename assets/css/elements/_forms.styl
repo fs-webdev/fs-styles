@@ -32,6 +32,7 @@
  *   </p>
  * </fieldset>
  */
+
 label {
   color: $color-grey-light;
   display: block;
@@ -40,16 +41,6 @@ label {
   line-height: $line-height-small;
   margin-bottom: 5px;
   cursor: pointer;
-
-  > input[type="radio"],
-  > input[type="checkbox"] {
-    padding: 0;
-    margin: 0;
-    position: relative;
-    top: 5px;
-    margin-right: 10px;
-    margin-bottom: 15px;
-  }
 }
 
 ::-webkit-input-placeholder {
@@ -191,13 +182,22 @@ select {
  *     <legend>List of checkboxes</legend>
  *     <ul>
  *       <li>
- *         <label><input name="checkbox" type="checkbox" checked="checked"/>Choice A</label>
+  *         <label>
+ *           <input name="checkbox" type="checkbox" checked/>
+ *           <span>Choice A</span>
+ *         </label>
  *       </li>
  *       <li>
- *         <label><input name="checkbox" type="checkbox"/>Choice B</label>
+  *         <label>
+ *           <input name="checkbox" type="checkbox"/>
+ *           <span>Choice B</span>
+ *         </label>
  *       </li>
  *       <li>
- *         <label><input name="checkbox" type="checkbox"/>Choice C</label>
+ *         <label>
+ *           <input name="checkbox" type="checkbox"/>
+ *           <span>Choice C</span>
+ *         </label>
  *       </li>
  *     </ul>
  *   </fieldset>
@@ -225,13 +225,22 @@ select {
  *     <legend>List of radio buttons</legend>
  *     <ul>
  *       <li>
- *         <label><input name="radio" type="radio" checked="checked"/>Option 1</label>
+ *         <label>
+ *           <input name="radio" type="radio" checked="checked"/>
+ *           <span>Option 1</span>
+ *         </label>
  *       </li>
  *       <li>
- *         <label><input name="radio" type="radio" />Option 2</label>
+ *         <label>
+ *           <input name="radio" type="radio"/>
+ *           <span>Option 2</span>
+ *         </label>
  *       </li>
  *       <li>
- *         <label><input name="radio" type="radio" />Option 3</label>
+ *         <label>
+ *           <input name="radio" type="radio"/>
+ *           <span>Option 3</span>
+ *         </label>
  *       </li>
  *     </ul>
  *   </fieldset>
@@ -243,11 +252,85 @@ select {
  *    sizes are too small, especially for those with motor disabilities or the elder.
  *    @see https://getsatisfaction.com/familysearch/topics/larger-radio-buttons-please
  *    @see https://getsatisfaction.com/familysearch/topics/microscopic-sized-check-boxes
+ *
+ *    Since using `scale()` makes the input fields look pixelated, we'll have to create
+ *    custom checkboxes and radio buttons, ensuring that it's still accessible. To do
+ *    that we'll hide the default checkbox and use another element to make it look like
+ *    a checkbox.
+ *    @see https://www.sitepoint.com/replacing-radio-buttons-without-replacing-radio-buttons/
  */
-input[type="radio"],
-input[type="checkbox"] {
-  padding: 0; /* IE9 */
-  transform: scale(1.6); /* [1] */
+label {
+  > input[type="radio"],
+  > input[type="checkbox"] {
+    @extends $visually-hidden;  /* [1] */
+
+    + span {
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    /* [1] */
+    + span:before {
+      content: '';
+      background: #fff;
+      border: 1px solid $color-grey-border;
+      width: pxToRem(20px);
+      height: pxToRem(20px);
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    &:focus + span:before {
+      border: 1px solid $color-grey-body;
+      box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
+      outline: 0;
+    }
+
+    &:checked + span:before {
+      background-color: #3073dd;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &:disabled + span:before {
+      background-color: #f0f0f0;
+    }
+  }
+
+  > input[type="radio"] {
+    + span:before {
+      border-radius: 50%;
+      position: relative;
+      top: -2px;
+    }
+
+    &:checked + span:before {
+      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%3E%0A%20%20%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%2210%22%3E%3C%2Fcircle%3E%0A%3C%2Fsvg%3E') !important;
+      background-size: 30%;
+    }
+
+    &:checked:disabled + span:before {
+      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23bdbdbd%22%3E%0A%20%20%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%2210%22%3E%3C%2Fcircle%3E%0A%3C%2Fsvg%3E') !important;
+    }
+  }
+
+  > input[type="checkbox"] {
+    + span:before {
+      border-radius: $border-radius;
+      position: relative;
+      top: -1px;
+    }
+
+    &:checked + span:before {
+      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M7%2016.6c-0.2%200-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5%200-0.2%200.1-0.3%200.2-0.5l2-1.9c0.1-0.1%200.3-0.2%200.5-0.2%200.2%200%200.3%200.1%200.5%200.2l2.9%202.9c0.2%200.2%200.4%200.2%200.6%200.2%200.2%200%200.4-0.1%200.6-0.2l7.9-7.9c0.1-0.1%200.3-0.2%200.5-0.2s0.3%200.1%200.5%200.2l1.9%201.9C18.5%204.7%2018.6%204.8%2018.6%205s-0.1%200.3-0.2%200.5L7.5%2016.4C7.3%2016.5%207.2%2016.6%207%2016.6z%22%2F%3E%3C%2Fsvg%3E') !important;
+      background-size: 70%;
+    }
+
+    &:checked:disabled + span:before {
+      background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23bdbdbd%22%20d%3D%22M7%2016.6c-0.2%200-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5%200-0.2%200.1-0.3%200.2-0.5l2-1.9c0.1-0.1%200.3-0.2%200.5-0.2%200.2%200%200.3%200.1%200.5%200.2l2.9%202.9c0.2%200.2%200.4%200.2%200.6%200.2%200.2%200%200.4-0.1%200.6-0.2l7.9-7.9c0.1-0.1%200.3-0.2%200.5-0.2s0.3%200.1%200.5%200.2l1.9%201.9C18.5%204.7%2018.6%204.8%2018.6%205s-0.1%200.3-0.2%200.5L7.5%2016.4C7.3%2016.5%207.2%2016.6%207%2016.6z%22%2F%3E%3C%2Fsvg%3E') !important;
+    }
+  }
 }
 
 fieldset {
@@ -261,5 +344,5 @@ legend {
   color: $color-grey-body;
   font-size: pxToRem($font-size-medium);
   line-height: remToPx($line-height-medium);
-  margin: 0 0 2px 0;
+  margin: 0 0 5px 0;
 }
