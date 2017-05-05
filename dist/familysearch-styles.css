@@ -507,16 +507,16 @@ label > input[type="checkbox"] + span {
 }
 label > input[type="radio"] + span:before,
 label > input[type="checkbox"] + span:before {
-  content: '';
   background: #fff;
   border: 1px solid #ccc;
-  width: 20px;
-  width: 1.429rem;
+  content: '';
+  display: inline-block;
   height: 20px;
   height: 1.429rem;
-  display: inline-block;
-  vertical-align: middle;
   margin-right: 10px;
+  vertical-align: middle;
+  width: 20px;
+  width: 1.429rem;
 }
 label > input[type="radio"]:focus + span:before,
 label > input[type="checkbox"]:focus + span:before {
