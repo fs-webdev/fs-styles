@@ -4,6 +4,7 @@ var rename = require('gulp-rename');
 var stylus = require('gulp-stylus');
 var size = require('gulp-size');
 var insert = require('gulp-insert');
+var plumber = require('gulp-plumber');
 var package = require('./package.json');
 
 var header = '/*\n' +
@@ -14,6 +15,7 @@ var header = '/*\n' +
 
 gulp.task('build', function() {
   return gulp.src(['assets/css/familysearch-styles.styl', 'assets/css/base.styl'])
+    .pipe(plumber())
     .pipe(stylus())
     .pipe(insert.prepend(header))
     .pipe(gulp.dest('dist'))

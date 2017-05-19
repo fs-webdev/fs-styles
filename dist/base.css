@@ -47,8 +47,8 @@
     transform: rotate(360deg);
   }
 }
-label > input[type="radio"],
-label > input[type="checkbox"] {
+input[type="checkbox"],
+input[type="radio"] {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -187,63 +187,73 @@ select:focus {
   border: 1px solid #333331;
   outline: none;
 }
-label > input[type="radio"] + span,
-label > input[type="checkbox"] + span {
-  display: inline-block;
-  margin-bottom: 5px;
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  margin: 0; /* [2] */
 }
-label > input[type="radio"] + span:before,
-label > input[type="checkbox"] + span:before {
-  background: #fff;
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before {
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid #ccc;
   content: '';
   display: inline-block;
   height: 20px;
   height: 1.429rem;
-  margin-right: 10px;
+  position: relative;
   vertical-align: middle;
   width: 20px;
   width: 1.429rem;
 }
-label > input[type="radio"]:focus + span:before,
-label > input[type="checkbox"]:focus + span:before {
-  border: 1px solid #333331;
-  box-shadow: inset 0 3px 0 rgba(0,0,0,0.05);
-  outline: 0;
+input[type="checkbox"] + label:not(:empty),
+input[type="radio"] + label:not(:empty) {
+  margin-bottom: 5px;
 }
-label > input[type="radio"]:checked + span:before,
-label > input[type="checkbox"]:checked + span:before {
+input[type="checkbox"] + label:not(:empty):before,
+input[type="radio"] + label:not(:empty):before {
+  margin-right: 10px;
+}
+input[type="checkbox"]:focus + label:before,
+input[type="radio"]:focus + label:before {
+  outline: auto 2px Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+input[type="checkbox"]:checked + label:before,
+input[type="radio"]:checked + label:before {
+  border: 1px solid #246bdb;
   background-color: #3073dd;
-  background-position: center;
-  background-repeat: no-repeat;
 }
-label > input[type="radio"]:disabled + span:before,
-label > input[type="checkbox"]:disabled + span:before {
+input[type="checkbox"]:disabled + label:before,
+input[type="radio"]:disabled + label:before {
+  border: 1px solid #ccc;
   background-color: #f0f0f0;
 }
-label > input[type="radio"] + span:before {
-  border-radius: 50%;
-  position: relative;
-  top: -2px;
-}
-label > input[type="radio"]:checked + span:before {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%3E%0A%20%20%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%2210%22%3E%3C%2Fcircle%3E%0A%3C%2Fsvg%3E") !important;
-  background-size: 30%;
-}
-label > input[type="radio"]:checked:disabled + span:before {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23bdbdbd%22%3E%0A%20%20%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%2210%22%3E%3C%2Fcircle%3E%0A%3C%2Fsvg%3E") !important;
-}
-label > input[type="checkbox"] + span:before {
+input[type="checkbox"] + label:before {
   border-radius: 4px;
-  position: relative;
-  top: -1px;
-}
-label > input[type="checkbox"]:checked + span:before {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M7%2016.6c-0.2%200-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5%200-0.2%200.1-0.3%200.2-0.5l2-1.9c0.1-0.1%200.3-0.2%200.5-0.2%200.2%200%200.3%200.1%200.5%200.2l2.9%202.9c0.2%200.2%200.4%200.2%200.6%200.2%200.2%200%200.4-0.1%200.6-0.2l7.9-7.9c0.1-0.1%200.3-0.2%200.5-0.2s0.3%200.1%200.5%200.2l1.9%201.9C18.5%204.7%2018.6%204.8%2018.6%205s-0.1%200.3-0.2%200.5L7.5%2016.4C7.3%2016.5%207.2%2016.6%207%2016.6z%22%2F%3E%3C%2Fsvg%3E") !important;
   background-size: 70%;
 }
-label > input[type="checkbox"]:checked:disabled + span:before {
+input[type="checkbox"] + label:not(:empty):before {
+  top: -1px;
+}
+input[type="checkbox"]:checked + label:before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M7%2016.6c-0.2%200-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5%200-0.2%200.1-0.3%200.2-0.5l2-1.9c0.1-0.1%200.3-0.2%200.5-0.2%200.2%200%200.3%200.1%200.5%200.2l2.9%202.9c0.2%200.2%200.4%200.2%200.6%200.2%200.2%200%200.4-0.1%200.6-0.2l7.9-7.9c0.1-0.1%200.3-0.2%200.5-0.2s0.3%200.1%200.5%200.2l1.9%201.9C18.5%204.7%2018.6%204.8%2018.6%205s-0.1%200.3-0.2%200.5L7.5%2016.4C7.3%2016.5%207.2%2016.6%207%2016.6z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+input[type="checkbox"]:checked:disabled + label:before {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23bdbdbd%22%20d%3D%22M7%2016.6c-0.2%200-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5%200-0.2%200.1-0.3%200.2-0.5l2-1.9c0.1-0.1%200.3-0.2%200.5-0.2%200.2%200%200.3%200.1%200.5%200.2l2.9%202.9c0.2%200.2%200.4%200.2%200.6%200.2%200.2%200%200.4-0.1%200.6-0.2l7.9-7.9c0.1-0.1%200.3-0.2%200.5-0.2s0.3%200.1%200.5%200.2l1.9%201.9C18.5%204.7%2018.6%204.8%2018.6%205s-0.1%200.3-0.2%200.5L7.5%2016.4C7.3%2016.5%207.2%2016.6%207%2016.6z%22%2F%3E%3C%2Fsvg%3E") !important;
+}
+input[type="radio"] + label:before {
+  background-size: 30%;
+  border-radius: 50%;
+}
+input[type="radio"] + label:not(:empty):before {
+  top: -2px;
+}
+input[type="radio"]:checked + label:before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23fff%22%3E%0A%20%20%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%2210%22%3E%3C%2Fcircle%3E%0A%3C%2Fsvg%3E") !important;
+}
+input[type="radio"]:checked:disabled + label:before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D%220%200%2020%2020%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22%23bdbdbd%22%3E%0A%20%20%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%2210%22%3E%3C%2Fcircle%3E%0A%3C%2Fsvg%3E") !important;
 }
 fieldset {
   padding: 0;
