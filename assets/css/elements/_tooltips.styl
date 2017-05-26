@@ -21,6 +21,13 @@
  * `fs-tooltip__body` and `fs-tooltip__trigger` must be direct siblings for
  * for the tooltip to work.
  *
+ * ##### Accessibility
+ *
+ * Associate each tooltip message with the element by using the attribute `aria-describedby=[id]`. This will cause the screen reader to read the contents of the message when focusing
+ * on the element.
+ *
+ * Add the attribute `role="tooltip"` to the `.fs-tooltip__body`.
+ *
  * @section
  * @sectionof Tooltips
  *

@@ -19,6 +19,17 @@
 /**
  * Field Groups
  *
+ * ##### Accessibility
+ *
+ * When using a field group with a checkbox, the checkbox __must__ still have an
+ * associated `<label>`. The easiest way to accomplish this is to wrap the
+ * contents of the label in a `<span class="visually-hidden">`.
+ *
+ *
+ * When using a field group with help text, use the attribute `aria-describedby=[id]`.
+ * This will cause the screen reader to read the contents of the help text when focusing
+ * on the text field.
+ *
  * @section
  * @sectionof Forms
  *
@@ -27,7 +38,7 @@
  * <div class="fs-field-group">
  *   <input class="fs-field-group__input" id="withCheckbox" type="text" placeholder="Example Text"/>
  *   <div class="fs-field-group__attachment">
- *     <label for="markAsExact" class="sr-only">Mark as exact</label>
+ *     <label for="markAsExact" class="visually-hidden">Mark as exact</label>
  *     <input type="checkbox" id="markAsExact"/>
  *   </div>
  * </div>

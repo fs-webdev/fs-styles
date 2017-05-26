@@ -38,8 +38,7 @@
  * ##### Avoid
  *
  * Do not use an alert when you need more actions than a simple link (please refer to the
- * [Links](/elements#links) section for information about how to use a link). Use a [modal](#modals) or
- * popover instead.
+ * [Links](/elements#links) section for information about how to use a link). Use a [modal](#modals) or popover instead.
  *
  * @section
  * @sectionof Alerts
@@ -161,12 +160,18 @@
  * In most cases there is no need to close or dismiss an alert. Only provide a close icon when
  * absolutely necessary.
  *
+ * ##### Accessibility
+ *
+ * The close icon __must__ have text associated with the icon so that screen readers
+ * know what the button will do. The easiest way to accomplish this is to wrap the
+ * text in a `<span class="visually-hidden">`.
+ *
  * @section
  * @sectionof Alerts
  *
  * @example
  * <div class="fs-alert">
- *   <button class="fs-dialog__close"></button>
+ *   <button class="fs-dialog__close"><span class="visually-hidden">Close alert</span></button>
  *   <p>Account saved successfully.</p>
  * </div>
  */

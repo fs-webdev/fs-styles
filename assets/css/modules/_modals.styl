@@ -30,6 +30,20 @@
  * Do not use a modal if the user needs information or context that would be hidden by the
  * modal or modal overlay.
  *
+ * ##### Accessibility
+ *
+ * Building an accessible modal is not an easy task. See [ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#dialog_modal)
+ * for the complete list of required keyboard interactions. The main takeaways are:
+ * - The modal must trap keyboard focus to just the modal when it is a dialog modal.
+ * - The `esc` key must close the modal so keyboard users do not have to tab to find the
+ *   close button.
+ * - The modal should focus the modal container element in most cases (use `outline: none` and `tabindex=0`).
+ * - When the modal is closed, keyboard focus should return the element that opened the modal.
+ *
+ * The close icon __must__ have text associated with the icon so that screen readers
+ * know what the button will do. The easiest way to accomplish this is to wrap the
+ * text in a `<span class="visually-hidden">`.
+ *
  * @section
  * @sectionof Modals
  *

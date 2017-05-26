@@ -23,6 +23,15 @@
  * Any type of form field (textareas, input fields, radios, etc.) can be used for
  * validation.
  *
+ * ##### Accessibility
+ *
+ * Associate each message with the form field by using the attribute `aria-describedby=[id]`.
+ * This will cause the screen reader to read the contents of the message when focusing on the
+ * form field.
+ *
+ * When using the invalid state, use the attribute `aria-invalid="true"` so screen readers
+ * know the form field is invalid.
+ *
  * @section
  * @sectionof Forms
  *

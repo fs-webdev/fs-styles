@@ -11,7 +11,18 @@
  *
  * ##### Acceptable Use
  *
- * All form fields should have an associated label for accessibility.
+ * All form fields __must__ have an associated `<label>` for accessibility. If you must hide
+ * the text of the label, use the class `visually-hidden`. Never use `display:none` as that
+ * will hide it from screen readers as well.
+ *
+ * ##### Accessibility
+ *
+ * When marking a form field as required, use the attribute `aria-required=true` so
+ * screen readers know it's a required field.
+ *
+ * Wrap the input elements in a `<form>` element so that the enter key will submit
+ * the form. You can then add an event listener to the `onsubmit` event to determine
+ * what should happen.
  *
  * @section
  * @sectionof Forms
@@ -139,6 +150,11 @@ textarea {
  * menus since not all browsers have keyboard support for them and not all users
  * understand how to use them.
  *
+ * ##### Accessibility
+ *
+ * Where possible, use the `<optgroup>` element to group related options together for
+ * better readability. See [Accessible Select Menu](http://webaim.org/techniques/forms/controls#select) for an example.
+ *
  * @section
  * @sectionof Forms
  *
@@ -180,7 +196,15 @@ select {
  *
  * ##### Acceptable Use
  *
- * Each checkbox must have a label next to it.
+ * Each checkbox __must__ have an associated `<label>` for accessibility. If you must hide
+ * the text of the label, use the class `visually-hidden`. Never use `display:none` as that
+ * will hide it from screen readers as well.
+ *
+ * ##### Accessibility
+ *
+ * Wrap the checkboxes in a `<fieldset>` element with a descriptive `<legend>`. This will
+ * cause the screen reader to announce the legend for every checkbox so they know which
+ * checkboxes are associated with what group.
  *
  * @section
  * @sectionof Forms
@@ -211,10 +235,20 @@ select {
  *
  * Use radio buttons when the user needs to select from a list of less than five options.
  *
+ * Each radio button __must__ have an associated `<label>` for accessibility. If you must hide
+ * the text of the label, use the class `visually-hidden`. Never use `display:none` as that
+ * will hide it from screen readers as well.
+ *
  * ##### Avoid
  *
  * Avoid using radio buttons when there are more than five options. Those options would be
  * better displayed as a [select menu](#select-menu).
+ *
+ * ##### Accessibility
+ *
+ * Wrap the radio buttons in a `<fieldset>` element with a descriptive `<legend>`. This will
+ * cause the screen reader to announce the legend for every radio so they know which
+ * radio buttons are associated with what group.
  *
  * @section
  * @sectionof Forms

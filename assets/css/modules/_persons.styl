@@ -180,6 +180,12 @@
  * Use the person gender to indicate the gender of the person, especially if the name of the
  * person could be ambiguous.
  *
+ * ##### Accessibility
+ *
+ * The gender icon __must__ have text associated with the icon so that screen readers
+ * know what the gender of the person is. The easiest way to accomplish this is to wrap the
+ * text in a `<span class="visually-hidden">`.
+ *
  * @section
  * @sectionof Persons
  *
@@ -248,7 +254,7 @@
  * @code
  * <div class="fs-person-gender">
  *   <div class="fs-person-gender__container fs-person-gender--medium">
- *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male"></div>
+ *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male"><span class="visually-hidden">Male</span></div>
  *   </div>
  *   <div class="fs-person-vitals">
  *     <div class="fs-person-vitals__name">

@@ -1570,7 +1570,8 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 /*
  * OTHER CLASSES
  */
-.sr-only {
+.sr-only,
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
