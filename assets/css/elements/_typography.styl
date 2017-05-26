@@ -50,6 +50,10 @@ body {
 }
 
 // CJK specific stack
+
+/*
+ * 1. Do not increase letter-spacing for CJK font
+ */
 .locale-zh body,
 .locale-zh h1,
 .locale-zh h2,
@@ -66,6 +70,7 @@ body {
   // HanaMinB added to support non-Chinese computers (e.g. translators)
   // to view Unicode extension D+
   font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 
 .locale-ja body,
@@ -82,6 +87,7 @@ body {
 .locale-ja .fs-h5,
 .locale-ja .fs-h6 {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 
 .locale-ko body,
@@ -98,6 +104,7 @@ body {
 .locale-ko .fs-h5,
 .locale-ko .fs-h6 {
   font-family: "Apple SD Gothic Neo", "애플고딕", "AppleGothic", "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 
 
@@ -169,6 +176,10 @@ $typography-h3-selectors = 'h3' + ($limit-base-styles ? '' : ', .fs-h3');
 $typography-h4-selectors = 'h4' + ($limit-base-styles ? '' : ', .fs-h4');
 $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-h6');
 
+/*
+ * 1. Increase letter spacing to improve readability for users with dyslexia. Tested
+ *    with a user with dyslexia.
+ */
 {$typography-header-defaults} {
   color: $color-grey;
   font-family: $font-face-heading;
@@ -177,22 +188,26 @@ $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-
 
 {$typography-h1-selectors} {
   font-size: pxToRem($font-size-large-xxx);
+  letter-spacing: 0.06rem; /* [1] */
   line-height: remToPx($line-height-large-xxx);
 }
 
 {$typography-h2-selectors} {
   font-size: pxToRem($font-size-large-xx);
+  letter-spacing: 0.05rem; /* [1] */
   line-height: remToPx($line-height-large-xx);
 }
 
 {$typography-h3-selectors} {
   font-size: pxToRem($font-size-large-x);
+  letter-spacing: 0.04rem; /* [1] */
   line-height: remToPx($line-height-large-x);
   margin: remToPx(0 0 0.203125rem 0);
 }
 
 {$typography-h4-selectors} {
   font-size: pxToRem($font-size-large);
+  letter-spacing: 0.04rem; /* [1] */
   line-height: remToPx($line-height-large);
 }
 
@@ -200,6 +215,7 @@ $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-
   color: $color-grey;
   font-family: inherit;
   font-size: pxToRem($font-size-medium);
+  letter-spacing: 0.03rem; /* [1] */
   line-height: remToPx($line-height-medium);
   margin: remToPx(0 0 0.203125rem 0);
 }
