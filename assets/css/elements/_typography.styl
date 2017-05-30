@@ -130,6 +130,14 @@ body {
  * Do not use text formatting, such as font size or bold, to give the visual appearance of
  * a heading when it is not a heading.
  *
+ * ##### Accessibility
+ *
+ * Screen readers can jump from heading to heading to navigate a page. Use headings (even
+ * visually hidden ones) to help screen readers navigate a complex page or DOM structure.
+ *
+ * Because screen readers can jump to headings, all headings on a page should be descriptive
+ * and unique.
+ *
  * @section
  * @sectionof Typography
  *
@@ -284,6 +292,14 @@ p + * {
  * Do not use links when the only purpose is to use it to activate JavaScript (i.e. when
  * the `href` is equal to `#` or `javascript:void(0);`). Use a [button](#buttons) instead.
  *
+ * ##### Accessibility
+ *
+ * Screen readers can jump from link to link to navigate a page. Because of this,
+ * all links on a page should be descriptive and unique.
+ *
+ * If your link just says "Read More," you should either put more description on
+ * the link for all users or add visually hidden text just for the screen reader.
+ *
  * @section
  * @sectionof Typography
  *
@@ -369,6 +385,20 @@ small {
  * ##### Avoid
  *
  * Do not use lists to merely indent or for other layout purposes.
+ *
+ * ##### Accessibility
+ *
+ * Screen readers can jump from list to list and even list item to list item within
+ * a list. Use lists to allow screen readers to navigate between groups of items easily.
+ *
+ * For example, when displaying a list of people, you do not need to add `tabindex=0`
+ * for a screen reader to be able to read the contents of each person. Instead
+ * put each person inside of a list item and the screen reader can jump from person
+ * to person by navigating the list items.
+ *
+ * An added benefit is that the screen reader will announce how many items are in
+ * the list and what item they are currently on so they don't get lost inside of
+ * a long list.
  *
  * @section
  * @sectionof Lists

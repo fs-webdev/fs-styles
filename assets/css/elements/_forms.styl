@@ -17,8 +17,7 @@
  *
  * ##### Accessibility
  *
- * When marking a form field as required, use the attribute `aria-required=true` so
- * screen readers know it's a required field.
+ * When marking a form field as required, [you do not need the aria-required attribute](https://stackoverflow.com/questions/37974796/when-to-use-the-required-attribute-vs-the-aria-required-attribute-for-input-elem/37975985#37975985). Instead, just use the `required` attribute.
  *
  * Wrap the input elements in a `<form>` element so that the enter key will submit
  * the form. You can then add an event listener to the `onsubmit` event to determine
