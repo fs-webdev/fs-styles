@@ -47,8 +47,8 @@
     transform: rotate(360deg);
   }
 }
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"][id],
+input[type="radio"][id] {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -67,6 +67,16 @@ label {
   line-height: 1.35rem;
   margin-bottom: 5px;
   cursor: pointer;
+/* [1] */
+}
+label > input[type="radio"],
+label > input[type="checkbox"] {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
 }
 ::-webkit-input-placeholder {
   font-family: inherit;
@@ -187,12 +197,12 @@ select:focus {
   border: 1px solid #333331;
   outline: none;
 }
-input[type="checkbox"] + label,
-input[type="radio"] + label {
+input[type="checkbox"][id] + label,
+input[type="radio"][id] + label {
   margin: 0; /* [2] */
 }
-input[type="checkbox"] + label:before,
-input[type="radio"] + label:before {
+input[type="checkbox"][id] + label:before,
+input[type="radio"][id] + label:before {
   background-color: #fff;
   background-position: center;
   background-repeat: no-repeat;
@@ -207,26 +217,26 @@ input[type="radio"] + label:before {
   width: 20px;
   width: 1.429rem;
 }
-input[type="checkbox"] + label:not(:empty),
-input[type="radio"] + label:not(:empty) {
+input[type="checkbox"][id] + label:not(:empty),
+input[type="radio"][id] + label:not(:empty) {
   margin-bottom: 5px;
 }
-input[type="checkbox"] + label:not(:empty):before,
-input[type="radio"] + label:not(:empty):before {
+input[type="checkbox"][id] + label:not(:empty):before,
+input[type="radio"][id] + label:not(:empty):before {
   margin-right: 10px;
 }
-input[type="checkbox"]:focus + label:before,
-input[type="radio"]:focus + label:before {
+input[type="checkbox"][id]:focus + label:before,
+input[type="radio"][id]:focus + label:before {
   outline: auto 2px Highlight;
   outline: auto 5px -webkit-focus-ring-color;
 }
-input[type="checkbox"]:checked + label:before,
-input[type="radio"]:checked + label:before {
+input[type="checkbox"][id]:checked + label:before,
+input[type="radio"][id]:checked + label:before {
   border: 1px solid #246bdb;
   background-color: #3073dd;
 }
-input[type="checkbox"]:disabled + label:before,
-input[type="radio"]:disabled + label:before {
+input[type="checkbox"][id]:disabled + label:before,
+input[type="radio"][id]:disabled + label:before {
   border: 1px solid #ccc;
   background-color: #f0f0f0;
 }

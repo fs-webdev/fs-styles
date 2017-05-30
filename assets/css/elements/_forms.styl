@@ -33,6 +33,11 @@
  * </fieldset>
  */
 
+/*
+ * 1. The input wrapped by a label pattern has been deprecated in favor of the new
+ *    input followed by a label for accessibility. However, keep the old styles
+ *    so that apps can convert piecemeal instead of all at once.
+ */
 label {
   color: $color-grey-light;
   display: block;
@@ -41,6 +46,17 @@ label {
   line-height: $line-height-small;
   margin-bottom: 5px;
   cursor: pointer;
+
+  /* [1] */
+  > input[type="radio"],
+  > input[type="checkbox"] {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -252,8 +268,8 @@ select {
  *    label element.
  *    @example <label aria-label="Label for screen readers only"></label>
  */
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"][id],
+input[type="radio"][id] {
   @extends $visually-hidden;  /* [1] */
 
   + label {
