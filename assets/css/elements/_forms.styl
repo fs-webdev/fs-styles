@@ -42,6 +42,12 @@
  *   </p>
  * </fieldset>
  */
+
+/*
+ * 1. The input wrapped by a label pattern has been deprecated in favor of the new
+ *    input followed by a label for accessibility. However, keep the old styles
+ *    so that apps can convert piecemeal instead of all at once.
+ */
 label {
   color: $color-grey-light;
   display: block;
@@ -51,6 +57,7 @@ label {
   margin-bottom: 5px;
   cursor: pointer;
 
+  /* [1] */
   > input[type="radio"],
   > input[type="checkbox"] {
     padding: 0;
@@ -214,13 +221,16 @@ select {
  *     <legend>List of checkboxes</legend>
  *     <ul>
  *       <li>
- *         <label><input name="checkbox" type="checkbox" checked="checked"/>Choice A</label>
+ *         <input name="checkbox" type="checkbox" id="choiceA" checked/>
+ *         <label for="choiceA">Choice A</label>
  *       </li>
  *       <li>
- *         <label><input name="checkbox" type="checkbox"/>Choice B</label>
+ *         <input name="checkbox" type="checkbox" id="choiceB"/>
+ *         <label for="choiceB">Choice B</label>
  *       </li>
  *       <li>
- *         <label><input name="checkbox" type="checkbox"/>Choice C</label>
+ *         <input name="checkbox" type="checkbox" id="choiceC"/>
+ *         <label for="choiceC">Choice C</label>
  *       </li>
  *     </ul>
  *   </fieldset>
@@ -258,13 +268,16 @@ select {
  *     <legend>List of radio buttons</legend>
  *     <ul>
  *       <li>
- *         <label><input name="radio" type="radio" checked="checked"/>Option 1</label>
+ *         <input name="radio" type="radio" id="option1" checked/>
+ *         <label for="option1">Option 1</label>
  *       </li>
  *       <li>
- *         <label><input name="radio" type="radio" />Option 2</label>
+ *         <input name="radio" type="radio" id="option2"/>
+ *         <label for="option2">Option 2</label>
  *       </li>
  *       <li>
- *         <label><input name="radio" type="radio" />Option 3</label>
+ *         <input name="radio" type="radio" id="option3"/>
+ *         <label for="option3">Option 3</label>
  *       </li>
  *     </ul>
  *   </fieldset>
@@ -272,15 +285,118 @@ select {
  */
 
 /*
- * 1. Increase the size of radio buttons and check boxes because the default browser
- *    sizes are too small, especially for those with motor disabilities or the elder.
- *    @see https://getsatisfaction.com/familysearch/topics/larger-radio-buttons-please
- *    @see https://getsatisfaction.com/familysearch/topics/microscopic-sized-check-boxes
+ * Increase the size of radio buttons and check boxes because the default browser
+ * sizes are too small, especially for those with motor disabilities or the elder.
+ * @see https://getsatisfaction.com/familysearch/topics/larger-radio-buttons-please
+ * @see https://getsatisfaction.com/familysearch/topics/microscopic-sized-check-boxes
+ *
+ * 1. Since using `scale()` makes the input fields look pixelated, we'll have to create
+ *    custom checkboxes and radio buttons, ensuring that they are still accessible. To do
+ *    that we'll hide the default checkbox or radio button and use the label element
+ *    to make it look like a checkbox or radio button.
+ *    @see http://adrianroselli.com/2017/05/under-engineered-custom-radio-buttons-and-checkboxen.html
+ * 2. Ensure empty state does not add extra padding/margin that would break field group
+ *    with checkbox, or checkboxes or radio buttons by themselves.
+ *
+ *    For labels that need to show text only for screen readers, use aria-label on the
+ *    label element.
+ *    @see https://stackoverflow.com/questions/43857247/making-a-search-form-accessible-label-vs-aria-label-vs-aria-labelledby/43860344#43860344
+ *    @example <label aria-label="Label for screen readers only"></label>
+ * 3. Use the [id] selector to only hide inputs with labels so apps don't have all
+ *    their checkboxes and radio buttons hidden by default. Should increase adaption
+ *    time. Remove once everyone has fixed all their inputs.
  */
-input[type="radio"],
+input[type="checkbox"][id],
+input[type="radio"][id] {
+  @extends $visually-hidden;  /* [1] */
+
+  + label {
+    margin: 0; /* [2] */
+  }
+
+  + label:before {
+    background-color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid $color-grey-border;
+    content: '';
+    display: inline-block;
+    height: pxToRem(20px);
+    position: relative;
+    transition: background-size 0.15s ease-out, background-color 0.15s ease-out;
+    vertical-align: middle;
+    width: pxToRem(20px);
+  }
+
+  /* [2] */
+  + label:not(:empty) {
+    margin-bottom: 5px;
+
+    &:before {
+      margin-right: 10px;
+    }
+  }
+
+  &:focus + label:before {
+    outline: auto 2px Highlight;
+    outline: auto 5px -webkit-focus-ring-color;
+  }
+
+  &:checked + label:before {
+    border: 1px solid #246bdb;
+    background-color: #3073dd;
+  }
+
+  &:disabled + label:before {
+    border: 1px solid $color-grey-border;
+    background-color: #f0f0f0;
+  }
+}
+
+// checkbox
 input[type="checkbox"] {
-  padding: 0; /* IE9 */
-  transform: scale(1.6); /* [1] */
+
+  + label:before {
+    border-radius: $border-radius;
+    background-size: 5%;  // safari seems to break if you start an animation with 0% size
+  }
+
+  /* [2] */
+  + label:not(:empty):before {
+    top: -1px;
+  }
+
+  &:checked + label:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' baseProfile='tiny' x='0' y='0' width='20' height='20'%3E%3Cpath fill='%23fff' d='M7 16.6c-0.2 0-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5 0-0.2 0.1-0.3 0.2-0.5l2-1.9c0.1-0.1 0.3-0.2 0.5-0.2 0.2 0 0.3 0.1 0.5 0.2l2.9 2.9c0.2 0.2 0.4 0.2 0.6 0.2 0.2 0 0.4-0.1 0.6-0.2l7.9-7.9c0.1-0.1 0.3-0.2 0.5-0.2s0.3 0.1 0.5 0.2l1.9 1.9C18.5 4.7 18.6 4.8 18.6 5s-0.1 0.3-0.2 0.5L7.5 16.4C7.3 16.5 7.2 16.6 7 16.6z'/%3E%3C/svg%3E") !important;
+    background-size: 70%;
+  }
+
+  &:checked:disabled + label:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' baseProfile='tiny' x='0' y='0' width='20' height='20'%3E%3Cpath fill='%23bdbdbd' d='M7 16.6c-0.2 0-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5 0-0.2 0.1-0.3 0.2-0.5l2-1.9c0.1-0.1 0.3-0.2 0.5-0.2 0.2 0 0.3 0.1 0.5 0.2l2.9 2.9c0.2 0.2 0.4 0.2 0.6 0.2 0.2 0 0.4-0.1 0.6-0.2l7.9-7.9c0.1-0.1 0.3-0.2 0.5-0.2s0.3 0.1 0.5 0.2l1.9 1.9C18.5 4.7 18.6 4.8 18.6 5s-0.1 0.3-0.2 0.5L7.5 16.4C7.3 16.5 7.2 16.6 7 16.6z'/%3E%3C/svg%3E") !important;
+  }
+}
+
+// radio
+input[type="radio"] {
+
+  + label:before {
+    background-size: 100%;
+    border-radius: 50%;
+  }
+
+  /* [2] */
+  + label:not(:empty):before {
+    top: -2px;
+  }
+
+  &:checked + label:before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='%23fff'%3E%3Ccircle cx='10' cy='10' r='10'%3E%3C/circle%3E%3C/svg%3E") !important;
+    background-size: 30%;
+  }
+
+  &:checked:disabled + label:before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='%23bdbdbd'%3E%3Ccircle cx='10' cy='10' r='10'%3E%3C/circle%3E%3C/svg%3E") !important;
+  }
 }
 
 fieldset {
@@ -294,5 +410,5 @@ legend {
   color: $color-grey-body;
   font-size: pxToRem($font-size-medium);
   line-height: remToPx($line-height-medium);
-  margin: 0 0 2px 0;
+  margin: 0 0 5px 0;
 }

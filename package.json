@@ -1,7 +1,7 @@
 {
   "name": "fs-styles",
   "description": "Global styles for the FamilySearch.org website.",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "keywords": [
     "css",
     "stylus",
@@ -32,7 +32,9 @@
   ],
   "license": "SEE LICENSE IN LICENSE.txt",
   "private": false,
-  "dependencies": {},
+  "dependencies": {
+    "gulp-plumber": "^1.1.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-insert": "^0.5.0",

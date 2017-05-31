@@ -116,23 +116,23 @@ fs-person {
 
 /** INLINE **/
 /* allow global css class to set all persons to the same style */
-fs-person[inline] .fs-person__portrait,
+fs-person[orientation="inline"] .fs-person__portrait,
 .fs-person--inline .fs-person__portrait {
   display: none;
 }
 
-fs-person[inline] .fs-person__vitals,
+fs-person[orientation="inline"] .fs-person__vitals,
 .fs-person--inline .fs-person__vitals {
   display: flex;
 }
 
-fs-person[inline] .fs-person__name,
+fs-person[orientation="inline"] .fs-person__name,
 .fs-person--inline .fs-person__name {
   flex-shrink: 1;  /* make the name shrink at a very low rate compared to the lifespan */
   margin-right: 30px;
 }
 
-fs-person[inline] .fs-person__details,
+fs-person[orientation="inline"] .fs-person__details,
 .fs-person--inline .fs-person__details {
   padding-left: 0;
   flex-shrink: 10000;
@@ -144,41 +144,41 @@ fs-person[inline] .fs-person__details,
 
 /** STACKED **/
 /* allow global css class to set all persons to the same style */
-fs-person[stacked],
+fs-person[orientation="portrait"],
 .fs-person--stacked fs-person {
   display: block;
   text-align: center;
 }
 
-fs-person[stacked] .fs-person__portrait,
+fs-person[orientation="portrait"] .fs-person__portrait,
 .fs-person--stacked .fs-person__portrait {
   margin: 0 auto 10px;
 }
 
 /* sinotypic names will still use the full name instead of the given-name and family-name */
-fs-person[stacked] .fs-person__sex,
-fs-person[stacked] .fs-person__name:not(.fs-person--sinotypic) .fs-person__full-name,
+fs-person[orientation="portrait"] .fs-person__sex,
+fs-person[orientation="portrait"] .fs-person__name:not(.fs-person--sinotypic) .fs-person__full-name,
 .fs-person--stacked .fs-person__sex,
 .fs-person--stacked .fs-person__name:not(.fs-person--sinotypic) .fs-person__full-name {
   display: none;
 }
 
-fs-person[stacked] .fs-person__name:not(.fs-person--sinotypic) .fs-person__given-name,
-fs-person[stacked] .fs-person__name:not(.fs-person--sinotypic) .fs-person__family-name,
+fs-person[orientation="portrait"] .fs-person__name:not(.fs-person--sinotypic) .fs-person__given-name,
+fs-person[orientation="portrait"] .fs-person__name:not(.fs-person--sinotypic) .fs-person__family-name,
 .fs-person--stacked .fs-person__name:not(.fs-person--sinotypic) .fs-person__given-name,
 .fs-person--stacked .fs-person__name:not(.fs-person--sinotypic) .fs-person__family-name {
   display: block;
   line-height: 1.5rem;
 }
 
-fs-person[stacked] .fs-person__name,
-fs-person[stacked] .fs-person__details,
+fs-person[orientation="portrait"] .fs-person__name,
+fs-person[orientation="portrait"] .fs-person__details,
 .fs-person--stacked .fs-person__name,
 .fs-person--stacked .fs-person__details {
   padding-left: 0;
 }
 
-fs-person[stacked] .fs-person__details,
+fs-person[orientation="portrait"] .fs-person__details,
 .fs-person--stacked .fs-person__details {
   margin-top: 5px;
   display: inline-block;
@@ -272,32 +272,20 @@ fs-person[wife] .fs-person__sex:before {
   var fsPersonProto = Object.create(HTMLElement.prototype);
 
   fsPersonProto.createdCallback = function () {
-    // accept a child <dl> element to define the person object, also provides
-    // a clean fallback if javascript fails
-    // @see https://www.smashingmagazine.com/2017/02/designing-html-apis/
-    var dl = this.querySelector('dl');
-    if (dl) {
-      var dts = dl.querySelectorAll('dt');
-      var dds = dl.querySelectorAll('dd');
-      var person = {};
-
-      for (var i = 0; i < dts.length; i++) {
-
-        // allow HTML in person name
-        person[ dts[i].textContent ] = dds[i].innerHTML;
-      }
-      this.person = person;
-
-      // hide the <dl> element now that we know the element has been bootstraped
-      dl.style.display = 'none';
-    }
+    // accept child name element
+    this.nameSlot = this.querySelector('[slot="name"]');
   },
 
   fsPersonProto.attributeChangedCallback = function(attr, oldValue, newValue) {
 
     // accept person json attribute value
     if (attr === 'person') {
-      this.person = JSON.parse(newValue);
+      try {
+        this.person = JSON.parse(newValue);
+      }
+      catch (e) {
+        // ?
+      }
     }
   };
 
@@ -310,14 +298,15 @@ fs-person[wife] .fs-person__sex:before {
       },
       set: function(value) {
         this._person = Object.assign({
-          sex: 'unknown'
+          sex: 'unknown',
+          name: '[Unknown Name]'
         }, value);
-        this.render();
+        this._render();
       }
     }
   });
 
-  fsPersonProto.render = function() {
+  fsPersonProto._render = function() {
     var clone = document.importNode(template.content, true);
     var hideSeparator = false;
 
@@ -343,7 +332,6 @@ fs-person[wife] .fs-person__sex:before {
     }
     else {
       clone.querySelector('.fs-person__sex').remove();
-      hideSeparator = true;
     }
 
     // name system
@@ -355,8 +343,12 @@ fs-person[wife] .fs-person__sex:before {
     if (this.person.name) {
       var name = clone.querySelector('.fs-person__full-name');
 
-      // allow the name to include html such as headings or links
-      name.innerHTML = this.person.name;
+      if (this.nameSlot) {
+        name.appendChild(this.nameSlot);
+      }
+      else {
+        name.textContent = this.person.name;
+      }
 
       // fire an event when the name is clicked on so they can cancel it to
       // open a person card
@@ -417,3 +409,12 @@ fs-person[wife] .fs-person__sex:before {
   document.registerElement('fs-person', {prototype: fsPersonProto});
 })();
 </script>
+
+
+<!--
+
+TODO:
+- is the medium icon the default gender size now?
+- medium icon size
+
+-->

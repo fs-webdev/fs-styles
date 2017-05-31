@@ -1,5 +1,6 @@
 {
-	"bowerFiles": [
-		"/components/fs-styles/fs-person.html"
-	]
+  "bowerFiles": [
+    "/components/fs-styles/dist/base.min.css",
+    "/components/fs-styles/fs-person.html"
+  ]
 }
