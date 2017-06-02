@@ -294,11 +294,16 @@ p + * {
  *
  * ##### Accessibility
  *
- * Screen readers can jump from link to link to navigate a page. Because of this,
- * all links on a page should be descriptive and unique.
+ * Screen readers can jump from link to link to navigate a page. All links on a page
+ * should be descriptive and unique.
  *
  * If your link just says "Read More," you should either put more description on
  * the link for all users or add visually hidden text just for the screen reader.
+ * For example:
+ *
+ * ```html
+ * Read More <span class="visually-hidden">about John Doe</span>
+ * ```
  *
  * @section
  * @sectionof Typography
@@ -389,12 +394,8 @@ small {
  * ##### Accessibility
  *
  * Screen readers can jump from list to list and even list item to list item within
- * a list. Use lists to allow screen readers to navigate between groups of items easily.
- *
- * For example, when displaying a list of people, you do not need to add `tabindex=0`
- * for a screen reader to be able to read the contents of each person. Instead
- * put each person inside of a list item and the screen reader can jump from person
- * to person by navigating the list items.
+ * a list. Use lists to allow screen readers to navigate between groups of items easily
+ * (such as a list of persons).
  *
  * An added benefit is that the screen reader will announce how many items are in
  * the list and what item they are currently on so they don't get lost inside of
@@ -407,8 +408,7 @@ small {
  * <ul>
  *   <li>This is a list item in an unordered list</li>
  *   <li>An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line. </li>
- *   <li>
- *     Lists can be nested inside of each other
+ *   <li>Lists can be nested inside of each other
  *     <ul>
  *       <li>This is a nested list item</li>
  *       <li>This is another nested list item in an unordered list</li>

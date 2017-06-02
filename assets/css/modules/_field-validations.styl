@@ -27,7 +27,8 @@
  *
  * Associate each message with the form field by using the attribute `aria-describedby=[id]`.
  * This will cause the screen reader to read the contents of the message when focusing on the
- * form field.
+ * form field. This means that as the state changes, so too should the id that the
+ * `aria-describedby` points to.
  *
  * When using the invalid state, use the attribute `aria-invalid="true"` so screen readers
  * know the form field is invalid.

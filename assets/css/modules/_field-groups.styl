@@ -22,8 +22,8 @@
  * ##### Accessibility
  *
  * When using a field group with a checkbox, the checkbox __must__ still have an
- * associated `<label>`. The easiest way to accomplish this is to wrap the
- * contents of the label in a `<span class="visually-hidden">`.
+ * associated `<label>`. Add an `aria-label` attribute to the the `<label>` element to
+ * add text just for screen readers but not visual users.
  *
  * When using a field group with help text, use the attribute `aria-describedby=[id]`.
  * This will cause the screen reader to read the contents of the help text when focusing

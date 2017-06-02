@@ -42,13 +42,13 @@
  *
  * ##### Accessibility
  *
- * It is not always required to add `role="alert"` to alerts. An alert with `role="alert"`
+ * For the most part, you should not add `role="alert"` to alerts. An alert with `role="alert"`
  * is for alerts that appear dynamically somewhere outside of where the user is currently
  * focused and which contains important or time sensitive information (for example an alert
  * that appears to inform the user of an invalid input field). See the [MDN reference for role=alert](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role) for more information on when to use `role="alert"`.
  *
  * When the browser encounters an element with the `role="alert"` attribute, it will
- * immediately read the contents of alert to the user. To quote MDN:
+ * immediately read the contents of alert to the user. [To quote MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role):
  *
  * "Because of its intrusive nature, the alert role must be used sparingly and only in
  * situations where the user's immediate attention is required. Dynamic changes that are
@@ -178,15 +178,15 @@
  * ##### Accessibility
  *
  * The close icon __must__ have text associated with the icon so that screen readers
- * know what the button will do. The easiest way to accomplish this is to wrap the
- * text in a `<span class="visually-hidden">`.
+ * know what the button will do. Add an `aria-label` attribute to the the icon to add
+ * text just for screen readers but not visual users.
  *
  * @section
  * @sectionof Alerts
  *
  * @example
  * <div class="fs-alert">
- *   <button class="fs-dialog__close"><span class="visually-hidden">Close alert</span></button>
+ *   <button class="fs-dialog__close" aria-label="Close alert"></button>
  *   <p>Account saved successfully.</p>
  * </div>
  */

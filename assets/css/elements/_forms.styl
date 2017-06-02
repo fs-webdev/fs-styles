@@ -23,6 +23,11 @@
  * the form. You can then add an event listener to the `onsubmit` event to determine
  * what should happen.
  *
+ * Wrap the inputs in a `<fieldset>` element with a short and descriptive `<legend>` to
+ * group thematically related controls in a form such as address, date of birth,
+ * and sets of radio buttons or check boxes. Screen readers will prefix the text to each
+ * control label contained within the fieldset.
+ *
  * @section
  * @sectionof Forms
  *
@@ -208,9 +213,9 @@ select {
  *
  * ##### Accessibility
  *
- * Wrap the checkboxes in a `<fieldset>` element with a descriptive `<legend>`. This will
- * cause the screen reader to announce the legend for every checkbox so they know which
- * checkboxes are associated with what group.
+ * Wrap the checkboxes in a `<fieldset>` element with a short and descriptive
+ * `<legend>`. Screen readers will prefix the text to each control label contained
+ * within the fieldset.
  *
  * @section
  * @sectionof Forms
@@ -255,9 +260,9 @@ select {
  *
  * ##### Accessibility
  *
- * Wrap the radio buttons in a `<fieldset>` element with a descriptive `<legend>`. This will
- * cause the screen reader to announce the legend for every radio so they know which
- * radio buttons are associated with what group.
+ * Wrap the radio buttons in a `<fieldset>` element with a short and descriptive
+ * `<legend>`. Screen readers will prefix the text to each control label contained
+ * within the fieldset.
  *
  * @section
  * @sectionof Forms
