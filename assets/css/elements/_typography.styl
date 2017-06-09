@@ -132,11 +132,11 @@ body {
  *
  * ##### Accessibility
  *
- * Screen readers can jump from heading to heading to navigate a page. Use headings (even
- * visually hidden ones) to help screen readers navigate a complex page or DOM structure.
+ * Screen readers can navigate to any heading on the page. All headings should be
+ * descriptive and unique.
  *
- * Because screen readers can jump to headings, all headings on a page should be descriptive
- * and unique.
+ * Use headings (even visually hidden ones) to help screen readers navigate a complex
+ * page or DOM structure.
  *
  * @section
  * @sectionof Typography
@@ -294,8 +294,8 @@ p + * {
  *
  * ##### Accessibility
  *
- * Screen readers can jump from link to link to navigate a page. All links on a page
- * should be descriptive and unique.
+ * Screen readers can navigate to any link on the page. All links should be descriptive
+ * and unique.
  *
  * If your link just says "Read More," you should either put more description on
  * the link for all users or add visually hidden text just for the screen reader.
@@ -309,8 +309,12 @@ p + * {
  * @sectionof Typography
  *
  * @example
- * <p><a href="#links">This is a text link</a></p>
- * <p><a href="/">This is a visited text link</a></p>
+ * <p><a href="javascript:void(0)" class="standard-link">This is a text link</a></p>
+ * <p><a href="javascript:void(0)" class="visited-link">This is a visited text link</a></p>
+ *
+ * @code
+ * <p><a href="javascript:void(0)">This is a text link</a></p>
+ * <p><a href="javascript:void(0)">This is a visited text link</a></p>
  */
 a {
   text-decoration: none;
@@ -397,9 +401,8 @@ small {
  * a list. Use lists to allow screen readers to navigate between groups of items easily
  * (such as a list of persons).
  *
- * An added benefit is that the screen reader will announce how many items are in
- * the list and what item they are currently on so they don't get lost inside of
- * a long list.
+ * You can label a list so screen readers know what the list is by using `aria-label`
+ * or `aria-labeledby=[id]` on the `<ul>` element.
  *
  * @section
  * @sectionof Lists
