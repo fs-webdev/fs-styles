@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.0.2 | MIT
+ * v3.1.0 | MIT
  */
 /*
  * FAMILYSEARCH-STYLES (Base)
@@ -322,6 +322,7 @@ body {
 .locale-zh .fs-h5,
 .locale-zh .fs-h6 {
   font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 .locale-ja body,
 .locale-ja h1,
@@ -337,6 +338,7 @@ body {
 .locale-ja .fs-h5,
 .locale-ja .fs-h6 {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 .locale-ko body,
 .locale-ko h1,
@@ -352,6 +354,7 @@ body {
 .locale-ko .fs-h5,
 .locale-ko .fs-h6 {
   font-family: "Apple SD Gothic Neo", "애플고딕", "AppleGothic", "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 h1,
 h2,
@@ -364,18 +367,21 @@ h4 {
 h1 {
   font-size: 30px;
   font-size: 2.143rem;
+  letter-spacing: 0.06rem; /* [1] */
   line-height: 35px;
   line-height: 2.5rem;
 }
 h2 {
   font-size: 26px;
   font-size: 1.857rem;
+  letter-spacing: 0.05rem; /* [1] */
   line-height: 30.1px;
   line-height: 2.15rem;
 }
 h3 {
   font-size: 22px;
   font-size: 1.571rem;
+  letter-spacing: 0.04rem; /* [1] */
   line-height: 27.3px;
   line-height: 1.95rem;
   margin: 0 0 2.844px 0;
@@ -384,6 +390,7 @@ h3 {
 h4 {
   font-size: 18px;
   font-size: 1.286rem;
+  letter-spacing: 0.04rem; /* [1] */
   line-height: 22.75px;
   line-height: 1.625rem;
 }
@@ -393,6 +400,7 @@ h6 {
   font-family: inherit;
   font-size: 14px;
   font-size: 1rem;
+  letter-spacing: 0.03rem; /* [1] */
   line-height: 22.75px;
   line-height: 1.625rem;
   margin: 0 0 2.844px 0;

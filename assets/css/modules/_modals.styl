@@ -30,6 +30,20 @@
  * Do not use a modal if the user needs information or context that would be hidden by the
  * modal or modal overlay.
  *
+ * ##### Accessibility
+ *
+ * Building an accessible modal is not an easy task. See [ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#dialog_modal)
+ * for the complete list of required keyboard interactions. The main takeaways are:
+ * - The modal must trap keyboard focus to just the modal when it is a dialog modal.
+ * - The `esc` key should close the modal so keyboard users do not have to tab to find the
+ *   close button.
+ * - When the modal is opened, keyboard focus should [focus the modal container element](https://github.com/whatwg/html/issues/1929) in most cases (use `outline: none` and `tabindex=-1`).
+ * - When the modal is closed, keyboard focus should return the element that opened the modal.
+ *
+ * The close icon __must__ have text associated with the icon so that screen readers
+ * know what the button will do. Add an `aria-label` attribute to the the icon to add
+ * text just for screen readers but not visual users.
+ *
  * @section
  * @sectionof Modals
  *
@@ -40,7 +54,7 @@
  *     <div class="fs-modal__content">
  *       <div class="fs-modal__header">
  *         <h4 class="fs-modal__title">Modal</h4>
- *         <button class="fs-dialog__close"></button>
+ *         <button class="fs-dialog__close" aria-label="Close modal"></button>
  *       </div>
  *       <div class="fs-modal__body">
  *         <p>This is a modal. It really stands out from the content and forces the user to perform an action before they can continue.</p>
@@ -61,7 +75,7 @@
  *     <div class="fs-modal__content">
  *       <div class="fs-modal__header">
  *         <h4 class="fs-modal__title">Modal</h4>
- *         <button class="fs-dialog__close"></button>
+ *         <button class="fs-dialog__close" aria-label="Close modal"></button>
  *       </div>
  *       <div class="fs-modal__body">
  *         <p>This is a modal. It really stands out from the content and forces the user to perform an action before they can continue.</p>
@@ -94,7 +108,7 @@
  *     <div class="fs-modal__content">
  *       <div class="fs-modal__header">
  *         <h4 class="fs-modal__title">Modal with a Bottom Bar</h4>
- *         <button class="fs-dialog__close"></button>
+ *         <button class="fs-dialog__close" aria-label="Close modal"></button>
  *       </div>
  *       <div class="fs-modal__body">
  *         <p>This modal has a bottom bar that allows users to prevent the modal from displaying again.</p>
@@ -119,7 +133,7 @@
  *     <div class="fs-modal__content">
  *       <div class="fs-modal__header">
  *         <h4 class="fs-modal__title">Modal with a Bottom Bar</h4>
- *         <button class="fs-dialog__close"></button>
+ *         <button class="fs-dialog__close" aria-label="Close modal"></button>
  *       </div>
  *       <div class="fs-modal__body">
  *         <p>This modal has a bottom bar that allows users to prevent the modal from displaying again.</p>
@@ -161,7 +175,7 @@
  *         <div class="fs-modal__content">
  *           <div class="fs-modal__header">
  *             <h4 class="fs-modal__title">Modal Title</h4>
- *             <button class="fs-dialog__close animation__toggle" data-animation-for="fs-modal--show"></button>
+ *             <button class="fs-dialog__close animation__toggle" data-animation-for="fs-modal--show" aria-label="Close modal"></button>
  *           </div>
  *           <div class="fs-modal__body">
  *             <p>This is a modal. It really stands out from the content and forces the user to perform an action before they can continue.</p>
@@ -183,7 +197,7 @@
  *     <div class="fs-modal__content">
  *       <div class="fs-modal__header">
  *         <h4 class="fs-modal__title">Modal Title</h4>
- *         <button class="fs-dialog__close"></button>
+ *         <button class="fs-dialog__close" aria-label="Close modal"></button>
  *       </div>
  *       <div class="fs-modal__body">
  *         <p>This is a modal. It really stands out from the content and forces the user to perform an action before they can continue.</p>

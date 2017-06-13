@@ -50,6 +50,10 @@ body {
 }
 
 // CJK specific stack
+
+/*
+ * 1. Do not increase letter-spacing for CJK font
+ */
 .locale-zh body,
 .locale-zh h1,
 .locale-zh h2,
@@ -66,6 +70,7 @@ body {
   // HanaMinB added to support non-Chinese computers (e.g. translators)
   // to view Unicode extension D+
   font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 
 .locale-ja body,
@@ -82,6 +87,7 @@ body {
 .locale-ja .fs-h5,
 .locale-ja .fs-h6 {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 
 .locale-ko body,
@@ -98,6 +104,7 @@ body {
 .locale-ko .fs-h5,
 .locale-ko .fs-h6 {
   font-family: "Apple SD Gothic Neo", "애플고딕", "AppleGothic", "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", sans-serif;
+  letter-spacing: normal; /* [1] */
 }
 
 
@@ -122,6 +129,14 @@ body {
  *
  * Do not use text formatting, such as font size or bold, to give the visual appearance of
  * a heading when it is not a heading.
+ *
+ * ##### Accessibility
+ *
+ * Screen readers can navigate to any heading on the page. All headings should be
+ * descriptive and unique.
+ *
+ * Use headings (even visually hidden ones) to help screen readers navigate a complex
+ * page or DOM structure.
  *
  * @section
  * @sectionof Typography
@@ -169,6 +184,10 @@ $typography-h3-selectors = 'h3' + ($limit-base-styles ? '' : ', .fs-h3');
 $typography-h4-selectors = 'h4' + ($limit-base-styles ? '' : ', .fs-h4');
 $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-h6');
 
+/*
+ * 1. Increase letter spacing to improve readability for users with dyslexia. Tested
+ *    with a user with dyslexia.
+ */
 {$typography-header-defaults} {
   color: $color-grey;
   font-family: $font-face-heading;
@@ -177,22 +196,26 @@ $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-
 
 {$typography-h1-selectors} {
   font-size: pxToRem($font-size-large-xxx);
+  letter-spacing: 0.06rem; /* [1] */
   line-height: remToPx($line-height-large-xxx);
 }
 
 {$typography-h2-selectors} {
   font-size: pxToRem($font-size-large-xx);
+  letter-spacing: 0.05rem; /* [1] */
   line-height: remToPx($line-height-large-xx);
 }
 
 {$typography-h3-selectors} {
   font-size: pxToRem($font-size-large-x);
+  letter-spacing: 0.04rem; /* [1] */
   line-height: remToPx($line-height-large-x);
   margin: remToPx(0 0 0.203125rem 0);
 }
 
 {$typography-h4-selectors} {
   font-size: pxToRem($font-size-large);
+  letter-spacing: 0.04rem; /* [1] */
   line-height: remToPx($line-height-large);
 }
 
@@ -200,6 +223,7 @@ $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-
   color: $color-grey;
   font-family: inherit;
   font-size: pxToRem($font-size-medium);
+  letter-spacing: 0.03rem; /* [1] */
   line-height: remToPx($line-height-medium);
   margin: remToPx(0 0 0.203125rem 0);
 }
@@ -216,15 +240,15 @@ $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-
 /**
  * Paragraphs
  *
- * ##### Acceptable Use
- *
- * When possible, place the distinguishing information of a paragraph in the first
- * sentence to help improve the scannability of content for all users.
- *
  * ##### Avoid
  *
  * Do not use any font size smaller than the standard paragraph size for any text (other
  * than captions and labels).
+ *
+ * ##### Accessibility
+ *
+ * When possible, place the distinguishing information of a paragraph in the first
+ * sentence to help improve the scannability of content for all users.
  *
  * @section
  * @sectionof Typography
@@ -261,19 +285,37 @@ p + * {
  * ##### Acceptable Use
  *
  * Use links only when the link will cause the user to navigate to a different page or
- * somewhere within the same page.
+ * somewhere within the same page. Another way to think of it – if the URL changes,
+ * you can use a link.
  *
  * ##### Avoid
  *
  * Do not use links when the only purpose is to use it to activate JavaScript (i.e. when
  * the `href` is equal to `#` or `javascript:void(0);`). Use a [button](#buttons) instead.
  *
+ * ##### Accessibility
+ *
+ * Screen readers can navigate to any link on the page. All links should be descriptive
+ * and unique.
+ *
+ * If your link just says "Read More," you should either put more description on
+ * the link for all users or add visually hidden text just for the screen reader.
+ * For example:
+ *
+ * ```html
+ * Read More <span class="visually-hidden">about John Doe</span>
+ * ```
+ *
  * @section
  * @sectionof Typography
  *
  * @example
- * <p><a href="#links">This is a text link</a></p>
- * <p><a href="/">This is a visited text link</a></p>
+ * <p><a href="javascript:void(0)" class="standard-link">This is a text link</a></p>
+ * <p><a href="javascript:void(0)" class="visited-link">This is a visited text link</a></p>
+ *
+ * @code
+ * <p><a href="javascript:void(0)">This is a text link</a></p>
+ * <p><a href="javascript:void(0)">This is a visited text link</a></p>
  */
 a {
   text-decoration: none;
@@ -354,6 +396,15 @@ small {
  *
  * Do not use lists to merely indent or for other layout purposes.
  *
+ * ##### Accessibility
+ *
+ * Screen readers can navigate to any list on the page and even jump from list item
+ * to list item within a list. Use lists to allow screen readers to navigate between
+ * groups of items easily (such as a list of persons).
+ *
+ * You can label a list so screen readers know what the list is by using `aria-label`
+ * or `aria-labeledby=[id]` on the `<ul>` element.
+ *
  * @section
  * @sectionof Lists
  *
@@ -361,8 +412,7 @@ small {
  * <ul>
  *   <li>This is a list item in an unordered list</li>
  *   <li>An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line. </li>
- *   <li>
- *     Lists can be nested inside of each other
+ *   <li>Lists can be nested inside of each other
  *     <ul>
  *       <li>This is a nested list item</li>
  *       <li>This is another nested list item in an unordered list</li>
@@ -375,9 +425,8 @@ small {
 /**
  * Ordered Lists
  *
- * ##### Avoid
- *
- * Do not use lists to merely indent or for other layout purposes.
+ * The criteria for [Unordered Lists](#lists-unordered-lists) also applies to Ordered
+ * Lists.
  *
  * @section
  * @sectionof Lists

@@ -68,27 +68,27 @@ $screen-desktop-hd-min = 1200px;
  *       <tr>
  *         <th scope="row"><code>&dollar;break-mobile</code></td>
  *         <td class="break-point__covered">Visible</td>
- *         <td>Hidden</td>
- *         <td>Hidden</td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *       </tr>
  *       <tr class="break-point__group">
  *         <th scope="row"><code>&dollar;break-tablet-below</code</td>
  *         <td class="break-point__covered">Visible</td>
  *         <td class="break-point__covered">Visible</td>
- *         <td>Hidden</td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *       </tr>
  *       <tr>
  *         <th scope="row"><code>&dollar;break-tablet</code></td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *         <td class="break-point__covered">Visible</td>
- *         <td>Hidden</td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *       </tr>
  *       <tr>
  *         <th scope="row"><code>&dollar;break-tablet-above</code></td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *         <td class="break-point__covered">Visible</td>
  *         <td class="break-point__covered">Visible</td>
  *         <td class="break-point__covered">Visible</td>
@@ -98,27 +98,27 @@ $screen-desktop-hd-min = 1200px;
  *         <td class="break-point__covered">Visible</td>
  *         <td class="break-point__covered">Visible</td>
  *         <td class="break-point__covered">Visible</td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *       </tr>
  *       <tr>
  *         <th scope="row"><code>&dollar;break-desktop</td>
- *         <td>Hidden</td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *         <td class="break-point__covered">Visible</td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *       </tr>
  *       <tr>
  *         <th scope="row"><code>&dollar;break-desktop-above</code></td>
- *         <td>Hidden</td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *         <td class="break-point__covered">Visible</td>
  *         <td class="break-point__covered">Visible</td>
  *       </tr>
  *       <tr class="break-point__group">
  *         <th scope="row"><code>&dollar;break-desktop-hd</code></td>
- *         <td>Hidden</td>
- *         <td>Hidden</td>
- *         <td>Hidden</td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
+ *         <td><span class="visually-hidden">Hidden</span></td>
  *         <td class="break-point__covered">Visible</td>
  *       </tr>
  *    </tbody>
@@ -191,7 +191,7 @@ $break-desktop-hd = "screen and (min-width:" + $screen-desktop-hd-min +")";
 
 /**
  * @colordef Green Primary
- * @color {hex} #87b940
+ * @color {hex} #87B940
  * @color {rgb} 135,185,64
  * @color {cmyk} 53,7,100,0
  * @colorof Colors.Logo Colors.Full Color Logo
@@ -201,7 +201,7 @@ $color-green-primary = #87b940;
 
 /**
  * @colordef Grey Primary
- * @color {hex} #bab7b1
+ * @color {hex} #BAB7B1
  * @color {rgb} 186,183,177
  * @color {cmyk} 28,23,27,0
  * @colorof Colors.Logo Colors.Full Color Logo
@@ -210,7 +210,7 @@ $color-grey-primary = #bab7b1;
 
 /**
  * @colordef Brown Primary
- * @color {hex} #9c947a
+ * @color {hex} #9C947A
  * @color {rgb} 156,148,122
  * @color {cmyk} 40,35,54,4
  * @colorof Colors.Logo Colors.Full Color Logo
@@ -228,7 +228,7 @@ $color-black = #000000;
 
  /**
  * @colordef White
- * @color {hex} #ffffff
+ * @color {hex} #FFFFFF
  * @color {rgb} 255,255,255
  * @color {cmyk} 0,0,0,0
  * @colorof Colors.Logo Colors.Single Color Logos
@@ -243,7 +243,7 @@ $color-white = #ffffff;
  * Use accent colors to help draw attention and create visual interest within your designs.
  *
  * You can lighten the value of the color by adjusting the amount of white added to it (use
- * the [Stylus function](https://learnboost.github.io/stylus/docs/bifs.html#lightencolor-amount) `lighten(color, amount)`) or by adjusting the opacity of the color (use the [Stylus function](https://learnboost.github.io/stylus/docs/bifs.html#rgbacolor--rgba) `rgba(hex, alpha)`).
+ * the [Stylus function `lighten(color, amount)`)](https://learnboost.github.io/stylus/docs/bifs.html#lightencolor-amount) or by adjusting the opacity of the color (use the [Stylus function `rgba(hex, alpha)`](https://learnboost.github.io/stylus/docs/bifs.html#rgbacolor--rgba)).
  *
  * ##### Avoid
  *
@@ -257,7 +257,7 @@ $color-white = #ffffff;
 
 /**
  * @colordef Red Accent
- * @color {hex} #f16458
+ * @color {hex} #F16458
  * @color {rgb} 241,100,88
  * @color {cmyk} 0,76,64,0
  * @colorof Colors.Accent Colors
@@ -266,7 +266,7 @@ $color-red-accent = #f16458;
 
 /**
  * @colordef Blue Accent
- * @color {hex} #27c4f4
+ * @color {hex} #27C4F4
  * @color {rgb} 39,196,244
  * @color {cmyk} 64,0,0,0
  * @colorof Colors.Accent Colors
@@ -275,7 +275,7 @@ $color-blue-accent = #27c4f4;
 
 /**
  * @colordef Orange Accent
- * @color {hex} #fcb34b
+ * @color {hex} #FCB34B
  * @color {rgb} 252,179,75
  * @color {cmyk} 0,34,80,0
  * @colorof Colors.Accent Colors
@@ -284,7 +284,7 @@ $color-orange-accent = #fcb34b;
 
 /**
  * @colordef Green Accent
- * @color {hex} #bfd730
+ * @color {hex} #BFD730
  * @color {rgb} 191,215,48
  * @color {cmyk} 30,0,100,0
  * @colorof Colors.Accent Colors
@@ -302,7 +302,7 @@ $color-purple-accent = #996799;
 
 /**
  * @colordef Brown Accent
- * @color {hex} #9c947a
+ * @color {hex} #9C947A
  * @color {rgb} 156,148,122
  * @color {cmyk} 40,35,54,4
  * @colorof Colors.Accent Colors
@@ -354,7 +354,7 @@ $color-grey-body = #333331;
  * Headings
  *
  * @colordef Grey
- * @color {hex} #4d4d4a
+ * @color {hex} #4D4D4A
  * @color {rgb} 77,77,74
  * @colorof Colors.Text Colors
  */
@@ -387,7 +387,7 @@ $color-grey-light = #666662;
 
 /**
  * @colordef Grey
- * @color {hex} #4d4d4a
+ * @color {hex} #4D4D4A
  * @color {rgb} 77,77,74
  * @colorof Colors.Background Colors
  */
@@ -401,7 +401,7 @@ $color-grey-light = #666662;
 
 /**
  * @colordef Grey Background
- * @color {hex} #ecebea
+ * @color {hex} #ECEBEA
  * @color {rgb} 236,235,234
  * @colorof Colors.Background Colors
  */
@@ -409,7 +409,7 @@ $color-grey-background = #ecebea;
 
 /**
  * @colordef Grey Background Light
- * @color {hex} #f4f4f4
+ * @color {hex} #F4F4F4
  * @color {rgb} 244,244,244
  * @colorof Colors.Background Colors
  */
@@ -444,7 +444,7 @@ $color-grey-background-light = #f4f4f4;
  * Male
  *
  * @colordef Blue Gender
- * @color {hex} #3d8ff7
+ * @color {hex} #3D8FF7
  * @color {rgb} 601,143,247
  * @colorof Colors.Other Colors.Gender Colors
  */
@@ -452,7 +452,7 @@ $color-blue-gender = #3d8ff7;
 
 /**
  * @colordef Blue Gender Light
- * @color {hex} #99c4fe
+ * @color {hex} #99C4FE
  * @color {rgb} 153,196,254
  * @colorof Colors.Other Colors.Light Gender Colors
  */
@@ -462,7 +462,7 @@ $color-blue-gender-light = #99c4fe;
  * Female
  *
  * @colordef Pink Gender
- * @color {hex} #e23f7b
+ * @color {hex} #E23F7B
  * @color {rgb} 226,63,123
  * @colorof Colors.Other Colors.Gender Colors
  */
@@ -470,7 +470,7 @@ $color-pink-gender = #e23f7b;
 
 /**
  * @colordef Pink Gender Light
- * @color {hex} #f48eb6
+ * @color {hex} #F48EB6
  * @color {rgb} 244,142,182
  * @colorof Colors.Other Colors.Light Gender Colors
  */
@@ -494,12 +494,18 @@ $color-pink-gender-light = #f48eb6;
 
 /**
  * @colordef Grey Border
- * @color {hex} #cccccc
+ * @color {hex} #CCCCCC
  * @color {rgb} 204,204,204
  * @colorof Colors.Other Colors.Border Color
  */
 $color-grey-border = #cccccc;
 
+/**
+ * Color Accessibility
+ *
+ * @section
+ * @sectionof Colors
+ */
 
 /*------------------------------------*\
   $FONTS

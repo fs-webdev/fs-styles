@@ -32,6 +32,15 @@
  * set to show. There is no default set to avoid conflicts with elements that
  * might have already set their width or height.
  *
+ * ##### Accessibility
+ *
+ * In the majority of cases, icons should always have a visual text label associated
+ * with them. [Icons without text pose a usability problem](https://www.nngroup.com/articles/icon-usability/)
+ * for most users as they don't know how to interpret the meaning of the icon.
+ *
+ * If you must hide the text of the icon, use the class `visually-hidden` or an `aria-label`.
+ * Never use `display:none` as that will hide it from screen readers as well.
+ *
  * @section
  * @sectionof Icons
  *

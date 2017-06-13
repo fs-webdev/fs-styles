@@ -23,10 +23,53 @@
  * Any type of form field (textareas, input fields, radios, etc.) can be used for
  * validation.
  *
+ * ##### Accessibility
+ *
+ * Associate each message with the form field by using the attribute `aria-describedby=[id]`.
+ * This will cause the screen reader to read the contents of the message when focusing on the
+ * form field. This means that as the state changes, so too should the id that the
+ * `aria-describedby` references.
+ *
+ * When using the invalid state, use the attribute `aria-invalid="true"` so screen readers
+ * know the form field is invalid.
+ *
  * @section
  * @sectionof Forms
  *
  * @example
+ * <label class="example__title" for="defaultState">Default State</label>
+ * <div class="fs-field-validation">
+ *   <input id="defaultState" type="text" placeholder="Example Text"/>
+ *   <p class="fs-field-validation__valid-message" id="validMessage">Please save changes below.</p>
+ *   <p class="fs-field-validation__warning-message" id="warningMessage">Please enter an email address.</p>
+ *   <p class="fs-field-validation__invalid-message" id="invalidMessage">Please enter a valid email.</p>
+ * </div>
+ *
+ * <label class="example__title" for="validState">Valid State</label>
+ * <div class="fs-field-validation fs-field-validation--valid">
+ *   <input id="validState" type="text" placeholder="Example Text" aria-describedby="validMessage1"/>
+ *   <p class="fs-field-validation__valid-message" id="validMessage1">Please save changes below.</p>
+ *   <p class="fs-field-validation__warning-message" id="warningMessage1">Please enter an email address.</p>
+ *   <p class="fs-field-validation__invalid-message" id="invalidMessage1">Please enter a valid email.</p>
+ * </div>
+ *
+ * <label class="example__title" for="warningState">Warning State</label>
+ * <div class="fs-field-validation fs-field-validation--warning">
+ *   <input id="warningState" type="text" placeholder="Example Text" aria-describedby="warningMessage2"/>
+ *   <p class="fs-field-validation__valid-message" id="validMessage2">Please save changes below.</p>
+ *   <p class="fs-field-validation__warning-message" id="warningMessage2">Please enter an email address.</p>
+ *   <p class="fs-field-validation__invalid-message" id="invalidMessage2">Please enter a valid email.</p>
+ * </div>
+ *
+ * <label class="example__title" for="invalidState">Invalid State</label>
+ * <div class="fs-field-validation fs-field-validation--invalid">
+ *   <input id="invalidState" type="text" placeholder="Example Text" aria-describedby="invalidMessage3" aria-invalid="true"/>
+ *   <p class="fs-field-validation__valid-message" id="validMessage3">Please save changes below.</p>
+ *   <p class="fs-field-validation__warning-message" id="warningMessage3">Please enter an email address.</p>
+ *   <p class="fs-field-validation__invalid-message" id="invalidMessage3">Please enter a valid email.</p>
+ * </div>
+ *
+ * @code
  * <label class="example__title" for="defaultState">Default State</label>
  * <div class="fs-field-validation">
  *   <input id="defaultState" type="text" placeholder="Example Text"/>
@@ -53,7 +96,7 @@
  *
  * <label class="example__title" for="invalidState">Invalid State</label>
  * <div class="fs-field-validation fs-field-validation--invalid">
- *   <input id="invalidState" type="text" placeholder="Example Text" aria-describedby="invalidMessage"/>
+ *   <input id="invalidState" type="text" placeholder="Example Text" aria-describedby="invalidMessage" aria-invalid="true"/>
  *   <p class="fs-field-validation__valid-message" id="validMessage">Please save changes below.</p>
  *   <p class="fs-field-validation__warning-message" id="warningMessage">Please enter an email address.</p>
  *   <p class="fs-field-validation__invalid-message" id="invalidMessage">Please enter a valid email.</p>
