@@ -183,16 +183,16 @@
  * ##### Accessibility
  *
  * The gender icon __must__ have text associated with the icon so that screen readers
- * know what the gender of the person is. The desired effect would be that the name
- * is announced first and then the gender. To do this, add a
+ * know what the gender of the person is. Add the gender as visually hidden text to the
+ * gender icon element.
  *
  * ```html
  * <span class="visually-hidden">{gender}</span>
  * ```
  *
- * after the name text. Having the gender attached to the name
- * will also allow screen readers reading the person line by line to hear the gender
- * attached to the name and not as a separate piece.
+ * Having the gender attached as DOM rather than using `aria-label` will allow screen
+ * readers reading line by line to hear the gender. If you use an `aria-label`,
+ * the screen reader won't treat it as a line and will skip over the gender icon.
  *
  * @section
  * @sectionof Persons
@@ -200,7 +200,9 @@
  * @example
  * <div class="fs-person-gender">
  *   <div class="fs-person-gender__container fs-person-gender--medium">
- *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male" aria-label="Male"></div>
+ *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male">
+ *       <span class="visually-hidden">Male</span>
+ *     </div>
  *   </div>
  *   <div class="fs-person-vitals">
  *     <div class="fs-person-vitals__name">
@@ -221,7 +223,9 @@
  *
  * <div class="fs-person-gender">
  *   <div class="fs-person-gender__container fs-person-gender--medium">
- *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-female" aria-label="Female"></div>
+ *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-female">
+ *       <span class="visually-hidden">Female</span>
+ *     </div>
  *   </div>
  *   <div class="fs-person-vitals">
  *     <div class="fs-person-vitals__name">
@@ -242,7 +246,9 @@
  *
  * <div class="fs-person-gender">
  *   <div class="fs-person-gender__container fs-person-gender--medium">
- *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-unknown" aria-label="Gender unknown"></div>
+ *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-unknown">
+ *       <span class="visually-hidden">Gender unknown</span>
+ *     </div>
  *   </div>
  *   <div class="fs-person-vitals">
  *     <div class="fs-person-vitals__name">
@@ -262,7 +268,9 @@
  * @code
  * <div class="fs-person-gender">
  *   <div class="fs-person-gender__container fs-person-gender--medium">
- *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male" aria-label="Male"></div>
+ *     <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male">
+ *       <span class="visually-hidden">Male</span>
+ *     </div>
  *   </div>
  *   <div class="fs-person-vitals">
  *     <div class="fs-person-vitals__name">

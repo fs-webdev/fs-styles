@@ -11,9 +11,6 @@
  *
  * ##### Acceptable Use
  *
- * In most cases, the `title` attribute is good enough to use as tooltip. If you need
- * something that appears immediately on hover, you can use a tooltip.
- *
  * The contents of the element that has the class `fs-tootip__body` will be shown when
  * the element with the class `fs-tooltip__trigger` is hovered or selected. The tooltip
  * will be centered around the element that has the class `fs-tooltip`.
@@ -22,6 +19,10 @@
  * for the tooltip to work.
  *
  * ##### Accessibility
+ *
+ * Never put information that is pertinent to the user in the `title` attribute. Screen
+ * readers typically don't read the contents of the `title` attribute and keyboard
+ * users will never see it because it requires a mouse hover.
  *
  * Associate each tooltip message with the element by using the attribute `aria-describedby=[id]`. This will cause the screen reader to read the contents of the message when focusing
  * on the element.

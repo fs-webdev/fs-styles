@@ -28,7 +28,7 @@
  * Associate each message with the form field by using the attribute `aria-describedby=[id]`.
  * This will cause the screen reader to read the contents of the message when focusing on the
  * form field. This means that as the state changes, so too should the id that the
- * `aria-describedby` points to.
+ * `aria-describedby` references.
  *
  * When using the invalid state, use the attribute `aria-invalid="true"` so screen readers
  * know the form field is invalid.
@@ -63,7 +63,7 @@
  *
  * <label class="example__title" for="invalidState">Invalid State</label>
  * <div class="fs-field-validation fs-field-validation--invalid">
- *   <input id="invalidState" type="text" placeholder="Example Text" aria-describedby="invalidMessage3"/>
+ *   <input id="invalidState" type="text" placeholder="Example Text" aria-describedby="invalidMessage3" aria-invalid="true"/>
  *   <p class="fs-field-validation__valid-message" id="validMessage3">Please save changes below.</p>
  *   <p class="fs-field-validation__warning-message" id="warningMessage3">Please enter an email address.</p>
  *   <p class="fs-field-validation__invalid-message" id="invalidMessage3">Please enter a valid email.</p>
@@ -96,7 +96,7 @@
  *
  * <label class="example__title" for="invalidState">Invalid State</label>
  * <div class="fs-field-validation fs-field-validation--invalid">
- *   <input id="invalidState" type="text" placeholder="Example Text" aria-describedby="invalidMessage"/>
+ *   <input id="invalidState" type="text" placeholder="Example Text" aria-describedby="invalidMessage" aria-invalid="true"/>
  *   <p class="fs-field-validation__valid-message" id="validMessage">Please save changes below.</p>
  *   <p class="fs-field-validation__warning-message" id="warningMessage">Please enter an email address.</p>
  *   <p class="fs-field-validation__invalid-message" id="invalidMessage">Please enter a valid email.</p>

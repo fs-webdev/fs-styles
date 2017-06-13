@@ -208,8 +208,8 @@ select {
  * ##### Acceptable Use
  *
  * Each checkbox __must__ have an associated `<label>` for accessibility. If you must hide
- * the text of the label, use the class `visually-hidden`. Never use `display:none` as that
- * will hide it from screen readers as well.
+ * the text of the label, add the text as an `aria-label` attribute. Never use
+ * `display:none` as that will hide it from screen readers as well.
  *
  * ##### Accessibility
  *
@@ -240,6 +240,12 @@ select {
  *     </ul>
  *   </fieldset>
  * </form>
+ *
+ * <fieldset>
+ *   <legend>Checkbox with hidden label text</legend>
+ *   <input name="radio" type="checkbox" id="checkbox-hidden-label"/>
+ *   <label for="checkbox-hidden-label" aria-label="Mark as Exact"></label>
+ * </fieldset>
  */
 
 /**
@@ -249,9 +255,9 @@ select {
  *
  * Use radio buttons when the user needs to select from a list of less than five options.
  *
- * Each radio button __must__ have an associated `<label>` for accessibility. If you must hide
- * the text of the label, use the class `visually-hidden`. Never use `display:none` as that
- * will hide it from screen readers as well.
+ * Each radio button __must__ have an associated `<label>` for accessibility. If you must
+ * hide the text of the label, add the text as an `aria-label` attribute. Never use
+ * `display:none` as that will hide it from screen readers as well.
  *
  * ##### Avoid
  *
@@ -287,6 +293,12 @@ select {
  *     </ul>
  *   </fieldset>
  * </form>
+ *
+ * <fieldset>
+ *   <legend>Radio button with hidden label text</legend>
+ *   <input name="radio" type="radio" id="radio-hidden-label"/>
+ *   <label for="radio-hidden-label" aria-label="Click me"></label>
+ * </fieldset>
  */
 
 /*

@@ -45,15 +45,17 @@
  * For the most part, you should not add `role="alert"` to alerts. An alert with `role="alert"`
  * is for alerts that appear dynamically somewhere outside of where the user is currently
  * focused and which contains important or time sensitive information (for example an alert
- * that appears to inform the user of an invalid input field). See the [MDN reference for role=alert](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role) for more information on when to use `role="alert"`.
+ * that informs the user of an invalid input field).
  *
  * When the browser encounters an element with the `role="alert"` attribute, it will
  * immediately read the contents of alert to the user. [To quote MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role):
  *
- * "Because of its intrusive nature, the alert role must be used sparingly and only in
+ * > "Because of its intrusive nature, the alert role must be used sparingly and only in
  * situations where the user's immediate attention is required. Dynamic changes that are
  * less urgent should use a less aggressive method, such as aria-live="polite" or other
  * live region roles."
+ *
+ * See the [MDN reference for role=alert](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role) for more information on when to use `role="alert"`.
  *
  * @section
  * @sectionof Alerts
