@@ -1657,3 +1657,53 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 /*
  * OTHER CLASSES
  */
+/*
+ * CSS properties and mixins
+ */
+:root {
+  --fs-screen-mobile-max: 767px;
+  --fs-screen-tablet-min: 768px;
+  --fs-screen-tablet-max: 991px;
+  --fs-screen-desktop-min: 992px;
+  --fs-screen-desktop-max: 1199px;
+  --fs-screen-desktop-hd-min: 1200px;
+  --fs-color-green-primary: #87b940;
+  --fs-color-grey-primary: #bab7b1;
+  --fs-color-brown-primary: #9c947a;
+  --fs-color-black: #000;
+  --fs-color-white: #fff;
+  --fs-color-red-accent: #f16458;
+  --fs-color-blue-accent: #27c4f4;
+  --fs-color-orange-accent: #fcb34b;
+  --fs-color-green-accent: #bfd730;
+  --fs-color-purple-accent: #996799;
+  --fs-color-brown-accent: #9c947a;
+  --fs-color-grey-body: #333331;
+  --fs-color-grey: #4d4d4a;
+  --fs-color-grey-light: #666662;
+  --fs-color-grey-background: #ecebea;
+  --fs-color-grey-background-light: #f4f4f4;
+  --fs-color-blue-gender: #3d8ff7;
+  --fs-color-blue-gender-light: #99c4fe;
+  --fs-color-pink-gender: #e23f7b;
+  --fs-color-pink-gender-light: #f48eb6;
+  --fs-color-grey-border: #ccc;
+  --fs-font-face-body: Verdana, sans-serif;
+  --fs-font-face-heading: "museo", serif;
+  --fs-font-size-small: 12px;
+  --fs-font-size-medium: 14px;
+  --fs-font-size-large: 18px;
+  --fs-font-size-large-x: 22px;
+  --fs-font-size-large-xx: 26px;
+  --fs-font-size-large-xxx: 30px;
+  --fs-font-size-large-xxxx: 36px;
+  --fs-line-height-small: 1.35rem;
+  --fs-line-height-medium: 1.625rem;
+  --fs-line-height-large: 1.625rem;
+  --fs-line-height-large-x: 1.95rem;
+  --fs-line-height-large-xx: 2.15rem;
+  --fs-line-height-large-xxx: 2.5rem;
+  --fs-line-height-large-xxxx: 2.875rem;
+  --fs-border-radius: 4px;
+  --fs-mixin-overflow-ellipsis: {"white-space":"(nowrap)","overflow":"(hidden)","text-overflow":"(ellipsis)"};
+}

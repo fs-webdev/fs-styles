@@ -9,3 +9,78 @@
 .visually-hidden {
   @extends $visually-hidden;
 }
+
+/*
+ * CSS properties and mixins
+ */
+:root {
+  // media queries
+  --fs-screen-mobile-max: $screen-mobile-max;
+
+  --fs-screen-tablet-min: $screen-tablet-min;
+  --fs-screen-tablet-max: $screen-tablet-max;
+
+  --fs-screen-desktop-min: $screen-desktop-min;
+  --fs-screen-desktop-max: $screen-desktop-max;
+
+  --fs-screen-desktop-hd-min: $screen-desktop-hd-min;
+
+  // colors
+  --fs-color-green-primary: $color-green-primary;
+  --fs-color-grey-primary: $color-grey-primary;
+  --fs-color-brown-primary: $color-brown-primary;
+
+  --fs-color-black: $color-black;
+  --fs-color-white: $color-white;
+
+  --fs-color-red-accent: $color-red-accent;
+  --fs-color-blue-accent: $color-blue-accent;
+  --fs-color-orange-accent: $color-orange-accent;
+  --fs-color-green-accent: $color-green-accent;
+  --fs-color-purple-accent: $color-purple-accent;
+  --fs-color-brown-accent: $color-brown-accent;
+
+  --fs-color-grey-body: $color-grey-body;
+  --fs-color-grey: $color-grey;
+
+  --fs-color-grey-light: $color-grey-light;
+  --fs-color-grey-background: $color-grey-background;
+  --fs-color-grey-background-light: $color-grey-background-light;
+
+  --fs-color-blue-gender: $color-blue-gender;
+  --fs-color-blue-gender-light: $color-blue-gender-light;
+  --fs-color-pink-gender: $color-pink-gender;
+  --fs-color-pink-gender-light: $color-pink-gender-light;
+
+  --fs-color-grey-border: $color-grey-border;
+
+  // fonts
+  --fs-font-face-body: $font-face-body;
+  --fs-font-face-heading: $font-face-heading;
+
+  --fs-font-size-small: $font-size-small;
+  --fs-font-size-medium: $font-size-medium;
+  --fs-font-size-large: $font-size-large;
+  --fs-font-size-large-x: $font-size-large-x;
+  --fs-font-size-large-xx: $font-size-large-xx;
+  --fs-font-size-large-xxx: $font-size-large-xxx;
+  --fs-font-size-large-xxxx: $font-size-large-xxxx;
+
+  --fs-line-height-small: $line-height-small;
+  --fs-line-height-medium: $line-height-medium;
+  --fs-line-height-large: $line-height-large;
+  --fs-line-height-large-x: $line-height-large-x;
+  --fs-line-height-large-xx: $line-height-large-xx;
+  --fs-line-height-large-xxx: $line-height-large-xxx;
+  --fs-line-height-large-xxxx: $line-height-large-xxxx;
+
+  // other
+  --fs-border-radius: $border-radius;
+
+  // mixins
+  --fs-mixin-overflow-ellipsis: {
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+  }
+}
