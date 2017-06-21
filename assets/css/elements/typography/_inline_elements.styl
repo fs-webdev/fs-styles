@@ -1,0 +1,117 @@
+/*------------------------------------*\
+  $INLINE_ELEMENTS
+\*------------------------------------*/
+/**
+ * Inline Elements
+ *
+ * ##### Avoid
+ *
+ * Do not use `<small>` as a stand alone element just for small text. It should only be used
+ * inline with other text.
+ *
+ * @section
+ * @sectionof Typography
+ *
+ * @example
+ * <p><strong>Strong is used to indicate strong importance</strong></p>
+ * <p><em>Emphasized or italicized text</em></p>
+ * <p>Superscript<sup>®</sup></p>
+ * <p>Subscript for things like H<sub>2</sub>O</p>
+ * <p><small>This small text is small for fine print, etc.</small></p>
+ */
+button {
+  font-family: inherit;
+}
+
+/*
+ * Inline elements inherit their line-height from their parents (or default to normal if
+ * no parent defines one). This means you cannot set the line-height of an inline element.
+ *
+ * However, if the element is removed from the normal document flow (via display:table-cell,
+ * position:absolute, float:left, etc.), the line-height can be set. Because of this, we will
+ * set the line-height for those cases when it is removed from the document flow, but
+ * understand that it won't apply in the majority of cases.
+ */
+small {
+  font-size: pxToRem($font-size-small);
+  line-height: remToPx($line-height-small);
+  color: $color-grey-light;
+}
+
+
+
+
+
+/**
+ * Lists
+ * @section
+ */
+
+/**
+ * Unordered Lists
+ *
+ * ##### Avoid
+ *
+ * Do not use lists to merely indent or for other layout purposes.
+ *
+ * ##### Accessibility
+ *
+ * Screen readers can navigate to any list on the page and even jump from list item
+ * to list item within a list. Use lists to allow screen readers to navigate between
+ * groups of items easily (such as a list of persons).
+ *
+ * You can label a list so screen readers know what the list is by using `aria-label`
+ * or `aria-labeledby=[id]` on the `<ul>` element.
+ *
+ * @section
+ * @sectionof Lists
+ *
+ * @example
+ * <ul>
+ *   <li>This is a list item in an unordered list</li>
+ *   <li>An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line. </li>
+ *   <li>Lists can be nested inside of each other
+ *     <ul>
+ *       <li>This is a nested list item</li>
+ *       <li>This is another nested list item in an unordered list</li>
+ *     </ul>
+ *   </li>
+ *   <li>This is the last list item</li>
+ * </ul>
+ */
+
+/**
+ * Ordered Lists
+ *
+ * The criteria for [Unordered Lists](#lists-unordered-lists) also applies to Ordered
+ * Lists.
+ *
+ * @section
+ * @sectionof Lists
+ *
+ * @example
+ * <ol>
+ *   <li>This is a list item in an ordered list</li>
+ *   <li>An ordered list is a list in which the sequence of items is important. An ordered list does not necessarily contain sequence characters.</li>
+ *   <li>
+ *     Lists can be nested inside of each other
+ *     <ol>
+ *       <li>This is a nested list item</li>
+ *       <li>This is another nested list item in an ordered list</li>
+ *     </ol>
+ *   </li>
+ *   <li>This is the last list item</li>
+ * </ol>
+ */
+ol, ul, li {
+  line-height: remToPx($line-height-medium);
+  padding: 0;
+}
+
+ol, ul {
+  margin: 0 0 remToPx($line-height-medium $line-height-medium);
+}
+
+li {
+  margin: 0;
+}

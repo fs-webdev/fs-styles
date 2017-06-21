@@ -1,0 +1,64 @@
+/*------------------------------------*\
+  $ANCHORS
+\*------------------------------------*/
+/**
+ * Links
+ *
+ * ##### Acceptable Use
+ *
+ * Use links only when the link will cause the user to navigate to a different page or
+ * somewhere within the same page. Another way to think of it – if the URL changes,
+ * you can use a link.
+ *
+ * ##### Avoid
+ *
+ * Do not use links when the only purpose is to use it to activate JavaScript (i.e. when
+ * the `href` is equal to `#` or `javascript:void(0);`). Use a [button](#buttons) instead.
+ *
+ * ##### Accessibility
+ *
+ * Screen readers can navigate to any link on the page. All links should be descriptive
+ * and unique.
+ *
+ * If your link just says "Read More," you should either put more description on
+ * the link for all users or add visually hidden text just for the screen reader.
+ * For example:
+ *
+ * ```html
+ * Read More <span class="visually-hidden">about John Doe</span>
+ * ```
+ *
+ * @section
+ * @sectionof Typography
+ *
+ * @example
+ * <p><a href="javascript:void(0)" class="standard-link">This is a text link</a></p>
+ * <p><a href="javascript:void(0)" class="visited-link">This is a visited text link</a></p>
+ *
+ * @code
+ * <p><a href="javascript:void(0)">This is a text link</a></p>
+ * <p><a href="javascript:void(0)">This is a visited text link</a></p>
+ */
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+  color: #0060d7;
+}
+
+a:visited {
+  color: #b3467c;
+}
+
+
+
+
+

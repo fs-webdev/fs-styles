@@ -1,0 +1,123 @@
+/*------------------------------------*\
+  $HEADINGS
+\*------------------------------------*/
+/**
+ * Headings
+ *
+ * ##### Acceptable Use
+ *
+ * Use headings in the correct hierarchical manner (`<h1>` followed by `<h2>`, and so on)
+ * as this improves readability and scannability for all users.
+ *
+ * ##### Avoid
+ *
+ * Do not use headings to achieve visual results only (e.g. skipping heading levels
+ * because the lower degree heading matches the desired look).
+ *
+ * Do not use text formatting, such as font size or bold, to give the visual appearance of
+ * a heading when it is not a heading.
+ *
+ * ##### Accessibility
+ *
+ * Screen readers can navigate to any heading on the page. All headings should be
+ * descriptive and unique.
+ *
+ * Use headings (even visually hidden ones) to help screen readers navigate a complex
+ * page or DOM structure.
+ *
+ * @section
+ * @sectionof Typography
+ *
+ * @example
+ * <h1>Heading Level 1</h1>
+ * <h2>Heading Level 2</h2>
+ * <h3>Heading Level 3</h3>
+ * <h4>Heading Level 4</h4>
+ * <h5>Heading Level 5</h5>
+ */
+
+ /**
+ * Heading Classes
+ *
+ * ##### Acceptable Use
+ *
+ * You may style headings to look like other headings in order to achieve aesthetic visual
+ * design but keep correct hierarchical structure (e.g. style an `<h1>` to look like an
+ * `<h3>`).
+ *
+ * ##### Avoid
+ *
+ * Do not apply the heading classes to elements that are not headings (e.g. `<div>`).
+ *
+ * Do not use the Campaign Heading except for campaign pages.
+ *
+ * @section
+ * @sectionof Typography
+ *
+ * @example
+ * <h1 class="fs-h5">H1 styled as H5</h1>
+ * <h2 class="fs-h4">H2 styled as H4</h2>
+ * <h3 class="fs-h3">H3 styled as H3</h3>
+ * <h4 class="fs-h2">H4 styled as H2</h4>
+ * <h5 class="fs-h1">H5 styled as H1</h5>
+ * <h1 class="fs-h1--campaign">Campaign Heading</h1>
+ */
+
+// Typography Selectors (conditional based on the $limit-base-styles flag)
+$typography-header-defaults = 'h1, h2, h3, h4' + ($limit-base-styles ? '' : ', .fs-h1, .fs-h2, .fs-h3, .fs-h4');
+$typography-h1-selectors = 'h1' + ($limit-base-styles ? '' : ', .fs-h1');
+$typography-h2-selectors = 'h2' + ($limit-base-styles ? '' : ', .fs-h2');
+$typography-h3-selectors = 'h3' + ($limit-base-styles ? '' : ', .fs-h3');
+$typography-h4-selectors = 'h4' + ($limit-base-styles ? '' : ', .fs-h4');
+$typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-h6');
+
+/*
+ * 1. Increase letter spacing to improve readability for users with dyslexia. Tested
+ *    with a user with dyslexia.
+ */
+{$typography-header-defaults} {
+  color: $color-grey;
+  font-family: $font-face-heading;
+  margin: 0;
+}
+
+{$typography-h1-selectors} {
+  font-size: pxToRem($font-size-large-xxx);
+  letter-spacing: 0.06rem; /* [1] */
+  line-height: remToPx($line-height-large-xxx);
+}
+
+{$typography-h2-selectors} {
+  font-size: pxToRem($font-size-large-xx);
+  letter-spacing: 0.05rem; /* [1] */
+  line-height: remToPx($line-height-large-xx);
+}
+
+{$typography-h3-selectors} {
+  font-size: pxToRem($font-size-large-x);
+  letter-spacing: 0.04rem; /* [1] */
+  line-height: remToPx($line-height-large-x);
+  margin: remToPx(0 0 0.203125rem 0);
+}
+
+{$typography-h4-selectors} {
+  font-size: pxToRem($font-size-large);
+  letter-spacing: 0.04rem; /* [1] */
+  line-height: remToPx($line-height-large);
+}
+
+{$typography-h5-selectors} {
+  color: $color-grey;
+  font-family: inherit;
+  font-size: pxToRem($font-size-medium);
+  letter-spacing: 0.03rem; /* [1] */
+  line-height: remToPx($line-height-medium);
+  margin: remToPx(0 0 0.203125rem 0);
+}
+
+.fs-h1--campaign {
+  font-size: pxToRem($font-size-large-xxxx);
+  line-height: remToPx($line-height-large-xxxx);
+}
+
+

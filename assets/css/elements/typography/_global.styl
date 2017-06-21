@@ -1,0 +1,88 @@
+/*------------------------------------*\
+  $GLOBAL
+\*------------------------------------*/
+html {
+  font-size: $font-size-medium;
+
+  // CJK specific stack
+  &.locale-zh,
+  &.locale-ja,
+  &.locale-ko {
+    font-size: 16px;
+  }
+
+  @media $break-mobile {
+    font-size: $font-size-small;
+
+    &.locale-zh,
+    &.locale-ja,
+    &.locale-ko {
+      font-size: 14px;
+    }
+  }
+}
+
+body {
+  color: $color-grey-body;
+  font-family: $font-face-body;
+  font-size: pxToRem($font-size-medium);
+  line-height: remToPx($line-height-medium);
+}
+
+// CJK specific stack
+
+/*
+ * 1. Do not increase letter-spacing for CJK font
+ */
+.locale-zh body,
+.locale-zh h1,
+.locale-zh h2,
+.locale-zh h3,
+.locale-zh h4,
+.locale-zh h5,
+.locale-zh h6,
+.locale-zh .fs-h1,
+.locale-zh .fs-h2,
+.locale-zh .fs-h3,
+.locale-zh .fs-h4,
+.locale-zh .fs-h5,
+.locale-zh .fs-h6  {
+  // HanaMinB added to support non-Chinese computers (e.g. translators)
+  // to view Unicode extension D+
+  font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
+  letter-spacing: normal; /* [1] */
+}
+
+.locale-ja body,
+.locale-ja h1,
+.locale-ja h2,
+.locale-ja h3,
+.locale-ja h4,
+.locale-ja h5,
+.locale-ja h6,
+.locale-ja .fs-h1,
+.locale-ja .fs-h2,
+.locale-ja .fs-h3,
+.locale-ja .fs-h4,
+.locale-ja .fs-h5,
+.locale-ja .fs-h6 {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic", sans-serif;
+  letter-spacing: normal; /* [1] */
+}
+
+.locale-ko body,
+.locale-ko h1,
+.locale-ko h2,
+.locale-ko h3,
+.locale-ko h4,
+.locale-ko h5,
+.locale-ko h6,
+.locale-ko .fs-h1,
+.locale-ko .fs-h2,
+.locale-ko .fs-h3,
+.locale-ko .fs-h4,
+.locale-ko .fs-h5,
+.locale-ko .fs-h6 {
+  font-family: "Apple SD Gothic Neo", "애플고딕", "AppleGothic", "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", sans-serif;
+  letter-spacing: normal; /* [1] */
+}
