@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.1.1 | MIT
+ * v3.2.0 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -42,6 +42,21 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+h5,
+h6,
+.fs-h5,
+.fs-h6,
+.fs-card__title {
+  color: #4d4d4a;
+  font-family: inherit;
+  font-size: 14px;
+  font-size: 1rem;
+  letter-spacing: 0.03rem; /* [1] */
+  line-height: 22.75px;
+  line-height: 1.625rem;
+  margin: 0 0 2.844px 0;
+  margin: 0 0 0.203125rem 0;
 }
 input[type="checkbox"][id],
 input[type="radio"][id],
@@ -874,21 +889,6 @@ h4,
   line-height: 22.75px;
   line-height: 1.625rem;
 }
-h5,
-h6,
-.fs-h5,
-.fs-h6,
-.fs-card__title {
-  color: #4d4d4a;
-  font-family: inherit;
-  font-size: 14px;
-  font-size: 1rem;
-  letter-spacing: 0.03rem; /* [1] */
-  line-height: 22.75px;
-  line-height: 1.625rem;
-  margin: 0 0 2.844px 0;
-  margin: 0 0 0.203125rem 0;
-}
 .fs-h1--campaign {
   font-size: 36px;
   font-size: 2.571rem;
@@ -905,19 +905,16 @@ p {
 p + * {
   margin-top: 1.625rem;
 }
-a,
-.fs-person-parents__show-label {
+a {
   text-decoration: none;
 }
-a:hover,
-.fs-person-parents__show-label:hover {
+a:hover {
   text-decoration: underline;
 }
 a,
 a:hover,
 a:active,
-a:focus,
-.fs-person-parents__show-label {
+a:focus {
   color: #0060d7;
 }
 a:visited {

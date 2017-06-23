@@ -220,12 +220,7 @@ $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-
 }
 
 {$typography-h5-selectors} {
-  color: $color-grey;
-  font-family: inherit;
-  font-size: pxToRem($font-size-medium);
-  letter-spacing: 0.03rem; /* [1] */
-  line-height: remToPx($line-height-medium);
-  margin: remToPx(0 0 0.203125rem 0);
+  @extend $h5;
 }
 
 .fs-h1--campaign {
