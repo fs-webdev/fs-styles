@@ -1,10 +1,31 @@
+@require _variables
+
 /*------------------------------------*\
   $PLACEHOLDER_SELECTORS
   @see https://learnboost.github.io/stylus/docs/extend.html#extending-placeholder-selectors
 
-  Icon placeholders should only be used for the style guide to help consolidate the use of icons to just one URL declaration. All other apps should use the `fs-icon` class to keep
-  the URL declaration to just one instance.
+  Any @extend rule cannot extend from a non-placeholder so anyone who needs to wrap
+  an @import file inside of another selector can do so. The helpers import should
+  remain global scope so all @extends work:
+
+  ```
+  @import 'helpers/*'
+
+  #scoped {
+    @import 'elements/*'
+    @import 'modules/*'
+  }
+  ```
 \*------------------------------------*/
+
+$h5 {
+  color: $color-grey;
+  font-family: inherit;
+  font-size: pxToRem($font-size-medium);
+  letter-spacing: 0.03rem; /* [1] */
+  line-height: remToPx($line-height-medium);
+  margin: remToPx(0 0 0.203125rem 0);
+}
 
 $visually-hidden
   position: absolute;
@@ -17,6 +38,10 @@ $visually-hidden
   border: 0;
 
 /*
+ * Icon placeholders should only be used for the style guide to help consolidate the
+ * use of icons to just one URL declaration. All other apps should use the `fs-icon`
+ * class to keep the URL declaration to just one instance.
+ *
  * 1. All svgs should be optimized before encoded. Optimize using extreme setting
  *    (where possible) on https://petercollingridge.appspot.com/svg-editor
  * 2. All svgs should then be url encoded and optimized using the code found here

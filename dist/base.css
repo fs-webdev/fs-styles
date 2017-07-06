@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.1.1 | MIT
+ * v3.2.0 | MIT
  */
 /*
  * FAMILYSEARCH-STYLES (Base)
@@ -46,6 +46,18 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+h5,
+h6 {
+  color: #4d4d4a;
+  font-family: inherit;
+  font-size: 14px;
+  font-size: 1rem;
+  letter-spacing: 0.03rem; /* [1] */
+  line-height: 22.75px;
+  line-height: 1.625rem;
+  margin: 0 0 2.844px 0;
+  margin: 0 0 0.203125rem 0;
 }
 input[type="checkbox"][id],
 input[type="radio"][id] {
@@ -393,18 +405,6 @@ h4 {
   letter-spacing: 0.04rem; /* [1] */
   line-height: 22.75px;
   line-height: 1.625rem;
-}
-h5,
-h6 {
-  color: #4d4d4a;
-  font-family: inherit;
-  font-size: 14px;
-  font-size: 1rem;
-  letter-spacing: 0.03rem; /* [1] */
-  line-height: 22.75px;
-  line-height: 1.625rem;
-  margin: 0 0 2.844px 0;
-  margin: 0 0 0.203125rem 0;
 }
 .fs-h1--campaign {
   font-size: 36px;
