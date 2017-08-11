@@ -12,6 +12,8 @@
 
 /*
  * CSS properties and mixins
+ * 1. Boolean for reduced motion preference
+ *    @see https://twitter.com/steveg3003/status/888500276847562752
  */
 :root {
   // media queries
@@ -76,11 +78,18 @@
 
   // other
   --fs-border-radius: $border-radius;
+  --fs-animation-duration: 1; /* [1] */
 
   // mixins
   --fs-mixin-overflow-ellipsis: {
     white-space: nowrap
     overflow: hidden
     text-overflow: ellipsis
+  }
+}
+
+@media (prefers-reduced-motion), (prefers-reduced-motion: reduce) {
+  :root {
+    --fs-animation-duration: 0;
   }
 }

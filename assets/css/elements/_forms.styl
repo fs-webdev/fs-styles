@@ -51,12 +51,12 @@
 /*
  * 1. The input wrapped by a label pattern has been deprecated in favor of the new
  *    input followed by a label for accessibility. However, keep the old styles
- *    so that apps can convert piecemeal instead of all at once.
+ *    so that apps can convert piecemeal instead of all at once. Deprecate in v4.
  */
 label {
   color: $color-grey-light;
   display: block;
-  font-size: pxToRem($font-size-small);
+  font-size: $font-size-small;
   font-weight: normal;
   line-height: $line-height-small;
   margin-bottom: 5px;
@@ -118,11 +118,11 @@ input[type="color"] {
   box-sizing: border-box;
   color: $color-grey-body;
   font-family: inherit;
-  font-size: pxToRem($font-size-medium);
+  font-size: $font-size-medium;
   height: inherit;  // needed to override Bootstrap fixed height
   line-height: normal; /* [2] */
   margin-bottom: 0;
-  padding: pxToRem(6px 10px); /* [1] */
+  padding: 6px 10px; /* [1] */
   transition: border linear 0.2s;
   width: 100%;
 
@@ -185,11 +185,11 @@ select {
   border: 1px solid $color-grey-border;
   color: $color-grey-body;
   font-family: inherit;
-  font-size: pxToRem($font-size-medium);
-  height: pxToRem(30px);
+  font-size: $font-size-medium;
+  height: 30px;
   line-height: $line-height-medium;
   margin: 0;
-  padding: pxToRem(4px 6px);
+  padding: 4px 6px;
   width: 100%;
 
   &:focus {
@@ -326,11 +326,11 @@ input[type="radio"][id] {
     border: 1px solid $color-grey-border;
     content: '';
     display: inline-block;
-    height: pxToRem(20px);
+    height: 20px;
     position: relative;
     transition: background-size 0.15s ease-out, background-color 0.15s ease-out;
     vertical-align: middle;
-    width: pxToRem(20px);
+    width: 20px;
   }
 
   /* [2] */
@@ -413,7 +413,7 @@ fieldset {
 legend {
   border: 0;
   color: $color-grey-body;
-  font-size: pxToRem($font-size-medium);
-  line-height: remToPx($line-height-medium);
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
   margin: 0 0 5px 0;
 }
