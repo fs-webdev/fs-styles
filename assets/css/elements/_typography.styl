@@ -22,21 +22,21 @@
   $GLOBAL
 \*------------------------------------*/
 html {
-  font-size: $font-size-medium;
+  font-size: unit($base-font-size, 'px');
 
   // CJK specific stack
-  &.locale-zh,
-  &.locale-ja,
-  &.locale-ko {
+  &[lang="zh"],
+  &[lang="ja"],
+  &[lang="ko"] {
     font-size: 16px;
   }
 
   @media $break-mobile {
-    font-size: $font-size-small;
+    font-size: 12px;
 
-    &.locale-zh,
-    &.locale-ja,
-    &.locale-ko {
+    &[lang="zh"],
+    &[lang="ja"],
+    &[lang="ko"] {
       font-size: 14px;
     }
   }
@@ -45,8 +45,8 @@ html {
 body {
   color: $color-grey-body;
   font-family: $font-face-body;
-  font-size: pxToRem($font-size-medium);
-  line-height: remToPx($line-height-medium);
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
 }
 
 // CJK specific stack
@@ -54,55 +54,58 @@ body {
 /*
  * 1. Do not increase letter-spacing for CJK font
  */
-.locale-zh body,
-.locale-zh h1,
-.locale-zh h2,
-.locale-zh h3,
-.locale-zh h4,
-.locale-zh h5,
-.locale-zh h6,
-.locale-zh .fs-h1,
-.locale-zh .fs-h2,
-.locale-zh .fs-h3,
-.locale-zh .fs-h4,
-.locale-zh .fs-h5,
-.locale-zh .fs-h6  {
+[lang="zh"],
+[lang="zh"] body,
+[lang="zh"] h1,
+[lang="zh"] h2,
+[lang="zh"] h3,
+[lang="zh"] h4,
+[lang="zh"] h5,
+[lang="zh"] h6,
+[lang="zh"] .fs-h1,
+[lang="zh"] .fs-h2,
+[lang="zh"] .fs-h3,
+[lang="zh"] .fs-h4,
+[lang="zh"] .fs-h5,
+[lang="zh"] .fs-h6  {
   // HanaMinB added to support non-Chinese computers (e.g. translators)
   // to view Unicode extension D+
   font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
   letter-spacing: normal; /* [1] */
 }
 
-.locale-ja body,
-.locale-ja h1,
-.locale-ja h2,
-.locale-ja h3,
-.locale-ja h4,
-.locale-ja h5,
-.locale-ja h6,
-.locale-ja .fs-h1,
-.locale-ja .fs-h2,
-.locale-ja .fs-h3,
-.locale-ja .fs-h4,
-.locale-ja .fs-h5,
-.locale-ja .fs-h6 {
+[lang="ja"],
+[lang="ja"] body,
+[lang="ja"] h1,
+[lang="ja"] h2,
+[lang="ja"] h3,
+[lang="ja"] h4,
+[lang="ja"] h5,
+[lang="ja"] h6,
+[lang="ja"] .fs-h1,
+[lang="ja"] .fs-h2,
+[lang="ja"] .fs-h3,
+[lang="ja"] .fs-h4,
+[lang="ja"] .fs-h5,
+[lang="ja"] .fs-h6 {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic", sans-serif;
   letter-spacing: normal; /* [1] */
 }
 
-.locale-ko body,
-.locale-ko h1,
-.locale-ko h2,
-.locale-ko h3,
-.locale-ko h4,
-.locale-ko h5,
-.locale-ko h6,
-.locale-ko .fs-h1,
-.locale-ko .fs-h2,
-.locale-ko .fs-h3,
-.locale-ko .fs-h4,
-.locale-ko .fs-h5,
-.locale-ko .fs-h6 {
+[lang="ko"],
+[lang="ko"] body,
+[lang="ko"] h1,
+[lang="ko"] h2,
+[lang="ko"] h3,
+[lang="ko"] h4,
+[lang="ko"] h5,
+[lang="ko"] h6,
+[lang="ko"] .fs-h1,
+[lang="ko"] .fs-h2,
+[lang="ko"] .fs-h3,
+[lang="ko"] .fs-h4,
+[lang="ko"] .fs-h5,
+[lang="ko"] .fs-h6 {
   font-family: "Apple SD Gothic Neo", "애플고딕", "AppleGothic", "맑은 고딕", "Malgun Gothic", "굴림", "Gulim", sans-serif;
   letter-spacing: normal; /* [1] */
 }
@@ -176,56 +179,62 @@ body {
  * <h1 class="fs-h1--campaign">Campaign Heading</h1>
  */
 
-// Typography Selectors (conditional based on the $limit-base-styles flag)
-$typography-header-defaults = 'h1, h2, h3, h4' + ($limit-base-styles ? '' : ', .fs-h1, .fs-h2, .fs-h3, .fs-h4');
-$typography-h1-selectors = 'h1' + ($limit-base-styles ? '' : ', .fs-h1');
-$typography-h2-selectors = 'h2' + ($limit-base-styles ? '' : ', .fs-h2');
-$typography-h3-selectors = 'h3' + ($limit-base-styles ? '' : ', .fs-h3');
-$typography-h4-selectors = 'h4' + ($limit-base-styles ? '' : ', .fs-h4');
-$typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-h6');
-
 /*
  * 1. Increase letter spacing to improve readability for users with dyslexia. Tested
  *    with a user with dyslexia.
  */
-{$typography-header-defaults} {
+h1,
+h2,
+h3,
+h4,
+.fs-h1,
+.fs-h2,
+.fs-h3,
+.fs-h4 {
   color: $color-grey;
   font-family: $font-face-heading;
   margin: 0;
 }
 
-{$typography-h1-selectors} {
-  font-size: pxToRem($font-size-large-xxx);
+h1,
+.fs-h1 {
+  font-size: $font-size-large-xxx;
   letter-spacing: 0.06rem; /* [1] */
-  line-height: remToPx($line-height-large-xxx);
+  line-height: $line-height-large-xxx;
 }
 
-{$typography-h2-selectors} {
-  font-size: pxToRem($font-size-large-xx);
+h2,
+.fs-h2 {
+  font-size: $font-size-large-xx;
   letter-spacing: 0.05rem; /* [1] */
-  line-height: remToPx($line-height-large-xx);
+  line-height: $line-height-large-xx;
 }
 
-{$typography-h3-selectors} {
-  font-size: pxToRem($font-size-large-x);
+h3,
+.fs-h3 {
+  font-size: $font-size-large-x;
   letter-spacing: 0.04rem; /* [1] */
-  line-height: remToPx($line-height-large-x);
-  margin: remToPx(0 0 0.203125rem 0);
+  line-height: $line-height-large-x;
+  margin: 0 0 0.203125rem 0;
 }
 
-{$typography-h4-selectors} {
-  font-size: pxToRem($font-size-large);
+h4,
+.fs-h4 {
+  font-size: $font-size-large;
   letter-spacing: 0.04rem; /* [1] */
-  line-height: remToPx($line-height-large);
+  line-height: $line-height-large;
 }
 
-{$typography-h5-selectors} {
+h5,
+h6,
+.fs-h5,
+.fs-h6 {
   @extend $h5;
 }
 
 .fs-h1--campaign {
-  font-size: pxToRem($font-size-large-xxxx);
-  line-height: remToPx($line-height-large-xxxx);
+  font-size: $font-size-large-xxxx;
+  line-height: $line-height-large-xxxx;
 }
 
 
@@ -256,8 +265,8 @@ $typography-h5-selectors = 'h5, h6' + ($limit-base-styles ? '' : ', .fs-h5, .fs-
  * longer prose.</p>
  */
 p {
-  font-size: pxToRem($font-size-medium);
-  line-height: remToPx($line-height-medium);
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
   margin: 0;
 }
 
@@ -356,9 +365,6 @@ a:visited {
  * <p>Subscript for things like H<sub>2</sub>O</p>
  * <p><small>This small text is small for fine print, etc.</small></p>
  */
-button {
-  font-family: inherit;
-}
 
 /*
  * Inline elements inherit their line-height from their parents (or default to normal if
@@ -370,8 +376,8 @@ button {
  * understand that it won't apply in the majority of cases.
  */
 small {
-  font-size: pxToRem($font-size-small);
-  line-height: remToPx($line-height-small);
+  font-size: $font-size-small;
+  line-height: $line-height-small;
   color: $color-grey-light;
 }
 
@@ -441,12 +447,12 @@ small {
  * </ol>
  */
 ol, ul, li {
-  line-height: remToPx($line-height-medium);
+  line-height: $line-height-medium;
   padding: 0;
 }
 
 ol, ul {
-  margin: 0 0 remToPx($line-height-medium $line-height-medium);
+  margin: 0 0 $line-height-medium $line-height-medium;
 }
 
 li {

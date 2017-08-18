@@ -1,20 +1,19 @@
-var gulp = require('gulp');
+let gulp = require('gulp');
 let cleanCSS = require('gulp-clean-css');
-var rename = require('gulp-rename');
-var stylus = require('gulp-stylus');
-var size = require('gulp-size');
-var insert = require('gulp-insert');
-var plumber = require('gulp-plumber');
-var package = require('./package.json');
+let rename = require('gulp-rename');
+let stylus = require('gulp-stylus');
+let size = require('gulp-size');
+let insert = require('gulp-insert');
+let plumber = require('gulp-plumber');
 
-var header = '/*\n' +
+let header = '/*\n' +
              ' * FamilySearch Styles\n' +
              ' * https://github.com/fs-webdev/fs-styles\n' +
-             ' * v' + package.version + ' | MIT\n' +
+             ' * v' + require('./package.json').version + ' | MIT\n' +
              ' */\n';
 
 gulp.task('build', function() {
-  return gulp.src(['assets/css/familysearch-styles.styl', 'assets/css/base.styl'])
+  return gulp.src('assets/css/familysearch-styles.styl')
     .pipe(plumber())
     .pipe(stylus())
     .pipe(insert.prepend(header))
@@ -24,8 +23,18 @@ gulp.task('build', function() {
     .pipe(rename(function(path) {
       path.basename += '.min';
     }))
-    .pipe(size())
+    .pipe(size({
+      gzip: true
+    }))
     .pipe(gulp.dest('dist'))
+    .pipe(rename('fs-styles.html'))
+    .pipe(insert.prepend(`<dom-module id="fs-styles">
+  <template>
+    <style>\n`))
+    .pipe(insert.append(`\n    </style>
+  </tempalte>
+</dom-module>`))
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('watch', function() {
