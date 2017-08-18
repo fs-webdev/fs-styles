@@ -41,7 +41,6 @@ pxToRem($num)
       $value = round($n / $base-font-size, $round-precision)
       $rems = $rems ($value > 0 ? unit($value, 'rem') : $value)
 
-    add-property(current-property[0], $pxs)
     return $rems
   else
     error('pxToRem() must be used within a property')

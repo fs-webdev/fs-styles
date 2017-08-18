@@ -205,7 +205,7 @@ button,
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
-  padding: 8.5px 20px; /* [1] */
+  padding: 0.607rem 1.429rem; /* [1] */
   position: relative;
   text-decoration: none;
   transition: padding 0.2s;
@@ -337,11 +337,9 @@ button:after,
 }
 .fs-button--large {
   border-radius: 5px;
-  padding: 16px 20px;
   padding: 1.143rem 1.429rem; /* [1] */
 }
 .fs-button--small {
-  padding: 6px 20px;
   padding: 0.429rem 1.429rem; /* [1] */
 }
 .fs-button--small.is-loading {
@@ -427,7 +425,6 @@ input[type="color"] {
   height: inherit;
   line-height: normal; /* [2] */
   margin-bottom: 0;
-  padding: 6px 10px;
   padding: 0.429rem 0.714rem; /* [1] */
   transition: border linear 0.2s;
   width: 100%;
@@ -494,10 +491,9 @@ select {
   color: #333331;
   font-family: inherit;
   font-size: 1rem;
-  height: 30px;
+  height: 2.143rem;
   line-height: 1.625rem;
   margin: 0;
-  padding: 4px 6px;
   padding: 0.286rem 0.429rem;
   width: 100%;
 }
@@ -517,12 +513,10 @@ input[type="radio"][id] + label:before {
   border: 1px solid #ccc;
   content: '';
   display: inline-block;
-  height: 20px;
   height: 1.429rem;
   position: relative;
   transition: background-size 0.15s ease-out, background-color 0.15s ease-out;
   vertical-align: middle;
-  width: 20px;
   width: 1.429rem;
 }
 input[type="checkbox"][id][disabled] + label,
@@ -612,9 +606,7 @@ legend {
 .fs-icon-before:before,
 .fs-icon-after:after {
 /* [1] */
-  height: 20px;
   height: 1.429rem;
-  width: 20px;
   width: 1.429rem;
 }
 .fs-icon-before:before,
@@ -624,38 +616,30 @@ legend {
   vertical-align: middle;
 }
 .fs-icon-before:before {
-  margin-right: 6px;
   margin-right: 0.429rem;
 }
 .fs-icon-after:after {
-  margin-left: 6px;
   margin-left: 0.429rem;
 }
 .fs-icon[class*=fs-icon-small-],
 .fs-icon-before[class*=fs-icon-small-]:before,
 .fs-icon-after[class*=fs-icon-small-]:after {
 /* [1] */
-  height: 8px;
   height: 0.571rem;
-  width: 8px;
   width: 0.571rem;
 }
 .fs-icon[class*=fs-icon-medium-],
 .fs-icon-before[class*=fs-icon-medium-]:before,
 .fs-icon-after[class*=fs-icon-medium-]:after {
 /* [2] */
-  height: 22px;
   height: 1.571rem;
-  width: 22px;
   width: 1.571rem;
 }
 .fs-icon[class*=fs-icon-large-],
 .fs-icon-before[class*=fs-icon-large-]:before,
 .fs-icon-after[class*=fs-icon-large-]:after {
 /* [3] */
-  height: 66px;
   height: 4.714rem;
-  width: 66px;
   width: 4.714rem;
 }
 .fs-tooltip {
@@ -915,7 +899,6 @@ li {
   border: 1px solid #bfd730;
   color: #44650f;
   display: block;
-  padding: 10px 40px 10px 34px;
   padding: 0.714rem 2.857rem 0.714rem 2.429rem;
   position: relative;
 /*------------------------------------*    $INFO
@@ -969,8 +952,8 @@ li {
   opacity: 0.5;
   padding: 0;
   position: absolute;
-  right: 10px;
-  top: 10px;
+  right: 0.714rem;
+  top: 0.714rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
