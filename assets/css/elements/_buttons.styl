@@ -12,11 +12,10 @@
  * RECOMMENDED_BUTTON...Button used for recommended actions
  * MINOR_BUTTON.........Button used for minor actions
  * DESTRUCTIVE_BUTTON...Button used for destructive actions
- * BUttON_STATES........Button states (hover, disabled, etc.)
+ * BUTTON_STATES........Button states (hover, disabled, etc.)
  * LARGE_BUTTON.........A larger button used for campaign pages
  * SMALL_BUTTON.........A smaller button used for apps and inline form elements
  * LOADING_ANIMATION....Animation for a loading button
- * LEGACY_BUTTON........Deprecated .fs-button class styles. Deprecate in v4
  */
 
 
@@ -56,8 +55,6 @@ $link-blue = #0060d7;
  * By default, buttons are left aligned to the content. In most cases, the recommended
  * button is the leftmost button.
  *
- * The `fs-button` should be used for most buttons.
- *
  * The `fs-button--recommended` should be used to recommend an action to the user.
  *
  * The `fs-button--minor` should be used for actions that you wish to de-emphasize.
@@ -79,17 +76,17 @@ $link-blue = #0060d7;
  * @example
  * <p>
  *   <small class="example__title">Options</small>
- *   <button class="recommended">Recommended</button>
+ *   <button class="fs-button--recommended">Recommended</button>
  *   <button>Button</button>
- *   <button class="minor">Minor</button>
- *   <button class="destructive">Destructive</button>
+ *   <button class="fs-button--minor">Minor</button>
+ *   <button class="fs-button--destructive">Destructive</button>
  * </p>
  *
  * <p>
  *   <small class="example__title">Sizes</small>
- *   <button class="large">Large</button>
+ *   <button class="fs-button--large">Large</button>
  *   <button>Default</button>
- *   <button class="small">Small</button>
+ *   <button class="fs-button--small">Small</button>
  * </p>
  *
  * <p>
@@ -101,7 +98,7 @@ $link-blue = #0060d7;
  *
  * <p>
  *   <small class="example__title">Disabled</small>
- *   <button class="recommended" disabled>Recommended</button>
+ *   <button class="fs-button--recommended" disabled>Recommended</button>
  *   <button disabled>Button</button>
  * </p>
  */
@@ -117,11 +114,14 @@ $link-blue = #0060d7;
  *    default hover, disabled, and focus/active styles don't get overridden
  *    by the other types (since button.recommended has the same specificity as
  *    button:disabled).
- * 7. .fs-button class is for links that need to be styled like buttons.
+ * 7. Normally we wouldn't use [type=submit] by itself (should be qualified with
+ *    an input selector), but that would prevent a single class from overriding
+ *    the styles on buttons (which is a huge change from the fs-button class).
+ * 8. fs-button class is for links that need to be styled like buttons.
  */
 button,
-input[type="submit"],
-.fs-button {
+[type="submit"], /* [7] */
+.fs-button { /* [8] */
   appearance: none;
   -webkit-touch-callout: none;
   background-color: $grey;
@@ -135,257 +135,6 @@ input[type="submit"],
   font-weight: normal;
   line-height: 1;
   padding: 8.5px 20px; /* [1] */
-  position: relative;
-  text-decoration: none;
-  transition: padding .2s;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-
-
-
-
-
-  /*------------------------------------*\
-    $RECOMMENDED_BUTTON
-  \*------------------------------------*/
-  &.recommended {
-    background-color: $blue;
-    border: 1px solid darken($blue, 5%);
-    color: #fff;
-
-    &:hover { /* [3] */
-      background-color: $blue-light;
-      color: #fff;
-    }
-
-    &:active {
-      background-color: $blue-dark;
-    }
-
-    &:focus,
-    &:visited {
-      color: #fff; /* [2] */
-    }
-  }
-
-
-
-
-
-  /*------------------------------------*\
-    $MINOR_BUTTON
-  \*------------------------------------*/
-  &.minor {
-    background-color: transparent;
-    color: $link-blue;
-    border-color: transparent;
-
-    &:hover { /* [3] */
-      background-color: transparent;
-      color: $link-blue;
-      text-decoration: underline;
-    }
-
-    &:active {
-      background-color: transparent;
-      color: $link-blue;
-      text-decoration: underline;
-    }
-
-    &:focus,
-    &:visited {
-      color: $link-blue; /* [2] */
-    }
-  }
-
-
-
-
-
-  /*------------------------------------*\
-    $DESTRUCTIVE_BUTTON
-  \*------------------------------------*/
-  &.destructive {
-    background-color: $red;
-    border: 1px solid darken($red, 5%);
-    color: #fff;
-
-    &:hover { /* [3] */
-      background-color: $red-light;
-      color: #fff;
-    }
-
-    &:active {
-      background-color: $red-dark;
-    }
-
-    &:focus,
-    &:visited {
-      color: #fff; /* [2] */
-    }
-  }
-
-
-
-
-
-  /*------------------------------------*\
-    $BUTTON_STATES
-  \*------------------------------------*/
-  /* [6] */
-  &:hover { /* [3] */
-    background-color: $grey-light;
-    color: $color-grey-body;
-    text-decoration: none;
-  }
-
-  &:active {
-    background-color: $grey-dark;
-  }
-
-  &:disabled,
-  &:disabled:hover { /* [5] */
-    background-color: $grey;
-    border: 1px solid lighten($grey-border, 20%);
-    color: rgba($color-grey-body, 0.3);
-    cursor: not-allowed;
-    text-decoration: none;
-  }
-
-  // fix outline for firefox and safari removed by bootstrap
-  &:focus {
-    outline: auto 2px Highlight;
-    outline: auto 5px -webkit-focus-ring-color;
-  }
-
-  &:focus,
-  &:visited {
-    color: $color-grey-body; /* [2] */
-    text-decoration: none;
-    outline-offset: 2px; /* [4] */
-  }
-
-  &:after {
-    content: '';
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-
-
-
-
-  /*------------------------------------*\
-    $LARGE_BUTTON
-  \*------------------------------------*/
-  /*
-   * 1. Large button height should be 50px
-   */
-  &.large {
-    border-radius: 5px;
-    padding: 16px 20px; /* [1] */
-  }
-
-
-
-
-
-  /*------------------------------------*\
-    $SMALL_BUTTON
-  \*------------------------------------*/
-  /*
-   * 1. Small button height should be 30px
-   */
-  &.small {
-    padding: 6px 20px; /* [1] */
-
-    &.is-loading {
-      padding-right: 42px;
-
-      &:after {
-        width: 16px;
-        height: 16px;
-        margin-top: 0;
-      }
-    }
-  }
-
-
-
-
-
-  /*------------------------------------*\
-    $LOADING_ANIMATION
-  \*------------------------------------*/
-  /**
-   * Animations
-   *
-   * The `fs-button--loading` class will only work for buttons and anchor tags. Input tags
-   * will not work.
-   *
-   * ##### Acceptable Use
-   *
-   * Disable the button while the <code>fs-button--loading</code> class is active.
-   *
-   * @section
-   * @sectionof Buttons
-   *
-   * @example
-   * <div class="row-fluid">
-   *   <p class="span9">
-   *     <small class="example__title">Loading - <code>fs-button--loading</code></small>
-   *     <button class="recommended animation__toggle" data-animation="fs-button--loading" data-animation-for="fs-button--loading" data-animation-show="true">
-   *       <span class="animation__show">Loading</span>
-   *     </button>
-   *   </p>
-   * </div>
-   *
-   * @code
-   * <p>
-   *   <button class="loading">Loading</button>
-   * <p>
-   */
-  &[loading] {
-    padding-right: 47px;
-
-    &:after {
-      @extends $icon-spinner-light;
-      background-size: contain;
-      height: 20px;
-      margin-top: -2px;
-      opacity: 1;
-      position: absolute;
-      right: 15px;
-      width: 20px;
-    }
-
-    &[disabled]:after {
-      @extends $icon-spinner;
-    }
-  }
-}
-
-
-
-
-
-/*------------------------------------*\
-  $LEGACY_BUTTON
-\*------------------------------------*/
-.fs-button {
-  appearance: none;
-  -webkit-touch-callout: none;
-  background-color: $grey;
-  border-radius: $border-radius;
-  border: 1px solid $grey-border;
-  color: $color-grey-body;
-  cursor: pointer;
-  display: inline-block;
-  font-size: pxToRem($font-size-medium);
-  font-weight: normal;
-  line-height: 1;
-  padding: pxToRem(8.5px 20px); /* [1] */
   position: relative;
   text-decoration: none;
   transition: padding .2s;
@@ -437,7 +186,16 @@ input[type="submit"],
     opacity: 0;
     transition: opacity 0.3s;
   }
+}
 
+
+
+
+
+.fs-button {
+  /*------------------------------------*\
+    $RECOMMENDED_BUTTON
+  \*------------------------------------*/
   &--recommended {
     background-color: $blue;
     border: 1px solid darken($blue, 5%);
@@ -467,6 +225,13 @@ input[type="submit"],
     }
   }
 
+
+
+
+
+  /*------------------------------------*\
+    $MINOR_BUTTON
+  \*------------------------------------*/
   &--minor {
     background-color: transparent;
     color: $link-blue;
@@ -490,6 +255,13 @@ input[type="submit"],
     }
   }
 
+
+
+
+
+  /*------------------------------------*\
+    $DESTRUCTIVE_BUTTON
+  \*------------------------------------*/
   &--destructive {
     background-color: $red;
     border: 1px solid darken($red, 5%);
@@ -519,6 +291,13 @@ input[type="submit"],
     }
   }
 
+
+
+
+
+  /*------------------------------------*\
+    $LARGE_BUTTON
+  \*------------------------------------*/
   /*
    * 1. Large button height should be 50px
    */
@@ -527,6 +306,13 @@ input[type="submit"],
     padding: pxToRem(16px 20px); /* [1] */
   }
 
+
+
+
+
+  /*------------------------------------*\
+    $SMALL_BUTTON
+  \*------------------------------------*/
   /*
    * 1. Small button height should be 30px
    */
@@ -543,23 +329,61 @@ input[type="submit"],
       }
     }
   }
+}
 
-  &--loading {
-    padding-right: 47px;
 
-    &:after {
-      @extends $icon-spinner-light;
-      background-size: contain;
-      height: 20px;
-      margin-top: -2px;
-      opacity: 1;
-      position: absolute;
-      right: 15px;
-      width: 20px;
-    }
 
-    &[disabled]:after {
-      @extends $icon-spinner;
-    }
+
+
+/*------------------------------------*\
+  $LOADING_ANIMATION
+\*------------------------------------*/
+/**
+ * Animations
+ *
+ * The `loading` attribute will only work for buttons and anchor tags. Input tags
+ * will not work.
+ *
+ * ##### Acceptable Use
+ *
+ * Disable the button while the `loading` attribute is active.
+ *
+ * @section
+ * @sectionof Buttons
+ *
+ * @example
+ * <div class="row-fluid">
+ *   <p class="span9">
+ *     <small class="example__title">Loading - <code>loading</code></small>
+ *     <button type="button" class="fs-button fs-button--recommended animation__toggle" data-animation="fs-button--loading" data-animation-for="fs-button--loading" data-animation-show="true">
+ *       <span class="animation__show">Loading</span>
+ *     </button>
+ *   </p>
+ * </div>
+ *
+ * @code
+ * <p>
+ *   <button type="button" class="fs-button" loading>Loading</button>
+ * <p>
+ */
+.fs-button--loading,
+button[loading],
+[type="submit"][loading],
+.fs-button[loading] {
+  padding-right: 47px;
+
+  &:after {
+    @extends $icon-spinner-light;
+    background-size: contain;
+    height: 20px;
+    margin-top: -2px;
+    opacity: 1;
+    position: absolute;
+    right: 15px;
+    width: 20px;
+  }
+
+  &[disabled]:after {
+    @extends $icon-spinner;
   }
 }

@@ -122,7 +122,7 @@ input[type="color"] {
   height: inherit;  // needed to override Bootstrap fixed height
   line-height: normal; /* [2] */
   margin-bottom: 0;
-  padding: 6px 10px; /* [1] */
+  padding: pxToRem(6px 10px); /* [1] */
   transition: border linear 0.2s;
   width: 100%;
 
@@ -189,7 +189,7 @@ select {
   height: 30px;
   line-height: $line-height-medium;
   margin: 0;
-  padding: 4px 6px;
+  padding: pxToRem(4px 6px);
   width: 100%;
 
   &:focus {
@@ -236,6 +236,19 @@ select {
  *       <li>
  *         <input name="checkbox" type="checkbox" id="choiceC"/>
  *         <label for="choiceC">Choice C</label>
+ *       </li>
+ *     </ul>
+ *   </fieldset>
+ *   <fieldset>
+ *     <legend>Disabled checkboxes</legend>
+ *     <ul>
+ *       <li>
+ *         <input name="checkbox-disabled" type="checkbox" id="choiceADisabled" checked disabled/>
+ *         <label for="choiceADisabled">Selected</label>
+ *       </li>
+ *       <li>
+ *         <input name="checkbox-disabled" type="checkbox" id="choiceBDisabled" disabled/>
+ *         <label for="choiceBDisabled">Not selected</label>
  *       </li>
  *     </ul>
  *   </fieldset>
@@ -286,6 +299,19 @@ select {
  *       </li>
  *     </ul>
  *   </fieldset>
+ *   <fieldset>
+ *     <legend>Disabled radio buttons</legend>
+ *     <ul>
+ *       <li>
+ *         <input name="radio-disabled" type="radio" id="option1-disabled" checked disabled/>
+ *         <label for="option1-disabled">Selected</label>
+ *       </li>
+ *       <li>
+ *         <input name="radio-disabled" type="radio" id="option2-disabled" disabled/>
+ *         <label for="option2-disabled">Not selected</label>
+ *       </li>
+ *     </ul>
+ *   </fieldset>
  * </form>
  */
 
@@ -326,11 +352,16 @@ input[type="radio"][id] {
     border: 1px solid $color-grey-border;
     content: '';
     display: inline-block;
-    height: 20px;
+    height: pxToRem(20px);
     position: relative;
     transition: background-size 0.15s ease-out, background-color 0.15s ease-out;
     vertical-align: middle;
-    width: 20px;
+    width: pxToRem(20px);
+  }
+
+  &[disabled] + label {
+    color: rgba(51,51,49,0.4);
+    cursor: not-allowed;
   }
 
   /* [2] */
