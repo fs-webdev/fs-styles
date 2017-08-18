@@ -192,7 +192,7 @@ input[type="radio"][id],
   color: #333331;
   cursor: pointer;
   display: inline-block;
-  font-size: 0.071rem;
+  font-size: 1rem;
   font-weight: normal;
   line-height: 1;
   padding: 0.607rem 1.429rem; /* [1] */
