@@ -96,10 +96,10 @@
     background-repeat: no-repeat;
     background-size: 20px;
     content: '';
-    height: $baseline-grid;
+    height: unit($baseline-grid, 'rem');
     left: 7px;
     position: absolute;
-    width: $baseline-grid;
+    width: unit($baseline-grid, 'rem');
   }
 
   &__title {
@@ -202,7 +202,7 @@
   background-repeat: no-repeat;
   border: none;
   box-shadow: 0 0 0 transparent;
-  height: $baseline-grid;
+  height: unit($baseline-grid, 'rem');
   line-height: 1;
   opacity: .5;
   padding: 0;
@@ -210,7 +210,7 @@
   right: pxToRem(10px);
   top: pxToRem(10px);
   user-select: none;
-  width: $baseline-grid;
+  width: unit($baseline-grid, 'rem');
 
   &:hover,
   &:focus {

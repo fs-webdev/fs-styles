@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.3.0 | MIT
+ * v3.4.0 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -913,10 +913,10 @@ li {
   background-repeat: no-repeat;
   background-size: 20px;
   content: '';
-  height: 1.625;
+  height: 1.625rem;
   left: 7px;
   position: absolute;
-  width: 1.625;
+  width: 1.625rem;
 }
 .fs-alert__title {
   color: inherit;
@@ -947,7 +947,7 @@ li {
   background-repeat: no-repeat;
   border: none;
   box-shadow: 0 0 0 transparent;
-  height: 1.625;
+  height: 1.625rem;
   line-height: 1;
   opacity: 0.5;
   padding: 0;
@@ -958,7 +958,7 @@ li {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  width: 1.625;
+  width: 1.625rem;
 }
 .fs-dialog__close:hover,
 .fs-dialog__close:focus {
@@ -1542,7 +1542,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   color: #666662;
   cursor: pointer;
   display: inline-block;
-  font-size: 0.857rem;
   line-height: 1.35rem;
   margin-right: 1px;
   padding: 4px 10px;
