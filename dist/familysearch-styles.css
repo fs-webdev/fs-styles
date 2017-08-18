@@ -126,9 +126,6 @@ input[type="radio"][id],
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0' y='0' width='8' height='8'%3E%3Crect x='0.2' y='0.2' fill='%23448EF7' width='7.8' height='7.8'/%3E%3C/svg%3E") !important;
 }
 .fs-button--loading[disabled]:after,
-button[loading][disabled]:after,
-[type="submit"][loading][disabled]:after,
-.fs-button[loading][disabled]:after,
 .fs-icon.fs-icon-spinner,
 .fs-icon-before.fs-icon-spinner:before,
 .fs-icon-after.fs-icon-spinner:after {
@@ -137,9 +134,6 @@ button[loading][disabled]:after,
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0' y='0' width='128' height='128'%3E%3Cg stroke='%23333331' stroke-width='12' stroke-linecap='round' stroke-miterlimit='10'%3E%3Cline x1='64' y1='8.1' x2='64' y2='27.8' opacity='0.1'/%3E%3Cline x1='36.1' y1='15.6' x2='45.9' y2='32.6' opacity='0.9'/%3E%3Cline x1='15.6' y1='36.1' x2='32.6' y2='45.9' opacity='0.8'/%3E%3Cline x1='8.1' y1='64' x2='27.8' y2='64' opacity='0.7'/%3E%3Cline x1='15.6' y1='91.9' x2='32.6' y2='82.1' opacity='0.7'/%3E%3Cline x1='36.1' y1='112.4' x2='45.9' y2='95.4' opacity='0.6'/%3E%3Cline x1='64' y1='119.9' x2='64' y2='100.2' opacity='0.5'/%3E%3Cline x1='91.9' y1='112.4' x2='82.1' y2='95.4' opacity='0.4'/%3E%3Cline x1='112.4' y1='91.9' x2='95.4' y2='82.1' opacity='0.3'/%3E%3Cline x1='119.9' y1='64' x2='100.2' y2='64' opacity='0.2'/%3E%3Cline x1='112.4' y1='36.1' x2='95.4' y2='45.9' opacity='0.2'/%3E%3Cline x1='91.9' y1='15.6' x2='82.1' y2='32.6' opacity='0.1'/%3E%3C/g%3E%3C/svg%3E") !important;
 }
 .fs-button--loading:after,
-button[loading]:after,
-[type="submit"][loading]:after,
-.fs-button[loading]:after,
 .fs-icon.fs-icon-spinner-light,
 .fs-icon-before.fs-icon-spinner-light:before,
 .fs-icon-after.fs-icon-spinner-light:after {
@@ -187,10 +181,7 @@ button[loading]:after,
   background: #fff;
   color: #333331;
 }
-button,
-[type="submit"],
 .fs-button {
-/* [8] */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -201,8 +192,7 @@ button,
   color: #333331;
   cursor: pointer;
   display: inline-block;
-  font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.071rem;
   font-weight: normal;
   line-height: 1;
   padding: 0.607rem 1.429rem; /* [1] */
@@ -215,59 +205,85 @@ button,
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+/*------------------------------------*    $RECOMMENDED_BUTTON
+  \*------------------------------------*/
+/*------------------------------------*    $MINOR_BUTTON
+  \*------------------------------------*/
+/*------------------------------------*    $DESTRUCTIVE_BUTTON
+  \*------------------------------------*/
+/*------------------------------------*    $LARGE_BUTTON
+  \*------------------------------------*/
+/*
+   * 1. Large button height should be 50px
+   */
+/*------------------------------------*    $SMALL_BUTTON
+  \*------------------------------------*/
+/*
+   * 1. Small button height should be 30px
+   */
+/*------------------------------------*    $LOADING_ANIMATION
+  \*------------------------------------*/
+/**
+   * Animations
+   *
+   * The `fs-button--loading` class will only work for buttons and anchor tags. Input tags
+   * will not work.
+   *
+   * ##### Acceptable Use
+   *
+   * Disable the button while the <code>fs-button--loading</code> class is active.
+   *
+   * @section
+   * @sectionof Buttons
+   *
+   * @example
+   * <div class="row-fluid">
+   *   <p class="span9">
+   *     <small class="example__title">Loading - <code>fs-button--loading</code></small>
+   *     <button type="button" class="fs-button fs-button--recommended animation__toggle" data-animation="fs-button--loading" data-animation-for="fs-button--loading" data-animation-show="true">
+   *       <span class="animation__show">Loading</span>
+   *     </button>
+   *   </p>
+   * </div>
+   *
+   * @code
+   * <p>
+   *   <button type="button" class="fs-button fs-button--loading">Loading</button>
+   * <p>
+   */
 }
-button:hover,
-[type="submit"]:hover,
 .fs-button:hover {
 /* [3] */
   background-color: #fbfaf9;
   color: #333331;
   text-decoration: none;
 }
-button:hover:disabled,
-[type="submit"]:hover:disabled,
 .fs-button:hover:disabled,
-button:hover.disabled,
-[type="submit"]:hover.disabled,
 .fs-button:hover.disabled {
   background-color: #f5f4f1;
   color: rgba(51,51,49,0.3);
   text-decoration: none;
 }
-button:active,
-[type="submit"]:active,
 .fs-button:active {
   background-color: #e8e6e0;
 }
-button:disabled,
-[type="submit"]:disabled,
 .fs-button:disabled,
-button.disabled,
-[type="submit"].disabled,
 .fs-button.disabled {
   cursor: not-allowed;
   background-color: #f5f4f1;
   border: 1px solid #cbc6b9;
   color: rgba(51,51,49,0.3);
 }
-button:focus,
-[type="submit"]:focus,
 .fs-button:focus {
   outline: auto 2px Highlight;
   outline: auto 5px -webkit-focus-ring-color;
 }
-button:focus,
-[type="submit"]:focus,
 .fs-button:focus,
-button:visited,
-[type="submit"]:visited,
 .fs-button:visited {
   color: #333331; /* [2] */
   text-decoration: none;
   outline-offset: 2px; /* [4] */
 }
-button:after,
-[type="submit"]:after,
 .fs-button:after {
   content: '';
   opacity: 0;
@@ -350,16 +366,10 @@ button:after,
   height: 16px;
   margin-top: 0;
 }
-.fs-button--loading,
-button[loading],
-[type="submit"][loading],
-.fs-button[loading] {
+.fs-button--loading {
   padding-right: 47px;
 }
-.fs-button--loading:after,
-button[loading]:after,
-[type="submit"][loading]:after,
-.fs-button[loading]:after {
+.fs-button--loading:after {
   background-size: contain;
   height: 20px;
   margin-top: -2px;
