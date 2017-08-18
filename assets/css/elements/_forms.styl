@@ -51,12 +51,12 @@
 /*
  * 1. The input wrapped by a label pattern has been deprecated in favor of the new
  *    input followed by a label for accessibility. However, keep the old styles
- *    so that apps can convert piecemeal instead of all at once.
+ *    so that apps can convert piecemeal instead of all at once. Deprecate in v4.
  */
 label {
   color: $color-grey-light;
   display: block;
-  font-size: pxToRem($font-size-small);
+  font-size: $font-size-small;
   font-weight: normal;
   line-height: $line-height-small;
   margin-bottom: 5px;
@@ -118,7 +118,7 @@ input[type="color"] {
   box-sizing: border-box;
   color: $color-grey-body;
   font-family: inherit;
-  font-size: pxToRem($font-size-medium);
+  font-size: $font-size-medium;
   height: inherit;  // needed to override Bootstrap fixed height
   line-height: normal; /* [2] */
   margin-bottom: 0;
@@ -185,7 +185,7 @@ select {
   border: 1px solid $color-grey-border;
   color: $color-grey-body;
   font-family: inherit;
-  font-size: pxToRem($font-size-medium);
+  font-size: $font-size-medium;
   height: pxToRem(30px);
   line-height: $line-height-medium;
   margin: 0;
@@ -239,6 +239,19 @@ select {
  *       </li>
  *     </ul>
  *   </fieldset>
+ *   <fieldset>
+ *     <legend>Disabled checkboxes</legend>
+ *     <ul>
+ *       <li>
+ *         <input name="checkbox-disabled" type="checkbox" id="choiceADisabled" checked disabled/>
+ *         <label for="choiceADisabled">Selected</label>
+ *       </li>
+ *       <li>
+ *         <input name="checkbox-disabled" type="checkbox" id="choiceBDisabled" disabled/>
+ *         <label for="choiceBDisabled">Not selected</label>
+ *       </li>
+ *     </ul>
+ *   </fieldset>
  * </form>
  */
 
@@ -283,6 +296,19 @@ select {
  *       <li>
  *         <input name="radio" type="radio" id="option3"/>
  *         <label for="option3">Option 3</label>
+ *       </li>
+ *     </ul>
+ *   </fieldset>
+ *   <fieldset>
+ *     <legend>Disabled radio buttons</legend>
+ *     <ul>
+ *       <li>
+ *         <input name="radio-disabled" type="radio" id="option1-disabled" checked disabled/>
+ *         <label for="option1-disabled">Selected</label>
+ *       </li>
+ *       <li>
+ *         <input name="radio-disabled" type="radio" id="option2-disabled" disabled/>
+ *         <label for="option2-disabled">Not selected</label>
  *       </li>
  *     </ul>
  *   </fieldset>
@@ -331,6 +357,11 @@ input[type="radio"][id] {
     transition: background-size 0.15s ease-out, background-color 0.15s ease-out;
     vertical-align: middle;
     width: pxToRem(20px);
+  }
+
+  &[disabled] + label {
+    color: rgba(51,51,49,0.4);
+    cursor: not-allowed;
   }
 
   /* [2] */
@@ -413,7 +444,7 @@ fieldset {
 legend {
   border: 0;
   color: $color-grey-body;
-  font-size: pxToRem($font-size-medium);
-  line-height: remToPx($line-height-medium);
+  font-size: $font-size-medium;
+  line-height: $line-height-medium;
   margin: 0 0 5px 0;
 }

@@ -32,13 +32,11 @@
   ],
   "license": "SEE LICENSE IN LICENSE.txt",
   "private": false,
-  "dependencies": {
-    "gulp-plumber": "^1.1.0"
-  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-clean-css": "^3.4.2",
     "gulp-insert": "^0.5.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-size": "^2.0.0",
     "gulp-stylus": "^2.0.6",
