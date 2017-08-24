@@ -32,7 +32,7 @@ gulp.task('build', function() {
   <template>
     <style>\n`))
     .pipe(insert.append(`\n    </style>
-  </tempalte>
+  </template>
 </dom-module>`))
     .pipe(gulp.dest('.'));
 });
