@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v2.2.0 | MIT
+ * v2.3.1 | MIT
  */
 /*
  * FAMILYSEARCH-STYLES (Base)
@@ -373,4 +373,17 @@ ul {
 }
 li {
   margin: 0;
+}
+/*
+ * OTHER CLASSES
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
