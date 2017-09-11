@@ -68,6 +68,8 @@
 /*
  * 1. Subnav should have a fixed height of 35px.
  * 2. Leftmost and rightmost links should be flush with the grid.
+ * 3. Specify font-size because text nodes inherit font-size from the body, but
+ *    buttons will be given a font-size from the browsers default style sheet
  */
 .fs-subnav {
   margin: 0 auto;
@@ -110,6 +112,7 @@
     color: $color-grey-light;
     cursor: pointer;
     display: inline-block;
+    font-size: 1rem; /* [3] */
     line-height: $line-height-small;
     margin-right: 1px;
     padding: 4px 10px;
