@@ -830,8 +830,13 @@ h4,
 .fs-h3,
 .fs-h4 {
   color: #4d4d4a;
-  font-family: "museo", serif;
+  font-family: "museo", serif; /* [3] */
+  font-family: var(--fs-font-face-heading, "museo", serif) /* [2, 3] */;
+  font-weight: normal;
   margin: 0;
+}
+:root.museo-loaded {
+  --fs-font-face-heading: "museo", serif; /* [2] */
 }
 h1,
 .fs-h1 {
@@ -1603,6 +1608,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
  * CSS properties and mixins
  * 1. Boolean for reduced motion preference
  *    @see https://twitter.com/steveg3003/status/888500276847562752
+ * 2. Default heading font to verdana and lazy load with museo
  */
 :root {
   --fs-screen-mobile-max: 767px;
@@ -1633,7 +1639,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   --fs-color-pink-gender-light: #f48eb6;
   --fs-color-grey-border: #ccc;
   --fs-font-face-body: Verdana, sans-serif;
-  --fs-font-face-heading: "museo", serif;
+  --fs-font-face-heading: Verdana, sans-serif; /* [2] */
   --fs-font-size-small: 0.857rem;
   --fs-font-size-medium: 1rem;
   --fs-font-size-large: 1.286rem;

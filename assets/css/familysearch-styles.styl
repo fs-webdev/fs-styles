@@ -14,6 +14,7 @@
  * CSS properties and mixins
  * 1. Boolean for reduced motion preference
  *    @see https://twitter.com/steveg3003/status/888500276847562752
+ * 2. Default heading font to verdana and lazy load with museo
  */
 :root {
   // media queries
@@ -58,7 +59,7 @@
 
   // fonts
   --fs-font-face-body: $font-face-body;
-  --fs-font-face-heading: $font-face-heading;
+  --fs-font-face-heading: $font-face-body; /* [2] */
 
   --fs-font-size-small: $font-size-small;
   --fs-font-size-medium: $font-size-medium;
