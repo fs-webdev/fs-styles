@@ -182,6 +182,8 @@ body {
 /*
  * 1. Increase letter spacing to improve readability for users with dyslexia. Tested
  *    with a user with dyslexia.
+ * 2. Default heading font to verdana and lazy load with museo
+ * 3. If browser doesn't support custom properties then we won't lazy load the font
  */
 h1,
 h2,
@@ -192,8 +194,14 @@ h4,
 .fs-h3,
 .fs-h4 {
   color: $color-grey;
-  font-family: $font-face-heading;
+  font-family: $font-face-heading; /* [3] */
+  font-family: var(--fs-font-face-heading, $font-face-heading) /* [2, 3] */
+  font-weight: normal;
   margin: 0;
+}
+
+:root.museo-loaded {
+  --fs-font-face-heading: $font-face-heading; /* [2] */
 }
 
 h1,
