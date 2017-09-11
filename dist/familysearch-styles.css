@@ -1552,6 +1552,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   color: #666662;
   cursor: pointer;
   display: inline-block;
+  font-size: 1rem; /* [3] */
   line-height: 1.35rem;
   margin-right: 1px;
   padding: 4px 10px;
