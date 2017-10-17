@@ -356,8 +356,10 @@ $link-blue = #0060d7;
   &--loading {
     padding-right: 47px;
 
-    &:after {
-      @extends $icon-spinner-light;
+    &:after,
+    &[disabled]:after,
+    &.fs-button--recommended[disabled]:after {
+      @extends $icon-spinner;
       background-size: contain;
       height: 20px;
       margin-top: -2px;
@@ -367,8 +369,8 @@ $link-blue = #0060d7;
       width: 20px;
     }
 
-    &[disabled]:after {
-      @extends $icon-spinner;
+    &.fs-button--recommended:after {
+      @extends $icon-spinner-light;
     }
   }
 }

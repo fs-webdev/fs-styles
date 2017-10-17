@@ -125,7 +125,9 @@ input[type="radio"][id],
 .fs-icon-after.fs-icon-small-male:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 x=%220%22 y=%220%22 width=%228%22 height=%228%22%3E%3Crect x=%220.2%22 y=%220.2%22 fill=%22%23448EF7%22 width=%227.8%22 height=%227.8%22/%3E%3C/svg%3E") !important;
 }
+.fs-button--loading:after,
 .fs-button--loading[disabled]:after,
+.fs-button--loading.fs-button--recommended[disabled]:after,
 .fs-icon.fs-icon-spinner,
 .fs-icon-before.fs-icon-spinner:before,
 .fs-icon-after.fs-icon-spinner:after {
@@ -136,7 +138,9 @@ input[type="radio"][id],
   animation: rotate 1s infinite steps(12) !important;
 }
 @media (prefers-reduced-motion), (prefers-reduced-motion: reduce) {
+  .fs-button--loading:after,
   .fs-button--loading[disabled]:after,
+  .fs-button--loading.fs-button--recommended[disabled]:after,
   .fs-icon.fs-icon-spinner,
   .fs-icon-before.fs-icon-spinner:before,
   .fs-icon-after.fs-icon-spinner:after {
@@ -144,7 +148,7 @@ input[type="radio"][id],
     animation: none !important;
   }
 }
-.fs-button--loading:after,
+.fs-button--loading.fs-button--recommended:after,
 .fs-icon.fs-icon-spinner-light,
 .fs-icon-before.fs-icon-spinner-light:before,
 .fs-icon-after.fs-icon-spinner-light:after {
@@ -155,7 +159,7 @@ input[type="radio"][id],
   animation: rotate 1s infinite steps(12) !important;
 }
 @media (prefers-reduced-motion), (prefers-reduced-motion: reduce) {
-  .fs-button--loading:after,
+  .fs-button--loading.fs-button--recommended:after,
   .fs-icon.fs-icon-spinner-light,
   .fs-icon-before.fs-icon-spinner-light:before,
   .fs-icon-after.fs-icon-spinner-light:after {
@@ -391,7 +395,9 @@ input[type="radio"][id],
 .fs-button--loading {
   padding-right: 47px;
 }
-.fs-button--loading:after {
+.fs-button--loading:after,
+.fs-button--loading[disabled]:after,
+.fs-button--loading.fs-button--recommended[disabled]:after {
   background-size: contain;
   height: 20px;
   margin-top: -2px;
