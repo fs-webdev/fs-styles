@@ -602,11 +602,11 @@ input[type="radio"] + label:not(:empty):before {
   top: -2px;
 }
 input[type="radio"]:checked + label:before {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23fff%22%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%2210%22%3E%3C/circle%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23fff%22%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%2210%22%3E%3C/circle%3E%3C/svg%3E") !important; /* [4] */
   background-size: 30%;
 }
 input[type="radio"]:checked:disabled + label:before {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23bdbdbd%22%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%2210%22%3E%3C/circle%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23bdbdbd%22%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%2210%22%3E%3C/circle%3E%3C/svg%3E") !important; /* [4] */
 }
 fieldset {
   padding: 0;
