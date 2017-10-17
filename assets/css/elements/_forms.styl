@@ -336,6 +336,11 @@ select {
  * 3. Use the [id] selector to only hide inputs with labels so apps don't have all
  *    their checkboxes and radio buttons hidden by default. Should increase adaption
  *    time. Remove once everyone has fixed all their inputs.
+ * 4. Polymer strips out single quotes from data:image urls from external stylesheets
+ *    brought in using style modules. as a temporary workaround we'll have to encode
+ *    all quotes (ugh...)
+ *    @see https://github.com/Polymer/polymer/issues/1276
+ */
  */
 input[type="checkbox"][id],
 input[type="radio"][id] {
@@ -403,12 +408,12 @@ input[type="checkbox"] {
   }
 
   &:checked + label:before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' baseProfile='tiny' x='0' y='0' width='20' height='20'%3E%3Cpath fill='%23fff' d='M7 16.6c-0.2 0-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5 0-0.2 0.1-0.3 0.2-0.5l2-1.9c0.1-0.1 0.3-0.2 0.5-0.2 0.2 0 0.3 0.1 0.5 0.2l2.9 2.9c0.2 0.2 0.4 0.2 0.6 0.2 0.2 0 0.4-0.1 0.6-0.2l7.9-7.9c0.1-0.1 0.3-0.2 0.5-0.2s0.3 0.1 0.5 0.2l1.9 1.9C18.5 4.7 18.6 4.8 18.6 5s-0.1 0.3-0.2 0.5L7.5 16.4C7.3 16.5 7.2 16.6 7 16.6z'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 baseProfile=%22tiny%22 x=%220%22 y=%220%22 width=%2220%22 height=%2220%22%3E%3Cpath fill=%22%23fff%22 d=%22M7 16.6c-0.2 0-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5 0-0.2 0.1-0.3 0.2-0.5l2-1.9c0.1-0.1 0.3-0.2 0.5-0.2 0.2 0 0.3 0.1 0.5 0.2l2.9 2.9c0.2 0.2 0.4 0.2 0.6 0.2 0.2 0 0.4-0.1 0.6-0.2l7.9-7.9c0.1-0.1 0.3-0.2 0.5-0.2s0.3 0.1 0.5 0.2l1.9 1.9C18.5 4.7 18.6 4.8 18.6 5s-0.1 0.3-0.2 0.5L7.5 16.4C7.3 16.5 7.2 16.6 7 16.6z%22/%3E%3C/svg%3E") !important; /* [4] */
     background-size: 70%;
   }
 
   &:checked:disabled + label:before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' baseProfile='tiny' x='0' y='0' width='20' height='20'%3E%3Cpath fill='%23bdbdbd' d='M7 16.6c-0.2 0-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5 0-0.2 0.1-0.3 0.2-0.5l2-1.9c0.1-0.1 0.3-0.2 0.5-0.2 0.2 0 0.3 0.1 0.5 0.2l2.9 2.9c0.2 0.2 0.4 0.2 0.6 0.2 0.2 0 0.4-0.1 0.6-0.2l7.9-7.9c0.1-0.1 0.3-0.2 0.5-0.2s0.3 0.1 0.5 0.2l1.9 1.9C18.5 4.7 18.6 4.8 18.6 5s-0.1 0.3-0.2 0.5L7.5 16.4C7.3 16.5 7.2 16.6 7 16.6z'/%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 baseProfile=%22tiny%22 x=%220%22 y=%220%22 width=%2220%22 height=%2220%22%3E%3Cpath fill=%22%23bdbdbd%22 d=%22M7 16.6c-0.2 0-0.3-0.1-0.5-0.2l-5.9-5.9c-0.1-0.1-0.2-0.3-0.2-0.5 0-0.2 0.1-0.3 0.2-0.5l2-1.9c0.1-0.1 0.3-0.2 0.5-0.2 0.2 0 0.3 0.1 0.5 0.2l2.9 2.9c0.2 0.2 0.4 0.2 0.6 0.2 0.2 0 0.4-0.1 0.6-0.2l7.9-7.9c0.1-0.1 0.3-0.2 0.5-0.2s0.3 0.1 0.5 0.2l1.9 1.9C18.5 4.7 18.6 4.8 18.6 5s-0.1 0.3-0.2 0.5L7.5 16.4C7.3 16.5 7.2 16.6 7 16.6z%22/%3E%3C/svg%3E") !important; /* [4] */
   }
 }
 
@@ -426,12 +431,12 @@ input[type="radio"] {
   }
 
   &:checked + label:before {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='%23fff'%3E%3Ccircle cx='10' cy='10' r='10'%3E%3C/circle%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23fff%22%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%2210%22%3E%3C/circle%3E%3C/svg%3E") !important;
     background-size: 30%;
   }
 
   &:checked:disabled + label:before {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='%23bdbdbd'%3E%3Ccircle cx='10' cy='10' r='10'%3E%3C/circle%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23bdbdbd%22%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%2210%22%3E%3C/circle%3E%3C/svg%3E") !important;
   }
 }
 
