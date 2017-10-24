@@ -176,7 +176,7 @@ input[type="radio"][id],
 .fs-icon.fs-icon-small-unknown,
 .fs-icon-before.fs-icon-small-unknown:before,
 .fs-icon-after.fs-icon-small-unknown:after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 x=%220%22 y=%220%22 width=%228%22 height=%228%22%3E%3Crect x=%221.3%22 y=%221.3%22 transform=%22matrix(-0.7071 0.7071 -0.7071 -0.7071 9.6569 4)%22 fill=%22%23666662%22 width=%225.5%22 height=%225.5%22/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 x=%220%22 y=%220%22 width=%228%22 height=%228%22%3E%3Crect x=%221.3%22 y=%221.3%22 transform=%22matrix%28-0.7071 0.7071 -0.7071 -0.7071 9.6569 4%29%22 fill=%22%23666662%22 width=%225.5%22 height=%225.5%22/%3E%3C/svg%3E") !important;
 }
 .fs-icon.fs-icon-warning,
 .fs-icon-before.fs-icon-warning:before,
