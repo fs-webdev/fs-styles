@@ -79,7 +79,7 @@ input[type="radio"][id],
 .fs-icon-before.fs-icon-close:before,
 .fs-icon-after.fs-icon-close:after,
 .fs-dialog__close {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2213%22 height=%2213%22%3E%3Cg transform=%22translate(-1.000000%2C -1.000000)%22%3E%3Cpath d=%22M13 2L2 13M2 2L13 13%22 stroke=%22%23333331%22 stroke-width=%222.5%22/%3E%3C/g%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2213%22 height=%2213%22%3E%3Cg transform=%22translate%28-1.000000%2C -1.000000%29%22%3E%3Cpath d=%22M13 2L2 13M2 2L13 13%22 stroke=%22%23333331%22 stroke-width=%222.5%22/%3E%3C/g%3E%3C/svg%3E") !important;
   background-size: 10px;
 }
 .fs-icon.fs-icon-exclamation,
