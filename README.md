@@ -9,12 +9,12 @@ FS-styles provides both a CSS stylesheet ([dist/familysearch-styles.css](dist/fa
 
 ```html
 <!-- Option 1. Use <link rel="stylesheet"> for global styles -->
-<link rel="stylesheet" href="fs-styles/dist/familysearch-styles.min.css"/>
+<link rel="stylesheet" href="path/to/fs-styles/dist/familysearch-styles.min.css"/>
 ```
 
 ```html
 <!-- Option 2. Use style module for Polymer web components -->
-<link rel="import" href="fs-styles/fs-styles.html"/>
+<link rel="import" href="path/to/fs-styles/fs-styles.html"/>
 
 <dom-module id="new-element">
   <template>
