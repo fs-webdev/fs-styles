@@ -63,7 +63,7 @@ h1 {
 
 When naming classes, preface all classes with `fs-` and use [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) syntax. By doing so, we completely nullify class name collision problems. Avoid needing more than 2 selectors to make overrides by the app easier.
 
-When naming variables, start the variable name with the most generic term and end with the most specific term. This allows auto complete to grab all variables that also belong to the generic category. All CSS custom properties should be prefaced with `--fs`. For example, a variable for a blue border should be named `$color-border-blue` in Stylus and `--fs-color-blue-border` for CSS.
+When naming variables, start the variable name with the most generic term and end with the most specific term. This allows auto complete to grab all variables that also belong to the generic category. All CSS custom properties should be prefaced with `--fs`. For example, a variable for a blue border should be named `$color-border-blue` in Stylus and `--fs-color-border-blue` for CSS.
 
 *See [Sass Variable Architecture](http://peteschuster.com/2014/02/sass-variable-architecture/), [Naming SASS Variables Modularly](http://webdesign.tutsplus.com/articles/quick-tip-name-your-sass-variables-modularly--webdesign-13364), and [SASS Color Variables](http://sachagreif.com/sass-color-variables/) for more details*
 
