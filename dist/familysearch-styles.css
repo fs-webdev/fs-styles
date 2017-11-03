@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.5.2 | MIT
+ * v3.5.3 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -510,6 +510,8 @@ input[type="url"].disabled,
 input[type="search"].disabled,
 input[type="tel"].disabled,
 input[type="color"].disabled {
+  -webkit-text-fill-color: #666662; /* [3] */
+  -webkit-opacity: 1; /* [3] */
   color: #999;
   background: #f0f0f0;
 }
