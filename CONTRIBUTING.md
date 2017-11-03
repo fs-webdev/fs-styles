@@ -6,8 +6,8 @@ Please adhere to the following guidelines when contributing to this project.
 
 1. Ensure new CSS properties are ordered alphabetically.
 1. Increase version number of package.json. Use [SemVer](http://semver.org/) versioning.
-  * We consider anything that changes a class name or HTML structure a breaking change.
-  * Ideally, provide fallbacks so the previous major version still works while in the newest major version to make transitioning and adoption easier.
+    * We consider anything that changes a class name or HTML structure a breaking change.
+    * Ideally, provide fallbacks so the previous major version still works while in the newest major version to make transitioning and adoption easier.
 1. Update the JSDoc comments if making changes to the style guide documentation or structure.
 1. When merging, follow the [AngularJS comment message convention](https://gist.github.com/stephenparish/9941e89d80e2bc58a153#format-of-the-commit-message) to describe the type, scope, and subject of the change.
 
