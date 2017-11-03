@@ -59,6 +59,10 @@ $visually-hidden
 
           // until polymer fixes their bug we can't do this
           // .replace(/%22/g, "'"); // replace quotes with apostrophes (may break certain SVGs)
+          // but we must do this instead
+          .replace(/'/g, '%22')
+          .replace(/\(/g, '%28')
+          .replace(/\)/g, '%29');
 
         return 'data:image/svg+xml,' + uriPayload;
       }
