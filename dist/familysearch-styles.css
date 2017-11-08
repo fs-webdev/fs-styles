@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.5.3 | MIT
+ * v3.5.4 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -51,6 +51,7 @@ h6,
   color: #4d4d4a;
   font-family: inherit;
   font-size: 1rem;
+  font-weight: bold;
   letter-spacing: 0.03rem; /* [1] */
   line-height: 1.625rem;
   margin: 0 0 0.203125rem 0;
@@ -855,8 +856,8 @@ h4,
 .fs-h3,
 .fs-h4 {
   color: #4d4d4a;
-  font-family: "museo", serif; /* [3] */
-  font-family: var(--fs-font-face-heading, "museo", serif) /* [2, 3] */;
+  font-family: Verdana, sans-serif; /* [3] */
+  font-family: var(--fs-font-face-heading, Verdana, sans-serif) /* [2, 3] */;
   font-weight: normal;
   margin: 0;
 }
@@ -1664,7 +1665,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   --fs-color-pink-gender-light: #f48eb6;
   --fs-color-grey-border: #ccc;
   --fs-font-face-body: Verdana, sans-serif;
-  --fs-font-face-heading: "museo", serif;
+  --fs-font-face-heading: Verdana, sans-serif;
   --fs-font-size-small: 0.857rem;
   --fs-font-size-medium: 1rem;
   --fs-font-size-large: 1.286rem;
