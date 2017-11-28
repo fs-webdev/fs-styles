@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.5.4 | MIT
+ * v3.5.5 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -915,6 +915,9 @@ a:focus {
 }
 a:visited {
   color: #b3467c;
+}
+button {
+  font-family: inherit;
 }
 small {
   font-size: 0.857rem;
