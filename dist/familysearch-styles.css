@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.5.5 | MIT
+ * v3.5.6 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -536,7 +536,6 @@ select:focus {
   border: 1px solid #333331;
   outline: none;
 }
-*
 input[type="checkbox"][id] + label,
 input[type="radio"][id] + label {
   margin: 0; /* [2] */
