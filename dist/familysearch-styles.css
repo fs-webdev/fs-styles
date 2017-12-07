@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.5.6 | MIT
+ * v3.5.7 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -860,7 +860,7 @@ h4,
   font-weight: normal;
   margin: 0;
 }
-:root.museo-loaded {
+html.museo-loaded {
   --fs-font-face-heading: "museo", serif; /* [2] */
 }
 h1,
@@ -1638,7 +1638,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
  * 1. Boolean for reduced motion preference
  *    @see https://twitter.com/steveg3003/status/888500276847562752
  */
-:root {
+html {
   --fs-screen-mobile-max: 767px;
   --fs-screen-tablet-min: 768px;
   --fs-screen-tablet-max: 991px;
@@ -1687,7 +1687,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   --fs-mixin-overflow-ellipsis: {"white-space":"(nowrap)","overflow":"(hidden)","text-overflow":"(ellipsis)"};
 }
 @media (prefers-reduced-motion), (prefers-reduced-motion: reduce) {
-  :root {
+  html {
     --fs-animation-duration: 0;
   }
 }

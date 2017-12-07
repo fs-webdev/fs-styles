@@ -15,7 +15,7 @@
  * 1. Boolean for reduced motion preference
  *    @see https://twitter.com/steveg3003/status/888500276847562752
  */
-:root {
+html {
   // media queries
   --fs-screen-mobile-max: $screen-mobile-max;
 
@@ -89,7 +89,7 @@
 }
 
 @media (prefers-reduced-motion), (prefers-reduced-motion: reduce) {
-  :root {
+  html {
     --fs-animation-duration: 0;
   }
 }
