@@ -1,6 +1,6 @@
 Helpers
 =========
-Helpers are any utility tools or files that can be used across the site, such as colors, mixins, overrides, and functions.
+Helpers are any utility tools or files that can be used across the site, such as colors, mixins, and functions.
 
 # Rules
 * Mixins which are triggered off of CSS properties should only be used to output vendor prefixes (such as `box-shadow` or `border-box`). This helps reduce any undesired effects when writing CSS.
