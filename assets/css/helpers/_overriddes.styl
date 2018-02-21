@@ -1,0 +1,12 @@
+/*
+ *  OVERRIDDES
+ */
+.sr-only,
+.visually-hidden {
+  @extends $visually-hidden;
+}
+
+// make hidden global attr override other styling
+[hidden] {
+  display: none !important;
+}
