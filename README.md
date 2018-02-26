@@ -46,7 +46,7 @@ To help organize a large CSS code base, we have split the files into different f
 Folder     | Contents
 -----------|---------
 Helpers    | Variables, mixins, and functions.
-Elements   | Basic, indivisible building blocks of the site that include typography, HTML tags and simple class names, such as buttons.
+Elements   | Basic, indivisible building blocks of the site that include typography, overrides, HTML tags, and simple class names, such as buttons.
 Modules    | Groupings of Elements that form a reusable aspect of the interface, such as modals and alerts.
 
 ## License
