@@ -411,10 +411,6 @@ label {
   cursor: pointer;
 /* [1] */
 }
-label ~ input[type="radio"],
-label ~ input[type="checkbox"] {
-  font-size: 1rem;
-}
 label > input[type="radio"],
 label > input[type="checkbox"] {
   font-size: 1rem;
