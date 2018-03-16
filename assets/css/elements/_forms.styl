@@ -56,15 +56,21 @@
 label {
   color: $color-grey-light;
   display: block;
-  font-size: $font-size-medium;
+  font-size: $font-size-small;
   font-weight: normal;
   line-height: $line-height-small;
   margin-bottom: 5px;
   cursor: pointer;
 
+  & ~ input[type="radio"] ,
+  & ~ input[type="checkbox"] {
+    font-size: $font-size-medium;
+  }
+
   /* [1] */
   > input[type="radio"],
   > input[type="checkbox"] {
+    font-size: $font-size-medium;
     padding: 0;
     margin: 0;
     position: relative;
@@ -352,6 +358,7 @@ input[type="radio"][id] {
   @extends $visually-hidden;  /* [1] */
 
   + label {
+    font-size: $font-size-medium;
     margin: 0; /* [2] */
   }
 

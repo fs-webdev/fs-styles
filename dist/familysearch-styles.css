@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.5.7 | MIT
+ * v3.6.0 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -411,8 +411,13 @@ label {
   cursor: pointer;
 /* [1] */
 }
+label ~ input[type="radio"],
+label ~ input[type="checkbox"] {
+  font-size: 1rem;
+}
 label > input[type="radio"],
 label > input[type="checkbox"] {
+  font-size: 1rem;
   padding: 0;
   margin: 0;
   position: relative;
@@ -538,6 +543,7 @@ select:focus {
 }
 input[type="checkbox"][id] + label,
 input[type="radio"][id] + label {
+  font-size: 1rem;
   margin: 0; /* [2] */
 }
 input[type="checkbox"][id] + label:before,
@@ -676,6 +682,9 @@ legend {
 /* [3] */
   height: 4.714rem;
   width: 4.714rem;
+}
+[hidden] {
+  display: none !important;
 }
 .fs-tooltip {
   display: inline-block;
@@ -1630,9 +1639,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 .fs-subnav--secondary .fs-subnav__item:last-child {
   margin-right: -10px; /* [2] */
 }
-/*
- * OTHER CLASSES
- */
 /*
  * CSS properties and mixins
  * 1. Boolean for reduced motion preference
