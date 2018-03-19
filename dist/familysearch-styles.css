@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v3.5.7 | MIT
+ * v3.6.1 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -676,6 +676,9 @@ legend {
 /* [3] */
   height: 4.714rem;
   width: 4.714rem;
+}
+[hidden] {
+  display: none !important;
 }
 .fs-tooltip {
   display: inline-block;
@@ -1630,9 +1633,6 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 .fs-subnav--secondary .fs-subnav__item:last-child {
   margin-right: -10px; /* [2] */
 }
-/*
- * OTHER CLASSES
- */
 /*
  * CSS properties and mixins
  * 1. Boolean for reduced motion preference
