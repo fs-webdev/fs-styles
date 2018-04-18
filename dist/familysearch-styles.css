@@ -228,29 +228,23 @@ input[type="radio"][id],
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-/*------------------------------------*
-    $RECOMMENDED_BUTTON
+/*------------------------------------*    $RECOMMENDED_BUTTON
   \*------------------------------------*/
-/*------------------------------------*
-    $MINOR_BUTTON
+/*------------------------------------*    $MINOR_BUTTON
   \*------------------------------------*/
-/*------------------------------------*
-    $DESTRUCTIVE_BUTTON
+/*------------------------------------*    $DESTRUCTIVE_BUTTON
   \*------------------------------------*/
-/*------------------------------------*
-    $LARGE_BUTTON
+/*------------------------------------*    $LARGE_BUTTON
   \*------------------------------------*/
 /*
    * 1. Large button height should be 50px
    */
-/*------------------------------------*
-    $SMALL_BUTTON
+/*------------------------------------*    $SMALL_BUTTON
   \*------------------------------------*/
 /*
    * 1. Small button height should be 30px
    */
-/*------------------------------------*
-    $LOADING_ANIMATION
+/*------------------------------------*    $LOADING_ANIMATION
   \*------------------------------------*/
 /**
    * Animations
@@ -304,14 +298,14 @@ input[type="radio"][id],
   color: rgba(51,51,49,0.3);
 }
 .fs-button:focus {
-  outline: auto 2px Highlight;
-  outline: auto 5px -webkit-focus-ring-color;
+  outline: auto 3px Highlight;
+  outline: auto 6px -webkit-focus-ring-color;
+  outline-offset: -1px;
 }
-.fs-button:focus,
-.fs-button:visited {
+.fs-button:focus:visited {
   color: #333331; /* [2] */
   text-decoration: none;
-  outline-offset: 2px; /* [4] */
+  outline-offset: -1px; /* [4] */
 }
 .fs-button:after {
   content: '';
@@ -955,14 +949,11 @@ li {
   display: block;
   padding: 0.714rem 2.857rem 0.714rem 2.429rem;
   position: relative;
-/*------------------------------------*
-    $INFO
+/*------------------------------------*    $INFO
   \*------------------------------------*/
-/*------------------------------------*
-    $WARNING
+/*------------------------------------*    $WARNING
   \*------------------------------------*/
-/*------------------------------------*
-    $ERROR
+/*------------------------------------*    $ERROR
   \*------------------------------------*/
 }
 .fs-alert:before {
@@ -1042,17 +1033,13 @@ li {
 .fs-field-group {
   display: table;
   width: 100%;
-/*------------------------------------*
-    $FIELD_INPUT
+/*------------------------------------*    $FIELD_INPUT
   \*------------------------------------*/
-/*------------------------------------*
-    $FIELD_ATTACHMENT
+/*------------------------------------*    $FIELD_ATTACHMENT
   \*------------------------------------*/
-/*------------------------------------*
-    $FIELD_BUTTON
+/*------------------------------------*    $FIELD_BUTTON
   \*------------------------------------*/
-/*------------------------------------*
-    $FIELD_HELP
+/*------------------------------------*    $FIELD_HELP
   \*------------------------------------*/
 }
 input.fs-field-group__input {
@@ -1127,14 +1114,11 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   margin: -6px;
   padding: 6px;
   position: relative;
-/*------------------------------------*
-    $VALID_STATE
+/*------------------------------------*    $VALID_STATE
   \*------------------------------------*/
-/*------------------------------------*
-    $WARNING_STATE
+/*------------------------------------*    $WARNING_STATE
   \*------------------------------------*/
-/*------------------------------------*
-    $INVALID_STATE
+/*------------------------------------*    $INVALID_STATE
   \*------------------------------------*/
 }
 .fs-field-validation input {
@@ -1576,11 +1560,9 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
-/*------------------------------------*
-    $MENU_ITEM
+/*------------------------------------*    $MENU_ITEM
   \*------------------------------------*/
-/*------------------------------------*
-    $SECONDARY_NAV
+/*------------------------------------*    $SECONDARY_NAV
   \*------------------------------------*/
 }
 .fs-subnav__container {
@@ -1613,8 +1595,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   margin-right: 1px;
   padding: 4px 10px;
   vertical-align: middle;
-/*------------------------------------*
-      $SPLIT_ITEM
+/*------------------------------------*      $SPLIT_ITEM
     \*------------------------------------*/
 }
 .fs-subnav__item:active,

@@ -160,15 +160,17 @@ $link-blue = #0060d7;
 
   // fix outline for firefox and safari removed by bootstrap
   &:focus {
-    outline: auto 2px Highlight;
-    outline: auto 5px -webkit-focus-ring-color;
+    outline: auto 3px Highlight;
+    outline: auto 6px -webkit-focus-ring-color;
+    outline-offset: -1px;
   }
 
-  &:focus,
-  &:visited {
-    color: $color-grey-body; /* [2] */
-    text-decoration: none;
-    outline-offset: 2px; /* [4] */
+  &:focus {
+    &:visited {
+      color: $color-grey-body; /* [2] */
+      text-decoration: none;
+      outline-offset: -1px; /* [4] */
+    }
   }
 
   &:after {
