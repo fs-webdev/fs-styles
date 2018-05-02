@@ -1663,6 +1663,18 @@ html {
   --fs-color-grey-light: #666662;
   --fs-color-grey-background: #ecebea;
   --fs-color-grey-background-light: #f4f4f4;
+  --fs-color-green-alert: #bfd730;
+  --fs-color-green-alert-light: #f1f6d3;
+  --fs-color-green-alert-dark: #44650f;
+  --fs-color-blue-alert: #6ed7f7;
+  --fs-color-blue-alert-light: #e0f6fd;
+  --fs-color-blue-alert-dark: #0f5ba9;
+  --fs-color-tan-alert: #ffd400;
+  --fs-color-tan-alert-light: #fff8de;
+  --fs-color-tan-alert-dark: #79520f;
+  --fs-color-red-alert: #f8b0ab;
+  --fs-color-red-alert-light: #fdeeee;
+  --fs-color-red-alert-dark: #a71e1a;
   --fs-color-blue-gender: #3d8ff7;
   --fs-color-blue-gender-light: #99c4fe;
   --fs-color-pink-gender: #e23f7b;
