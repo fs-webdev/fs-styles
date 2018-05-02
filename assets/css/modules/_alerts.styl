@@ -82,10 +82,10 @@
  * </div>
  */
 .fs-alert {
-  background: #f1f6d3;
+  background: $color-green-alert-light;
   border-radius: $border-radius;
-  border: 1px solid #bfd730;
-  color: #44650f;
+  border: 1px solid $color-green-alert;
+  color: $color-green-alert-dark;
   display: block;
   padding: pxToRem(10px 40px 10px 34px);
   position: relative;
@@ -118,9 +118,9 @@
     $INFO
   \*------------------------------------*/
   &--info {
-    background: #e0f6fd;
-    border-color: #6ed7f7;
-    color: #0f5ba9;
+    background: $color-blue-alert-light;
+    border-color: $color-blue-alert;
+    color: $color-blue-alert-dark;
 
     &:before {
       @extends $icon-info
@@ -135,9 +135,9 @@
     $WARNING
   \*------------------------------------*/
   &--warning {
-    background: #fff8de;
-    border-color: #ffd400;
-    color: #79520f;
+    background: $color-tan-alert-light;
+    border-color: $color-tan-alert;
+    color: $color-tan-alert-dark;
 
     &:before {
       @extends $icon-warning
@@ -152,9 +152,9 @@
     $ERROR
   \*------------------------------------*/
   &--error {
-    background: #fdeeee;
-    border-color: #f8b0ab;
-    color: #a71e1a;
+    background: $color-red-alert-light;
+    border-color: $color-red-alert;
+    color: $color-red-alert-dark;
 
     &:before {
       @extends $icon-exclamation
