@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v4.2.0 | MIT
+ * v4.2.1 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -239,6 +239,11 @@ input[type="radio"][id],
 /*
    * 1. Large button height should be 50px
    */
+/*------------------------------------*    $MINOR_INLINE_BUTTON
+  \*------------------------------------*/
+/*
+  * The opposite of the small button, regular height, small width
+  */
 /*------------------------------------*    $SMALL_BUTTON
   \*------------------------------------*/
 /*
@@ -377,6 +382,9 @@ input[type="radio"][id],
 .fs-button--large {
   border-radius: 5px;
   padding: 1.143rem 1.429rem; /* [1] */
+}
+.fs-button--inline {
+  padding: 0.607rem 0.071rem; /* [1] */
 }
 .fs-button--small {
   padding: 0.429rem 1.429rem; /* [1] */
