@@ -25,11 +25,10 @@
  *
  * ##### Acceptable Use
  *
- * Place alerts in close proximity to the object or section that they are related to. The
- * width of the alert should be determined by the width of its context. If an alert deals with
- * the context of the entire website, such as a system alert, it should be the full width of
- * the page. Otherwise the width and placement of the alert should help communicate the
- * context of what it relates to.
+ * Place alerts in close proximity to the object or section that they are related to.
+ * The width of the alert should be determined by the width of its context. 
+ *
+ * If an alert deals with the context of the entire application, it should transition in and out from the upper right hand corner. It should be timed at 10 seconds if there is no call to action. It also may have a close icon on it. If there is a call to action, then it should be timed at 60 seconds (a styleguide component is in development now to implement this behavior).
  *
  * Always keep alert messages brief and concise. When an alert is not the users fault, use
  * terms like "System Error" instead of simply "Error" to avoid making them feel like they did
@@ -175,7 +174,8 @@
  * ##### Acceptable Use
  *
  * In most cases there is no need to close or dismiss an alert. Only provide a close icon when
- * absolutely necessary.
+ * absolutely necessary. There is a [styleguide component available](https://github.com/fs-webdev/fs-alert/blob/master/fs-inline-alert.html)
+ * with close functionality implemented.
  *
  * ##### Accessibility
  *
@@ -192,7 +192,7 @@
  *   <p>Account saved successfully.</p>
  * </div>
  */
-.fs-dialog__close {
+.fs-dialog__close { 
   @extends $icon-close
 
   -webkit-appearance: none;
@@ -211,6 +211,7 @@
   top: pxToRem(10px);
   user-select: none;
   width: unit($baseline-grid, 'rem');
+  cursor: pointer;
 
   &:hover,
   &:focus {
