@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v4.2.0 | MIT
+ * v4.2.2 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -1007,6 +1007,7 @@ li {
   -ms-user-select: none;
   user-select: none;
   width: 1.625rem;
+  cursor: pointer;
 }
 .fs-dialog__close:hover,
 .fs-dialog__close:focus {
