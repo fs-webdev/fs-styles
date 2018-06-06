@@ -5,6 +5,7 @@ let stylus = require('gulp-stylus');
 let size = require('gulp-size');
 let insert = require('gulp-insert');
 let plumber = require('gulp-plumber');
+let merge = require('merge-stream');
 
 let header = '/*\n' +
              ' * FamilySearch Styles\n' +
@@ -13,7 +14,8 @@ let header = '/*\n' +
              ' */\n';
 
 gulp.task('build', function() {
-  return gulp.src('assets/css/familysearch-styles.styl')
+
+  let css = gulp.src('assets/css/familysearch-styles.styl')
     .pipe(plumber())
     .pipe(stylus())
     .pipe(insert.prepend(header))
@@ -26,15 +28,29 @@ gulp.task('build', function() {
     .pipe(size({
       gzip: true
     }))
-    .pipe(gulp.dest('dist'))
-    .pipe(rename('fs-styles.html'))
-    .pipe(insert.prepend(`<dom-module id="fs-styles">
+    .pipe(gulp.dest('dist'));
+
+    let styleModule = css.pipe(rename('fs-styles.html'))
+                        .pipe(insert.prepend(`<dom-module id="fs-styles">
   <template>
     <style>\n`))
-    .pipe(insert.append(`\n    </style>
+                        .pipe(insert.append(`
+    </style>
   </template>
 </dom-module>`))
-    .pipe(gulp.dest('.'));
+                        .pipe(gulp.dest('.'));
+
+    let esModule = css.pipe(rename('fs-styles.js'))
+                      .pipe(insert.prepend(`import { html } from '@polymer/lit-element/lit-element.js';
+
+export default html\`
+<style>\n`))
+                      .pipe(insert.append(`
+</style>
+\`;`))
+                      .pipe(gulp.dest('.'));
+
+    return merge(styleModule, esModule);
 });
 
 gulp.task('watch', function() {

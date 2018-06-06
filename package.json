@@ -40,6 +40,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-size": "^2.0.0",
     "gulp-stylus": "^2.0.6",
+    "merge-stream": "^1.0.1",
     "pre-commit": "^1.1.2"
   },
   "scripts": {
@@ -47,5 +48,8 @@
   },
   "pre-commit": [
     "buildDist"
-  ]
+  ],
+  "dependencies": {
+    "@polymer/lit-element": "^0.5.1"
+  }
 }
