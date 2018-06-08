@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v4.2.2 | MIT
+ * v4.3.0 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -796,7 +796,7 @@ html[lang="ko"] {
 }
 body {
   color: #333331;
-  font-family: Verdana, sans-serif;
+  font-family: Verdana, Ayuthaya, sans-serif;
   font-size: 1rem;
   line-height: 1.625rem;
 }
@@ -860,13 +860,13 @@ h4,
 .fs-h3,
 .fs-h4 {
   color: #4d4d4a;
-  font-family: Verdana, sans-serif; /* [3] */
-  font-family: var(--fs-font-face-heading, Verdana, sans-serif) /* [2, 3] */;
+  font-family: Verdana, Ayuthaya, sans-serif; /* [3] */
+  font-family: var(--fs-font-face-heading, Verdana, Ayuthaya, sans-serif) /* [2, 3] */;
   font-weight: normal;
   margin: 0;
 }
 html.museo-loaded {
-  --fs-font-face-heading: "museo", serif; /* [2] */
+  --fs-font-face-heading: "museo", Ayuthaya, serif; /* [2] */
 }
 h1,
 .fs-h1 {
@@ -921,7 +921,7 @@ a:visited {
   color: #b3467c;
 }
 button {
-  font-family: inherit;
+  font-family: Verdana, Ayuthaya, sans-serif;
 }
 small {
   font-size: 0.857rem;
@@ -1681,8 +1681,8 @@ html {
   --fs-color-pink-gender: #e23f7b;
   --fs-color-pink-gender-light: #f48eb6;
   --fs-color-grey-border: #ccc;
-  --fs-font-face-body: Verdana, sans-serif;
-  --fs-font-face-heading: Verdana, sans-serif;
+  --fs-font-face-body: Verdana, Ayuthaya, sans-serif;
+  --fs-font-face-heading: Verdana, Ayuthaya, sans-serif;
   --fs-font-size-small: 0.857rem;
   --fs-font-size-medium: 1rem;
   --fs-font-size-large: 1.286rem;
