@@ -784,16 +784,6 @@ html[lang="ja"],
 html[lang="ko"] {
   font-size: 16px;
 }
-@media screen and (max-width: 767px) {
-  html {
-    font-size: 14px;
-  }
-  html[lang="zh"],
-  html[lang="ja"],
-  html[lang="ko"] {
-    font-size: 14px;
-  }
-}
 body {
   color: #333331;
   font-family: Verdana, sans-serif;
