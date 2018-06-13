@@ -786,7 +786,7 @@ html[lang="ko"] {
 }
 @media screen and (max-width: 767px) {
   html {
-    font-size: 12px;
+    font-size: 14px;
   }
   html[lang="zh"],
   html[lang="ja"],
