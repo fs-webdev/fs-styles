@@ -1,6 +1,4 @@
-import { html } from '@polymer/lit-element/lit-element.js';
-
-export default html`
+export default `
 <style>
 /*
  * FamilySearch Styles

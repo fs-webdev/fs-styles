@@ -41,9 +41,7 @@ gulp.task('build', function() {
                         .pipe(gulp.dest('.'));
 
     let esModule = css.pipe(rename('fs-styles.js'))
-                      .pipe(insert.prepend(`import { html } from '@polymer/lit-element/lit-element.js';
-
-export default html\`
+                      .pipe(insert.prepend(`export default \`
 <style>\n`))
                       .pipe(insert.append(`
 </style>

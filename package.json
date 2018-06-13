@@ -48,8 +48,5 @@
   },
   "pre-commit": [
     "buildDist"
-  ],
-  "dependencies": {
-    "@polymer/lit-element": "^0.5.1"
-  }
+  ]
 }
