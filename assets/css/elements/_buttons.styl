@@ -59,7 +59,7 @@ $link-blue = #0060d7;
  *
  * The `fs-button--recommended` should be used to recommend an action to the user.
  *
- * The `fs-button--minor` should be used for actions that you wish to de-emphasize.
+ * The `fs-button--minor` or `fs-button--inline` should be used for actions that you wish to de-emphasize.
  *
  * The `fs-button--destructive` should be used to confirm actions that will cause the user
  * to permanently lose data (e.g. deleting a photo).
@@ -81,6 +81,7 @@ $link-blue = #0060d7;
  *   <button type="button" class="fs-button fs-button--recommended">Recommended</button>
  *   <button type="button" class="fs-button">Button</button>
  *   <button type="button" class="fs-button fs-button--minor">Minor</button>
+ *   <button type="button" class="fs-button fs-button--inline">Minor Inline</button>
  *   <button type="button" class="fs-button fs-button--destructive">Destructive</button>
  * </p>
  *
@@ -248,6 +249,7 @@ $link-blue = #0060d7;
 
 
 
+    
 
   /*------------------------------------*\
     $DESTRUCTIVE_BUTTON
@@ -296,9 +298,15 @@ $link-blue = #0060d7;
     padding: pxToRem(16px 20px); /* [1] */
   }
 
-
-
-
+  /*------------------------------------*\
+    $MINOR_INLINE_BUTTON
+  \*------------------------------------*/
+  /*
+  * The opposite of the small button, regular height, small width
+  */
+  &--inline {
+    padding: pxToRem(8.5px 1px); /* [1] */
+  }
 
   /*------------------------------------*\
     $SMALL_BUTTON
