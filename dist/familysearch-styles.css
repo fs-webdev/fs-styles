@@ -1548,7 +1548,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   line-height: 1;
 }
 .fs-person--person-card a.fs-person-vitals__name-full:visited {
-  color: #0060d7;
+  color: $link-blue;
 }
 .fs-person--person-card .fs-person-details__id {
   font-size: 14px;
@@ -1705,6 +1705,8 @@ html {
   --fs-line-height-large-xx: 2.15rem;
   --fs-line-height-large-xxx: 2.5rem;
   --fs-line-height-large-xxxx: 2.875rem;
+  --fs-link-color: #0060d7;
+  --fs-link-visited-color: #b3467c;
   --fs-border-radius: 4px;
   --fs-animation-duration: 1; /* [1] */
   --fs-mixin-overflow-ellipsis: {"white-space":"(nowrap)","overflow":"(hidden)","text-overflow":"(ellipsis)"};
