@@ -1689,6 +1689,8 @@ html {
   --fs-color-pink-gender: #e23f7b;
   --fs-color-pink-gender-light: #f48eb6;
   --fs-color-grey-border: #ccc;
+  --fs-color-blue-link: #0060d7;
+  --fs-color-purple-link-visited: #b3467c;
   --fs-font-face-body: Verdana, sans-serif;
   --fs-font-face-heading: Verdana, sans-serif;
   --fs-font-size-small: 0.857rem;
