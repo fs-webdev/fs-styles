@@ -1689,6 +1689,8 @@ html {
   --fs-color-pink-gender: #e23f7b;
   --fs-color-pink-gender-light: #f48eb6;
   --fs-color-grey-border: #ccc;
+  --fs-color-blue-link: #0060d7;
+  --fs-color-purple-link-visited: #b3467c;
   --fs-font-face-body: Verdana, sans-serif;
   --fs-font-face-heading: Verdana, sans-serif;
   --fs-font-size-small: 0.857rem;
@@ -1705,8 +1707,6 @@ html {
   --fs-line-height-large-xx: 2.15rem;
   --fs-line-height-large-xxx: 2.5rem;
   --fs-line-height-large-xxxx: 2.875rem;
-  --fs-link-color: #0060d7;
-  --fs-link-visited-color: #b3467c;
   --fs-border-radius: 4px;
   --fs-animation-duration: 1; /* [1] */
   --fs-mixin-overflow-ellipsis: {"white-space":"(nowrap)","overflow":"(hidden)","text-overflow":"(ellipsis)"};
