@@ -1548,7 +1548,7 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
   line-height: 1;
 }
 .fs-person--person-card a.fs-person-vitals__name-full:visited {
-  color: $link-blue;
+  color: #0060d7;
 }
 .fs-person--person-card .fs-person-details__id {
   font-size: 14px;
