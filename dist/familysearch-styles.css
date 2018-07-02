@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v4.4.0 | MIT
+ * v5.0.0 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -791,16 +791,6 @@ html[lang="zh"],
 html[lang="ja"],
 html[lang="ko"] {
   font-size: 16px;
-}
-@media screen and (max-width: 767px) {
-  html {
-    font-size: 12px;
-  }
-  html[lang="zh"],
-  html[lang="ja"],
-  html[lang="ko"] {
-    font-size: 14px;
-  }
 }
 body {
   color: #333331;
