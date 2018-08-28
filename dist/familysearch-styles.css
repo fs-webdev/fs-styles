@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v5.0.1 | MIT
+ * v5.0.2 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -876,7 +876,7 @@ h2,
 .fs-h2 {
   font-size: 1.857rem;
   letter-spacing: 0.05rem; /* [1] */
-  line-height: 2.15rem;
+  line-height: 2.22rem;
 }
 h3,
 .fs-h3 {
@@ -1694,7 +1694,7 @@ html {
   --fs-line-height-medium: 1.625rem;
   --fs-line-height-large: 1.625rem;
   --fs-line-height-large-x: 1.95rem;
-  --fs-line-height-large-xx: 2.15rem;
+  --fs-line-height-large-xx: 2.22rem;
   --fs-line-height-large-xxx: 2.5rem;
   --fs-line-height-large-xxxx: 2.875rem;
   --fs-border-radius: 4px;
