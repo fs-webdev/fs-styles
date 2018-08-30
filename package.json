@@ -1,18 +1,18 @@
 {
-  "name": "fs-styles",
   "description": "Global styles for the FamilySearch.org website.",
-  "version": "5.0.3",
   "keywords": [
     "css",
     "stylus",
     "familysearch",
     "styles"
   ],
-  "homepage": "https://github.com/fs-webdev/fs-styles",
   "repository": {
     "type": "git",
     "url": "https://github.com/fs-webdev/fs-styles.git"
   },
+  "homepage": "https://github.com/fs-webdev/fs-styles",
+  "name": "fs-styles",
+  "version": "5.0.3",
   "bugs": {
     "url": "https://github.com/fs-webdev/fs-styles/issues"
   },
@@ -31,7 +31,6 @@
     }
   ],
   "license": "SEE LICENSE IN LICENSE.txt",
-  "private": false,
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-clean-css": "^3.4.2",
@@ -47,5 +46,13 @@
   },
   "pre-commit": [
     "buildDist"
-  ]
+  ],
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0"
+  },
+  "main": "fs-styles.js",
+  "dependencies": {}
 }
