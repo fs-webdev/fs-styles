@@ -1,7 +1,7 @@
 {
   "name": "fs-styles",
   "description": "Global styles for the FamilySearch.org website.",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "keywords": [
     "css",
     "stylus",
