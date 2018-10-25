@@ -864,7 +864,7 @@ h4,
   margin: 0;
 }
 html.museo-loaded {
-  --fs-font-face-heading: "museo", Ayuthaya, serif; /* [2] */
+  --fs-font-face-heading: "museo", Verdana, Ayuthaya, serif; /* [2] */
 }
 h1,
 .fs-h1 {
