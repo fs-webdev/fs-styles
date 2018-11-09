@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v5.0.4 | MIT
+ * v5.0.5 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -784,11 +784,6 @@ legend {
 .fs-tooltip__body--right:after {
   left: -7px;
 }
-@font-face {
-  font-family: 'HanaMinBFont';
-  src: url("/components/fs-styles/assets/fonts/hanazono/HanaMinB.ttf");
-  unicode-range: U+20000-2A6D6, U+2A700-2B734, U+2B820-2CEAF, U+2CEB0-2EBEF;
-}
 html {
   font-size: 14px;
 }
@@ -802,6 +797,11 @@ body {
   font-family: Verdana, Ayuthaya, 'HanaMinBFont', sans-serif;
   font-size: 1rem;
   line-height: 1.625rem;
+}
+@font-face {
+  font-family: 'HanaMinBFont';
+  src: url("/components/fs-styles/assets/fonts/hanazono/HanaMinB.ttf");
+  unicode-range: U+20000-2A6D6, U+2A700-2B734, U+2B820-2CEAF, U+2CEB0-2EBEF;
 }
 [lang="zh"],
 [lang="zh"] body,
