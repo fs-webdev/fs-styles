@@ -799,6 +799,7 @@ body {
   line-height: 1.625rem;
 }
 @font-face {
+  font-display: fallback;
   font-family: 'HanaMinBFont';
   src: url("/components/fs-styles/assets/fonts/hanazono/HanaMinB.ttf");
   unicode-range: U+20000-2A6D6, U+2A700-2B734, U+2B820-2CEAF, U+2CEB0-2EBEF;
