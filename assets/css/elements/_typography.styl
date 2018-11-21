@@ -39,6 +39,14 @@ body {
   line-height: $line-height-medium;
 }
 
+// For Unicode B,C,E,F character display. Font will only load when a character matching the gange is on the page
+@font-face {
+  font-display: fallback;
+  font-family: 'HanaMinBFont';
+  src: url('/components/fs-styles/assets/fonts/hanazono/HanaMinB.ttf');
+  unicode-range: U+20000-2A6D6,U+2A700-2B734,U+2B820-2CEAF, U+2CEB0-2EBEF;
+}
+
 // CJK specific stack
 
 /*

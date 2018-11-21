@@ -1,0 +1,1 @@
+This package also includes HanaMinA. We have chosen not to include it as of 11/15/2018 because we don't think we need it.
