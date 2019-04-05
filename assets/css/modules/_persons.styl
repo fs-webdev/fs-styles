@@ -581,6 +581,94 @@
  *     </div>
  *   </div>
  *
+ *  <hr>
+ *
+ *  <div class="fs-person-gender fs-person--spouce1">
+ *     <div class="fs-person-gender__container fs-person-gender--medium">
+ *       <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male">
+ *         <span class="visually-hidden">Male</span>
+ *       </div>
+ *     </div>
+ *     <div class="fs-person-vitals">
+ *       <div class="fs-person-vitals__name">
+ *         <span class="fs-person-vitals__name-full" data-test="full-name">John Henry Doe</span>
+ *       </div>
+ *       <div class="fs-person-vitals__fs-person-details">
+ *         <div class="fs-person-details__container">
+ *           <span class="fs-person-details__lifeSpan" data-test="lifeSpan">1900-1960</span>
+ *           <span class="fs-person-details__separator">&nbsp;•&nbsp;</span>
+ *           <span class="fs-person-details__id" data-test="pid">5XG4-L2Y</span>
+ *           <span class="fs-person-details__selection-stopper">​</span>
+ *         </div>
+ *       </div>
+ *     </div>
+ *   </div>
+ *
+ *   <div class="fs-person-gender fs-person--spouce2">
+ *     <div class="fs-person-gender__container fs-person-gender--medium">
+ *       <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male">
+ *         <span class="visually-hidden">Male</span>
+ *       </div>
+ *     </div>
+ *     <div class="fs-person-vitals">
+ *       <div class="fs-person-vitals__name">
+ *         <span class="fs-person-vitals__name-full" data-test="full-name">Alex Doe</span>
+ *       </div>
+ *       <div class="fs-person-vitals__fs-person-details">
+ *         <div class="fs-person-details__container">
+ *           <span class="fs-person-details__lifeSpan" data-test="lifeSpan">1920-1980</span>
+ *           <span class="fs-person-details__separator">&nbsp;•&nbsp;</span>
+ *           <span class="fs-person-details__id" data-test="pid">8BA2-AL2</span>
+ *           <span class="fs-person-details__selection-stopper">​</span>
+ *         </div>
+ *       </div>
+ *     </div>
+ *   </div>
+ *
+ *  <hr>
+ *
+ *   <div class="fs-person-gender fs-person--spouce1">
+ *     <div class="fs-person-gender__container fs-person-gender--medium">
+ *       <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-female">
+ *         <span class="visually-hidden">Female</span>
+ *       </div>
+ *     </div>
+ *     <div class="fs-person-vitals">
+ *       <div class="fs-person-vitals__name">
+ *         <span class="fs-person-vitals__name-full" data-test="full-name">Jane Allison Doe</span>
+ *       </div>
+ *       <div class="fs-person-vitals__fs-person-details">
+ *         <div class="fs-person-details__container">
+ *           <span class="fs-person-details__lifeSpan" data-test="lifeSpan">1900-1960</span>
+ *           <span class="fs-person-details__separator">&nbsp;•&nbsp;</span>
+ *           <span class="fs-person-details__id" data-test="pid">5XG4-L2Y</span>
+ *           <span class="fs-person-details__selection-stopper">​</span>
+ *         </div>
+ *       </div>
+ *     </div>
+ *   </div>
+ *
+ *   <div class="fs-person-gender fs-person--spouce2">
+ *     <div class="fs-person-gender__container fs-person-gender--medium">
+ *       <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-female">
+ *         <span class="visually-hidden">Female</span>
+ *       </div>
+ *     </div>
+ *     <div class="fs-person-vitals">
+ *       <div class="fs-person-vitals__name">
+ *         <span class="fs-person-vitals__name-full" data-test="full-name">Anne Doe</span>
+ *       </div>
+ *       <div class="fs-person-vitals__fs-person-details">
+ *         <div class="fs-person-details__container">
+ *           <span class="fs-person-details__lifeSpan" data-test="lifeSpan">1920-1980</span>
+ *           <span class="fs-person-details__separator">&nbsp;•&nbsp;</span>
+ *           <span class="fs-person-details__id" data-test="pid">8BA2-AL2</span>
+ *           <span class="fs-person-details__selection-stopper">​</span>
+ *         </div>
+ *       </div>
+ *     </div>
+ *   </div>
+ *
  * </div>
  */
 .fs-couple {
@@ -604,6 +692,8 @@
   }
 }
 
+.fs-person--spouce1,
+.fs-person--spouce2,
 .fs-person--husband,
 .fs-person--wife {
   margin-left: -9px;  // 9px connector (width + border)
@@ -615,6 +705,7 @@
   height: 150px;  // large number that would go outside the overflow of the husband/wife
 }
 
+.fs-person--spouce1,
 .fs-person--husband {
   padding-bottom: 5px;
 
@@ -624,6 +715,7 @@
   }
 }
 
+.fs-person--spouce2,
 .fs-person--wife {
   .fs-couple__connector:after {
     border-top: 0;
@@ -632,11 +724,13 @@
 }
 
 // needed for couple within couple (e.g. showing parents of couples)
+.fs-person__fs-person-parents .fs-person--spouce2 .fs-couple__connector:after,
 .fs-person__fs-person-parents .fs-person--wife .fs-couple__connector:after {
   border-bottom: 1px solid currentcolor;
   top: inherit;
 }
 
+.fs-person__fs-person-parents .fs-person--spouce1 .fs-couple__connector:after,
 .fs-person__fs-person-parents .fs-person--husband .fs-couple__connector:after {
   border-top: 1px solid currentcolor;
   bottom: inherit;
