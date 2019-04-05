@@ -583,7 +583,7 @@
  *
  *  <hr>
  *
- *  <div class="fs-person-gender fs-person--spouce1">
+ *  <div class="fs-person-gender fs-person--spouse1">
  *     <div class="fs-person-gender__container fs-person-gender--medium">
  *       <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male">
  *         <span class="visually-hidden">Male</span>
@@ -604,7 +604,7 @@
  *     </div>
  *   </div>
  *
- *   <div class="fs-person-gender fs-person--spouce2">
+ *   <div class="fs-person-gender fs-person--spouse2">
  *     <div class="fs-person-gender__container fs-person-gender--medium">
  *       <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-male">
  *         <span class="visually-hidden">Male</span>
@@ -627,7 +627,7 @@
  *
  *  <hr>
  *
- *   <div class="fs-person-gender fs-person--spouce1">
+ *   <div class="fs-person-gender fs-person--spouse1">
  *     <div class="fs-person-gender__container fs-person-gender--medium">
  *       <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-female">
  *         <span class="visually-hidden">Female</span>
@@ -648,7 +648,7 @@
  *     </div>
  *   </div>
  *
- *   <div class="fs-person-gender fs-person--spouce2">
+ *   <div class="fs-person-gender fs-person--spouse2">
  *     <div class="fs-person-gender__container fs-person-gender--medium">
  *       <div class="fs-person-gender__image fs-couple__connector fs-icon fs-icon-medium-female">
  *         <span class="visually-hidden">Female</span>
@@ -692,8 +692,8 @@
   }
 }
 
-.fs-person--spouce1,
-.fs-person--spouce2,
+.fs-person--spouse1,
+.fs-person--spouse2,
 .fs-person--husband,
 .fs-person--wife {
   margin-left: -9px;  // 9px connector (width + border)
@@ -705,7 +705,7 @@
   height: 150px;  // large number that would go outside the overflow of the husband/wife
 }
 
-.fs-person--spouce1,
+.fs-person--spouse1,
 .fs-person--husband {
   padding-bottom: 5px;
 
@@ -715,7 +715,7 @@
   }
 }
 
-.fs-person--spouce2,
+.fs-person--spouse2,
 .fs-person--wife {
   .fs-couple__connector:after {
     border-top: 0;
@@ -724,13 +724,13 @@
 }
 
 // needed for couple within couple (e.g. showing parents of couples)
-.fs-person__fs-person-parents .fs-person--spouce2 .fs-couple__connector:after,
+.fs-person__fs-person-parents .fs-person--spouse2 .fs-couple__connector:after,
 .fs-person__fs-person-parents .fs-person--wife .fs-couple__connector:after {
   border-bottom: 1px solid currentcolor;
   top: inherit;
 }
 
-.fs-person__fs-person-parents .fs-person--spouce1 .fs-couple__connector:after,
+.fs-person__fs-person-parents .fs-person--spouse1 .fs-couple__connector:after,
 .fs-person__fs-person-parents .fs-person--husband .fs-couple__connector:after {
   border-top: 1px solid currentcolor;
   bottom: inherit;
