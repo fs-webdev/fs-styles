@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v5.1.0 | MIT
+ * v5.1.1 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -1663,6 +1663,7 @@ html {
   --fs-color-grey-primary: #bab7b1;
   --fs-color-brown-primary: #9c947a;
   --fs-color-black: #000;
+  --fs-color-blue: $color-blue;
   --fs-color-white: #fff;
   --fs-color-red-accent: #f16458;
   --fs-color-blue-accent: #27c4f4;
