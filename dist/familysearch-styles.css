@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v5.0.5 | MIT
+ * v5.1.0 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -1440,6 +1440,8 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 .fs-couple .fs-person-portrait__portrait:after {
   left: -13px;
 }
+.fs-person--spouse1,
+.fs-person--spouse2,
 .fs-person--husband,
 .fs-person--wife {
   margin-left: -9px;
@@ -1449,21 +1451,26 @@ input.fs-field-group__input ~ .fs-field-group__attachment {
 .fs-couple__connector:after {
   height: 150px;
 }
+.fs-person--spouse1,
 .fs-person--husband {
   padding-bottom: 5px;
 }
+.fs-person--spouse1 .fs-couple__connector:after,
 .fs-person--husband .fs-couple__connector:after {
   border-bottom: 0;
   top: 50%;
 }
+.fs-person--spouse2 .fs-couple__connector:after,
 .fs-person--wife .fs-couple__connector:after {
   border-top: 0;
   bottom: 50%;
 }
+.fs-person__fs-person-parents .fs-person--spouse2 .fs-couple__connector:after,
 .fs-person__fs-person-parents .fs-person--wife .fs-couple__connector:after {
   border-bottom: 1px solid currentcolor;
   top: inherit;
 }
+.fs-person__fs-person-parents .fs-person--spouse1 .fs-couple__connector:after,
 .fs-person__fs-person-parents .fs-person--husband .fs-couple__connector:after {
   border-top: 1px solid currentcolor;
   bottom: inherit;
