@@ -21,5 +21,9 @@
     "gulpfile.js"
   ],
   "moduleType": "globals",
-  "license": "SEE LICENSE IN LICENSE.txt"
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "githubAutomatorOptions": {
+    "notifyMinorRelease": true,
+    "notifyPatchRelease": true
+  }
 }
