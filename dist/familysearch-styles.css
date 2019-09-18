@@ -1,7 +1,7 @@
 /*
  * FamilySearch Styles
  * https://github.com/fs-webdev/fs-styles
- * v5.1.1 | MIT
+ * v5.1.2 | MIT
  */
 @-moz-keyframes rotate {
   from {
@@ -818,7 +818,7 @@ body {
 [lang="zh"] .fs-h4,
 [lang="zh"] .fs-h5,
 [lang="zh"] .fs-h6 {
-  font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinB", sans-serif;
+  font-family: "黑體-繁", "Heiti TC", "华文细黑", "STXihei", "微軟正黑體", "Microsoft JengHei", "中易黑体", "SimHei", "HanaMinBFont", sans-serif;
   letter-spacing: normal; /* [1] */
 }
 [lang="ja"],
